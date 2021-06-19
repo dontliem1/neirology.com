@@ -5,6 +5,7 @@
   url('/static/fonts/AtypDisplay-Semibold.woff') format('woff');
   font-weight: 600;
   font-style: normal;
+  font-display: swap;
 }
 body {
   padding: 0;
@@ -272,6 +273,7 @@ code {
   border-top: 1px solid rgba(51, 51, 51, .1);
   scrollbar-width: none;
   -ms-overflow-style: none;
+  box-sizing: border-box;
 }
 /* Укажите тут ширину меню в одну полоску */
 @media (max-width: 57em)  {
@@ -343,6 +345,14 @@ code {
 .header__nav-item--parent:focus-within .header__nav_subnav,
 .header__nav-link:focus + .header__nav_subnav {
   display: block;
+}
+@media (hover: hover) {
+  .page__top_wrapper:hover .page__top_select::after {
+    transform: scaleY(0);
+  }
+  .page__top_wrapper:hover .page__top_cities {
+    display: none;
+  }
 }
 .header__nav-sublink {
   display: block;
