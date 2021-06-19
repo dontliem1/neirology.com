@@ -346,9 +346,9 @@ code {
 .header__nav-link:focus + .header__nav_subnav {
   display: block;
 }
-@media (hover: hover) {
+@media (hover: none) {
   .page__top_wrapper:hover .page__top_select::after {
-    transform: scaleY(0);
+    transform: scaleY(1);
   }
   .page__top_wrapper:hover .page__top_cities {
     display: none;
