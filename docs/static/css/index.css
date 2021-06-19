@@ -116,7 +116,7 @@ code {
   font-size: inherit;
   margin: 0 -.88rem 0 0;
   padding: .45em 1.505rem .64em;
-  background: url("/static/img/cross.svg") 2.15em 50% /.625rem no-repeat;
+  background: url("../img/cross.svg") 2.15em 50% /.625rem no-repeat;
   border: 0;
   border-radius: 0;
   cursor: pointer;
@@ -147,7 +147,7 @@ code {
   display: inline-block;
   vertical-align: middle;
   padding: .5em;
-  background: url("/static/img/down_small.svg") center /.833em auto no-repeat;
+  background: url("../img/down_small.svg") center /.833em auto no-repeat;
   cursor: pointer;
   margin-left: .25em;
   transition: transform .2s;
@@ -326,7 +326,7 @@ code {
   vertical-align: middle;
   padding: .25em .5em;
   margin-left: .25rem;
-  background: url("/static/img/down_small.svg") center /.833em auto no-repeat;
+  background: url("../img/down_small.svg") center /.833em auto no-repeat;
   cursor: pointer;
   transition: transform .2s;
   transform-origin: 50% 40%;

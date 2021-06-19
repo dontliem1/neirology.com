@@ -34,7 +34,7 @@
     <header class="header">
       <nav>
         <div class="header__nav container">
-          <a class="header__logo-link"{% if (path != 'home')  %} href="{{ '/' | url }}"{% endif %}><img class="header__logo-img" src="/static/img/logo.svg" alt="Сеть клиник «Нейро-пси»" width="133" height="37"></a>
+          <a class="header__logo-link"{% if (path != 'home')  %} href="{{ '/' | url }}"{% endif %}><img class="header__logo-img" src="{{ '/static/img/logo.svg' | url }}" alt="Сеть клиник «Нейро-пси»" width="133" height="37"></a>
           <ul class="header__list header__list--desktop">
             {%- for entry in metadata.navigation %}
               <li class="header__nav-item{% if entry.url == page.url %} header__nav-item--active{% endif %}{% if (entry.items) %} header__nav-item--parent{%- endif %}">
@@ -94,11 +94,11 @@
           <a class="footer__tel" href="tel:88006003264">8 800 600 32 64</a><br>
           <small class="footer__time">Ежедневно с 10:00 до 21:00</small>
         </p>
-        <img class="footer__logo" src="/static/img/logo_full.svg" alt="Нейро-Пси" width="202" height="126">
+        <img class="footer__logo" src="{{ '/static/img/logo_full.svg' | url }}" alt="Нейро-Пси" width="202" height="126">
         <div class="footer__social_list">
-          <a class="footer__social_link" href=""><img class="footer__social_img" src="/static/img/fb.svg" width="8" height="16" alt="Фейсбук"></a>
-          <a class="footer__social_link" href=""><img class="footer__social_img" src="/static/img/twitter.svg" width="16" height="16" alt="Твиттер"></a>
-          <a class="footer__social_link" href=""><img class="footer__social_img" src="/static/img/ig.svg" width="16" height="16" alt="Инстаграм"></a>
+          <a class="footer__social_link" href=""><img class="footer__social_img" src="{{ '/static/img/fb.svg' | url }}" width="8" height="16" alt="Фейсбук"></a>
+          <a class="footer__social_link" href=""><img class="footer__social_img" src="{{ '/static/img/twitter.svg' | url }}" width="16" height="16" alt="Твиттер"></a>
+          <a class="footer__social_link" href=""><img class="footer__social_img" src="{{ '/static/img/ig.svg' | url }}" width="16" height="16" alt="Инстаграм"></a>
         </div>
         <ul class="footer__list">
           <li class="footer__item"><a class="footer__link" href="">Первичные консультации</a></li>
@@ -120,7 +120,7 @@
           <p>© 2021 ООО «Нейрология». Лицензия №ЛО-77-01-018632</p>
         </div>
         <a class="footer__studio" href="https://lepekhin.studio">
-          <img class="footer__studio_img" src="/static/img/lepekhin.svg" alt="Лепёхин" width="82" height="32">
+          <img class="footer__studio_img" src="{{ '/static/img/lepekhin.svg' | url }}" alt="Лепёхин" width="82" height="32">
           <span class="footer__studio_caption">Задизайнено<br>в Студии Евгения Лепёхина</span>
         </a>
       </div>
