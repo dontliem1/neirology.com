@@ -1,15 +1,188 @@
 ---
+title: Отзывы | Нейро-Пси
 layout: layouts/home.njk
-path: home
+path: feedback
 ---
 {% set maxPosts = collections.posts.length | min(3) %}
 
-<div class="container">
-<h1>Latest {% if maxPosts == 1 %}Post{% else %}{{ maxPosts }} Posts{% endif %}</h1>
-
-{% set postslist = collections.posts | head(-3) %}
-{% set postslistCounter = collections.posts | length %}
-{% include "postslist.njk" %}
-
-<p>More posts can be found in <a href="{{ '/posts/' | url }}">the archive</a>.</p>
+<!-- Если у шапки сайта есть фон, добавляем .hero--bg, и путь к картинке в style -->
+<div class="hero hero--bg" style="background-image: url('{{ '/static/img/feedbackHero.svg' | url }}');">
+  <div class="container">
+    <h1 class="hero__title">Отзывы</h1>
+  </div>
 </div>
+
+<div class="js-tabs container">
+  <ul class="js-tablist" data-hx="h2">
+    <li class="js-tablist__item">
+      <a href="#offline" class="js-tablist__link">Рукописные (40)</a>
+    </li>
+    <li class="js-tablist__item">
+      <a href="#online" class="js-tablist__link">В интернете</a>
+    </li>
+  </ul>
+  <div id="offline" class="js-tabcontent">
+    <h2 class="invisible">Отзывы, оставленные в клиниках</h2>
+    <form class="filter" action="" method="get">
+      <fieldset class="filter__fieldset">
+        <legend class="filter__fieldset_legend">Фильтры</legend>
+        <button class="filter__btn" type="button" aria-haspopup="dialog" aria-controls="filterProblems">Выберите проблемы</button>
+        <button class="filter__btn" type="button" aria-haspopup="dialog" aria-controls="filterProfile">Выберите профиль специалиста</button>
+        <button class="filter__btn" type="button" aria-haspopup="dialog" aria-controls="filterName">Выберите имя специалиста</button>
+      </fieldset>
+      <input class="filter__submit btn" type="submit" value="Фильтровать отзывы">
+
+      <dialog class="popup" id="filterProblems">
+        <h3 class="popup__title">Проблемы</h3>
+        <div class="popup__close">
+          <button class="popup__close_icon" type="button" aria-label="Закрыть окно" title="Закрыть" onclick="this.parentElement.parentElement.close();">╳</button>
+        </div>
+        <fieldset class="filter__fieldset filter__fieldset--checkboxes">
+          <legend class="filter__fieldset_legend">Выберите направления</legend>
+          <button class="filter__all btn--text" type="button">Выбрать всё</button>
+          <p class="filter__checkbox_row">
+            <label class="filter__checkbox_btn">
+              <input class="filter__checkbox invisible" name="problems[]" value="panic" type="checkbox">
+              <span class="filter__checkbox_label">Панические атаки</span>
+              <span class="filter__checkbox_count">20</span>
+              <span class="filter__checkbox_tick"></span>
+            </label>
+          </p>
+          <p class="filter__checkbox_row">
+            <label class="filter__checkbox_btn">
+              <input class="filter__checkbox invisible" name="problems[]" value="neurosis" type="checkbox">
+              <span class="filter__checkbox_label">Невроз</span>
+              <span class="filter__checkbox_count">15</span>
+              <span class="filter__checkbox_tick"></span>
+            </label>
+          </p>
+          <p class="filter__checkbox_row">
+            <label class="filter__checkbox_btn">
+              <input class="filter__checkbox invisible" name="problems[]" value="okr" type="checkbox">
+              <span class="filter__checkbox_label">ОКР</span>
+              <span class="filter__checkbox_count">5</span>
+              <span class="filter__checkbox_tick"></span>
+            </label>
+          </p>
+        </fieldset>
+        <button class="btn form__submit" type="button" onclick="this.parentElement.close();">Выбрать</button>
+      </dialog>
+
+      <dialog class="popup" id="filterProfile">
+        <h3 class="popup__title">Специализация</h3>
+        <div class="popup__close">
+          <button class="popup__close_icon" type="button" aria-label="Закрыть окно" title="Закрыть" onclick="this.parentElement.parentElement.close();">╳</button>
+        </div>
+        <fieldset class="filter__fieldset filter__fieldset--checkboxes">
+          <legend class="filter__fieldset_legend">Какой специалист интересует?</legend>
+          <button class="filter__all btn--text" type="button">Выбрать всё</button>
+          <p class="filter__checkbox_row">
+            <label class="filter__checkbox_btn">
+              <input class="filter__checkbox invisible" name="profiles[]" value="psychology" type="checkbox">
+              <span class="filter__checkbox_label">Психолог</span>
+              <span class="filter__checkbox_count">20</span>
+              <span class="filter__checkbox_tick"></span>
+            </label>
+          </p>
+          <p class="filter__checkbox_row">
+            <label class="filter__checkbox_btn">
+              <input class="filter__checkbox invisible" name="profiles[]" value="family" type="checkbox">
+              <span class="filter__checkbox_label">Семейный психолог</span>
+              <span class="filter__checkbox_count">15</span>
+              <span class="filter__checkbox_tick"></span>
+            </label>
+          </p>
+          <p class="filter__checkbox_row">
+            <label class="filter__checkbox_btn">
+              <input class="filter__checkbox invisible" name="profiles[]" value="psychotherapy" type="checkbox">
+              <span class="filter__checkbox_label">Психотерапевт</span>
+              <span class="filter__checkbox_count">15</span>
+              <span class="filter__checkbox_tick"></span>
+            </label>
+          </p>
+        </fieldset>
+        <button class="btn form__submit" type="button" onclick="this.parentElement.close();">Выбрать</button>
+      </dialog>
+
+      <dialog class="popup" id="filterName">
+        <h3 class="popup__title">Специалист</h3>
+        <div class="popup__close">
+          <button class="popup__close_icon" type="button" aria-label="Закрыть окно" title="Закрыть" onclick="this.parentElement.parentElement.close();">╳</button>
+        </div>
+        <fieldset class="filter__fieldset filter__fieldset--checkboxes">
+          <legend class="filter__fieldset_legend">Выберите специалиста</legend>
+          <button class="filter__all btn--text" type="button">Выбрать всё</button>
+          <p class="filter__checkbox_row">
+            <label class="filter__checkbox_btn">
+              <input class="filter__checkbox invisible" name="specialists[]" value="rahmanov" type="checkbox">
+              <span class="filter__checkbox_label">Рахманов</span>
+              <span class="filter__checkbox_count">20</span>
+              <span class="filter__checkbox_tick"></span>
+            </label>
+          </p>
+          <p class="filter__checkbox_row">
+            <label class="filter__checkbox_btn">
+              <input class="filter__checkbox invisible" name="specialists[]" value="chistakova" type="checkbox">
+              <span class="filter__checkbox_label">Чистакова</span>
+              <span class="filter__checkbox_count">15</span>
+              <span class="filter__checkbox_tick"></span>
+            </label>
+          </p>
+          <p class="filter__checkbox_row">
+            <label class="filter__checkbox_btn">
+              <input class="filter__checkbox invisible" name="specialists[]" value="lyahov" type="checkbox">
+              <span class="filter__checkbox_label">Ляхов</span>
+              <span class="filter__checkbox_count">5</span>
+              <span class="filter__checkbox_tick"></span>
+            </label>
+          </p>
+        </fieldset>
+        <button class="btn form__submit" type="button" onclick="this.parentElement.close();">Выбрать</button>
+      </dialog>
+
+    </form>
+    {% set postslist = collections.posts %}
+    {% set postslistCounter = collections.posts | length %}
+    {% include "postslist.njk" %}
+  </div>
+  <div id="online" class="js-tabcontent">
+    <h2 class="js-tabcontent__heading">Рейтинг клиники на независимых порталах</h2>
+    {% set postslist = collections.posts | head(-3) %}
+    {% set postslistCounter = collections.posts | length %}
+    {% include "postslist.njk" %}
+  </div>
+</div>
+
+<!-- На страницах с вкладками подключаем van11y-accessible-tab-panel-aria -->
+<script src="{{ '/static/js/van11y-accessible-tab-panel-aria.min.js' | url }}"></script>
+<script>
+  const checkboxLists = document.getElementsByClassName('filter__fieldset--checkboxes');
+  for (let i = 0; i < checkboxLists.length; i++) {
+    let toggleAllBtn = checkboxLists[i].querySelector('.filter__all');
+    checkboxLists[i].addEventListener('change', function (e) {
+      let toggleAllBtn = e.currentTarget.querySelector('.filter__all');
+      let checkboxes = e.currentTarget.querySelectorAll('.filter__checkbox');
+      for (let j = 0; j < checkboxes.length; j++) {
+        if (checkboxes[j].checked === true) {
+          toggleAllBtn.innerText = 'Очистить';
+          return;
+        }
+      }
+      toggleAllBtn.innerText = 'Выбрать всё';
+    });
+    toggleAllBtn.addEventListener('click', function (e) {
+      let checkboxes = e.currentTarget.parentElement.querySelectorAll('.filter__checkbox');
+      if (e.currentTarget.innerText === 'Выбрать всё') {
+        for (let j = 0; j < checkboxes.length; j++) {
+          checkboxes[j].checked = true;
+        }
+        e.currentTarget.innerText = 'Очистить';
+      } else {
+        for (let j = 0; j < checkboxes.length; j++) {
+          checkboxes[j].checked = false;
+        }
+        e.currentTarget.innerText = 'Выбрать всё';
+      }
+    });
+  }
+</script>
