@@ -319,7 +319,7 @@ code {
 }
 /* Укажите тут ширину меню в одну полоску */
 @media (max-width: 57em)  {
-  .header__list--mobile {
+  .header__nav-item {
     animation: bounce-right 1.2s both ease-in;
     will-change: transform;
   }
@@ -482,6 +482,9 @@ code {
 .hero--bg {
   background-color: #FFEECC;
   padding-top: 9.75rem;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .hero__title {
   font-size: 1.375rem;
@@ -620,6 +623,7 @@ code {
   content: url("../img/down_small.svg");
   transform: rotate(-90deg);
   margin-left: .5em;
+  line-height: 1;
 }
 .filter__btn:hover,
 .filter__btn:active {
@@ -668,6 +672,113 @@ code {
   flex-grow: 1;
   margin-top: .3em;
   margin-bottom: 1rem;
+}
+
+/* Offline feedback */
+.feedback__offline {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.feedback__offline_item {
+  border-top: 1px solid #e7e6e3;
+  display: flex;
+  padding-top: 1.18em;
+  padding-bottom: .88em;
+  align-items: flex-start;
+}
+.feedback__offline_item:last-child {
+  border-bottom: 1px solid #e7e6e3;
+}
+.feedback__offline_link {
+  flex-basis: 3.76em;
+  flex-grow: 1;
+  max-width: 7.3em;
+  margin-right: .88em;
+  flex-shrink: 0;
+  color: inherit;
+  text-decoration: none;
+}
+.feedback__offline_img {
+  border-radius: .25rem;
+  border: 1px solid #bcbcbc;
+  width: 100%;
+  height: auto;
+}
+.feedback__offline_link[aria-expanded="true"] {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  z-index: 1;
+  max-width: none;
+  margin: 0;
+}
+.feedback__offline_link[aria-expanded="true"]::after {
+  content: '╳';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  font-weight: 600;
+}
+.feedback__offline_link[aria-expanded="true"] .feedback__offline_img {
+  border: 0;
+  border-radius: 0;
+  object-fit: contain;
+  height: 100%;
+}
+.feedback__offline_info {
+  max-width: 39.8em;
+}
+.feedback__offline_title {
+  margin: 0;
+  font-weight: 700;
+  font-size: inherit;
+  font-family: 'Atyp', -apple-system, system-ui, sans-serif;
+}
+.feedback__offline_description {
+  margin: 0;
+}
+.feedback__offline_heading {
+  margin-top: 1em;
+  margin-bottom: .25em;
+  font-size: .8125rem;
+  text-transform: uppercase;
+  line-height: 1.45;
+  color: #a09f9d;
+}
+.feedback__offline_text {
+  margin: 0;
+  line-height: 1.3;
+}
+.feedback__offline_text--collapsed {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+  overflow: hidden;
+}
+.feedback__expand {
+  font-size: inherit;
+}
+@media (min-width: 71em) {
+  .feedback__offline_item {
+    padding-top: 1.765em;
+    padding-bottom: 1.47em;
+  }
+  .feedback__offline_text--collapsed {
+    display: block;
+    -webkit-line-clamp: none;
+    line-clamp: none;
+    overflow: visible;
+  }
+  .feedback__expand {
+    display: none;
+  }
 }
 
 /* Footer */

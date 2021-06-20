@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Нейро-пси</title>
+    <title>Отзывы | Нейро-Пси</title>
     <meta name="description" content="I am writing about my experiences as a naval navel-gazer.">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -128,10 +128,10 @@
                 
               </li>
               <li class="header__nav-item">
-                <a class="header__nav-link" href="/neirology.com/specialists">Специалисты</a>
+                <a class="header__nav-link" href="specialists">Специалисты</a>
                 
               </li>
-              <li class="header__nav-item">
+              <li class="header__nav-item header__nav-item--active">
                 <a class="header__nav-link" href="feedback">Отзывы</a>
                 
               </li>
@@ -176,7 +176,7 @@
               
               
               <li class="header__nav-item">
-                <a class="header__nav-link" href="/neirology.com/specialists">Специалисты</a>
+                <a class="header__nav-link" href="specialists">Специалисты</a>
               </li>
               
               
@@ -227,10 +227,181 @@
     <main class="tmpl-home">
 
       
-<h1>Archive</h1>
 
+<!-- Если у шапки сайта есть фон, добавляем .hero--bg, и путь к картинке в style -->
+<div class="hero hero--bg" style="background-image: url('/neirology.com/static/img/feedbackHero.svg');">
+  <div class="container">
+    <h1 class="hero__title">Отзывы</h1>
+  </div>
+</div>
 
-<ol reversed class="postlist" style="counter-reset: start-from 5">
+<div class="js-tabs container">
+  <ul class="js-tablist" data-hx="h2">
+    <li class="js-tablist__item">
+      <a href="#offline" class="js-tablist__link">Рукописные (40)</a>
+    </li>
+    <li class="js-tablist__item">
+      <a href="#online" class="js-tablist__link">В интернете</a>
+    </li>
+  </ul>
+  <div id="offline" class="js-tabcontent">
+    <h2 class="invisible">Отзывы, оставленные в клиниках</h2>
+    <form class="filter" action="" method="get">
+      <fieldset class="filter__fieldset">
+        <legend class="filter__fieldset_legend">Фильтры</legend>
+        <button class="filter__btn" type="button" aria-haspopup="dialog" aria-controls="filterProblems">Выберите проблемы</button>
+        <button class="filter__btn" type="button" aria-haspopup="dialog" aria-controls="filterProfile">Выберите профиль специалиста</button>
+        <button class="filter__btn" type="button" aria-haspopup="dialog" aria-controls="filterName">Выберите специалиста</button>
+      </fieldset>
+      <input class="filter__submit btn" type="submit" value="Фильтровать отзывы">
+
+      <dialog class="popup" id="filterProblems">
+        <h3 class="popup__title">Проблемы</h3>
+        <div class="popup__close">
+          <button class="popup__close_icon" type="button" aria-label="Закрыть окно" title="Закрыть" onclick="this.parentElement.parentElement.close();">╳</button>
+        </div>
+        <fieldset class="filter__fieldset filter__fieldset--checkboxes">
+          <legend class="filter__fieldset_legend">Выберите направления</legend>
+          <button class="filter__all btn--text" type="button">Выбрать всё</button>
+          <p class="filter__checkbox_row">
+            <label class="filter__checkbox_btn">
+              <input class="filter__checkbox invisible" name="problems[]" value="panic" type="checkbox">
+              <span class="filter__checkbox_label">Панические атаки</span>
+              <span class="filter__checkbox_count">20</span>
+              <span class="filter__checkbox_tick"></span>
+            </label>
+          </p>
+          <p class="filter__checkbox_row">
+            <label class="filter__checkbox_btn">
+              <input class="filter__checkbox invisible" name="problems[]" value="neurosis" type="checkbox">
+              <span class="filter__checkbox_label">Невроз</span>
+              <span class="filter__checkbox_count">15</span>
+              <span class="filter__checkbox_tick"></span>
+            </label>
+          </p>
+          <p class="filter__checkbox_row">
+            <label class="filter__checkbox_btn">
+              <input class="filter__checkbox invisible" name="problems[]" value="okr" type="checkbox">
+              <span class="filter__checkbox_label">ОКР</span>
+              <span class="filter__checkbox_count">5</span>
+              <span class="filter__checkbox_tick"></span>
+            </label>
+          </p>
+        </fieldset>
+        <button class="btn form__submit" type="button" onclick="this.parentElement.close();">Выбрать</button>
+      </dialog>
+
+      <dialog class="popup" id="filterProfile">
+        <h3 class="popup__title">Специализация</h3>
+        <div class="popup__close">
+          <button class="popup__close_icon" type="button" aria-label="Закрыть окно" title="Закрыть" onclick="this.parentElement.parentElement.close();">╳</button>
+        </div>
+        <fieldset class="filter__fieldset filter__fieldset--checkboxes">
+          <legend class="filter__fieldset_legend">Какой специалист интересует?</legend>
+          <button class="filter__all btn--text" type="button">Выбрать всё</button>
+          <p class="filter__checkbox_row">
+            <label class="filter__checkbox_btn">
+              <input class="filter__checkbox invisible" name="profiles[]" value="psychology" type="checkbox">
+              <span class="filter__checkbox_label">Психолог</span>
+              <span class="filter__checkbox_count">20</span>
+              <span class="filter__checkbox_tick"></span>
+            </label>
+          </p>
+          <p class="filter__checkbox_row">
+            <label class="filter__checkbox_btn">
+              <input class="filter__checkbox invisible" name="profiles[]" value="family" type="checkbox">
+              <span class="filter__checkbox_label">Семейный психолог</span>
+              <span class="filter__checkbox_count">15</span>
+              <span class="filter__checkbox_tick"></span>
+            </label>
+          </p>
+          <p class="filter__checkbox_row">
+            <label class="filter__checkbox_btn">
+              <input class="filter__checkbox invisible" name="profiles[]" value="psychotherapy" type="checkbox">
+              <span class="filter__checkbox_label">Психотерапевт</span>
+              <span class="filter__checkbox_count">15</span>
+              <span class="filter__checkbox_tick"></span>
+            </label>
+          </p>
+        </fieldset>
+        <button class="btn form__submit" type="button" onclick="this.parentElement.close();">Выбрать</button>
+      </dialog>
+
+      <dialog class="popup" id="filterName">
+        <h3 class="popup__title">Специалист</h3>
+        <div class="popup__close">
+          <button class="popup__close_icon" type="button" aria-label="Закрыть окно" title="Закрыть" onclick="this.parentElement.parentElement.close();">╳</button>
+        </div>
+        <fieldset class="filter__fieldset filter__fieldset--checkboxes">
+          <legend class="filter__fieldset_legend">Выберите специалиста</legend>
+          <button class="filter__all btn--text" type="button">Выбрать всё</button>
+          <p class="filter__checkbox_row">
+            <label class="filter__checkbox_btn">
+              <input class="filter__checkbox invisible" name="specialists[]" value="rahmanov" type="checkbox">
+              <span class="filter__checkbox_label">Рахманов</span>
+              <span class="filter__checkbox_count">20</span>
+              <span class="filter__checkbox_tick"></span>
+            </label>
+          </p>
+          <p class="filter__checkbox_row">
+            <label class="filter__checkbox_btn">
+              <input class="filter__checkbox invisible" name="specialists[]" value="chistakova" type="checkbox">
+              <span class="filter__checkbox_label">Чистакова</span>
+              <span class="filter__checkbox_count">15</span>
+              <span class="filter__checkbox_tick"></span>
+            </label>
+          </p>
+          <p class="filter__checkbox_row">
+            <label class="filter__checkbox_btn">
+              <input class="filter__checkbox invisible" name="specialists[]" value="lyahov" type="checkbox">
+              <span class="filter__checkbox_label">Ляхов</span>
+              <span class="filter__checkbox_count">5</span>
+              <span class="filter__checkbox_tick"></span>
+            </label>
+          </p>
+        </fieldset>
+        <button class="btn form__submit" type="button" onclick="this.parentElement.close();">Выбрать</button>
+      </dialog>
+
+    </form>
+    <ul class="feedback__offline">
+        <li class="feedback__offline_item">
+          <a class="feedback__offline_link" href="https://neirology.com/uploads/feedback/kuz04.jpg" aria-expanded="false">
+            <img class="feedback__offline_img" src="https://neirology.com/uploads/feedback/kuz04.jpg" alt="" width="64" height="88">
+          </a>
+          <div class="feedback__offline_info">
+            <h3 class="feedback__offline_title">О терапии депресии у Кузнецова</h3>
+            <dl class="feedback__offline_description">
+              <dt class="feedback__offline_heading">Жалобы</dt>
+              <dd class="feedback__offline_text">Тревожное расстройство, панические атаки.</dd>
+              <dt class="feedback__offline_heading">Отзыв клиента</dt>
+              <dd class="feedback__offline_text feedback__offline_text--collapsed"><span>За десять занятий четко было выявлены истоки самых серьезных проблем, что заставило реально, трезво без излишней трагичности посмотреть на все и переосмыслить своё мировоззрение. Появилось большое желание менять свою жизнь в лучшую сторону, просто жить и получать от этого удовольствие. Всё не так плохо! Спасибо, Сергей Олегович, без Вас этот путь к себе был бы долог и мучителен. Вы реально помогли!</span></dd>
+            </dl>
+            <button class="btn--text feedback__expand" type="button">Читать полностью</button>
+          </div>
+        </li>
+        <li class="feedback__offline_item">
+          <a class="feedback__offline_link" href="https://neirology.com/uploads/feedback/sev16.jpg" aria-expanded="false">
+            <img class="feedback__offline_img" src="https://neirology.com/uploads/feedback/sev16.jpg" alt="" width="64" height="88">
+          </a>
+          <div class="feedback__offline_info">
+            <h3 class="feedback__offline_title">О терапии тревоги у Рузанова</h3>
+            <dl class="feedback__offline_description">
+              <dt class="feedback__offline_heading">Жалобы</dt>
+              <dd class="feedback__offline_text">Тревожное расстройство, панические атаки.</dd>
+              <dt class="feedback__offline_heading">Отзыв клиента</dt>
+              <dd class="feedback__offline_text feedback__offline_text--collapsed"><span>Теперь я чувствую, что САМА строю свою жизнь, что моё состояние — это не болезнь и не судьба, а лишь отражение моих мыслей. И хочется теперь думать правильные, здоровые мысли. Есть силы жить, стремиться и быть счастливой и здоровой. Раньше и представить такого не могла! Обращайтесь, не тяните! Эти люди творят чудеса!</span></dd>
+            </dl>
+            <button class="btn--text feedback__expand" type="button">Читать полностью</button>
+          </div>
+        </li>
+    </ul>
+  </div>
+  <div id="online" class="js-tabcontent">
+    <h2 class="js-tabcontent__heading">Рейтинг клиники на независимых порталах</h2>
+    
+    
+    <ol reversed class="postlist" style="counter-reset: start-from 5">
 
   <li class="postlist-item">
     <a href="/neirology.com/posts/thirdpost/" class="postlist-link"><code>/posts/thirdpost/</code></a>
@@ -253,17 +424,62 @@
     
   </li>
 
-  <li class="postlist-item">
-    <a href="/neirology.com/posts/secondpost/" class="postlist-link">This is my second post.</a>
-    <time class="postlist-date" datetime="Wed Jul 04 2018 03:00:00 GMT+0300 (Moscow Standard Time)">Wed Jul 04 2018 03:00:00 GMT+0300 (Moscow Standard Time)</time>
-    
-      
-      <a href="/neirology.com/tags/number-2/" class="post-tag">number 2</a>
-    
-  </li>
-
 </ol>
 
+  </div>
+</div>
+
+<!-- На страницах с вкладками подключаем van11y-accessible-tab-panel-aria -->
+<script src="/neirology.com/static/js/van11y-accessible-tab-panel-aria.min.js"></script>
+<script>
+  // Оживляем кнопки Выбрать всё
+  const checkboxLists = document.getElementsByClassName('filter__fieldset--checkboxes');
+  for (let i = 0; i < checkboxLists.length; i++) {
+    let toggleAllBtn = checkboxLists[i].querySelector('.filter__all');
+    checkboxLists[i].addEventListener('change', function (e) {
+      let toggleAllBtn = e.currentTarget.querySelector('.filter__all');
+      let checkboxes = e.currentTarget.querySelectorAll('.filter__checkbox');
+      for (let j = 0; j < checkboxes.length; j++) {
+        if (checkboxes[j].checked === true) {
+          toggleAllBtn.innerText = 'Очистить';
+          return;
+        }
+      }
+      toggleAllBtn.innerText = 'Выбрать всё';
+    });
+    toggleAllBtn.addEventListener('click', function (e) {
+      let checkboxes = e.currentTarget.parentElement.querySelectorAll('.filter__checkbox');
+      if (e.currentTarget.innerText === 'Выбрать всё') {
+        for (let j = 0; j < checkboxes.length; j++) {
+          checkboxes[j].checked = true;
+        }
+        e.currentTarget.innerText = 'Очистить';
+      } else {
+        for (let j = 0; j < checkboxes.length; j++) {
+          checkboxes[j].checked = false;
+        }
+        e.currentTarget.innerText = 'Выбрать всё';
+      }
+    });
+  }
+
+  // Оживляем просмотр отзывов
+  const feedbackLinks = document.getElementsByClassName('feedback__offline_link');
+  for (let i = 0; i < feedbackLinks.length; i++) {
+    feedbackLinks[i].addEventListener('click', function (e) {
+      e.preventDefault();
+      e.currentTarget.setAttribute('aria-expanded', (e.currentTarget.getAttribute('aria-expanded') === 'false'));
+    })
+  }
+  // Оживляем кнопки Читать полностью
+  const expandBtns = document.getElementsByClassName('feedback__expand');
+  for (let i = 0; i < expandBtns.length; i++) {
+    expandBtns[i].addEventListener('click', function (e) {
+      e.currentTarget.hidden = true;
+      e.currentTarget.parentElement.querySelector('.feedback__offline_text--collapsed').classList.remove('feedback__offline_text--collapsed');
+    })
+  }
+</script>
 
 
     </main>
@@ -306,7 +522,7 @@
       </div>
     </footer>
 
-    <!-- Current page: /neirology.com/posts/ -->
+    <!-- Current page: /neirology.com/feedback/ -->
     <script>
       const dialogs = document.getElementsByTagName('dialog');
       const dialogBtns = document.querySelectorAll('[aria-haspopup="dialog"]');
