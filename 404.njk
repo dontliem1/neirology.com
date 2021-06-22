@@ -3,7 +3,12 @@ layout: layouts/home.njk
 permalink: 404.html
 eleventyExcludeFromCollections: true
 ---
+
+<div class="hero">
+  <div class="container">
+    <h1 class="hero__title">Такой страницы не найдено</h1>
+  </div>
+</div>
 <div class="container">
-  <h1>Такой страницы не найдено.</h1>
-  Перейдите на <a href="{{ '/' | url }}">домашнюю страницу</a>.
+  Перейдите на <a class="btn--text" href="{{ '/' | url }}">домашнюю страницу</a>.
 </div>

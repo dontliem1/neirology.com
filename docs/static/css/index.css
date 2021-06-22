@@ -78,6 +78,10 @@ img {
   font-size: inherit;
   cursor: pointer;
   margin: 0;
+  transition: color .2s;
+}
+.btn--text:hover {
+  color: inherit;
 }
 
 /* Banner */
@@ -195,6 +199,10 @@ img {
   font-family: 'Atyp', -apple-system, system-ui, sans-serif;
   line-height: 1;
   margin-bottom: -.15em;
+  transition: color .2s;
+}
+.header__tel:hover {
+  color: #710EB1;
 }
 .header__contact .btn--text {
   font-size: 1.4rem;
@@ -215,7 +223,7 @@ img {
 .header__list-wrapper--mobile {
   position: relative;
 }
-.header__list-wrapper--mobile::after {
+.header__list-wrapper--mobile::before {
   content: '';
   position: absolute;
   top: 1px;
@@ -314,7 +322,7 @@ img {
   text-align: left;
   z-index: 2;
   overflow-y: auto;
-  max-height: calc(100vh - 4rem);
+  max-height: calc(100vh - 8.5rem);
   -ms-overflow-style: none;
   background-color: #fff;
   border: 1px solid #d1d1d1;
@@ -728,6 +736,7 @@ img {
 }
 .feedback__expand {
   font-size: inherit;
+  margin-top: 5px;
 }
 @media (min-width: 72em) {
   .feedback__offline_item {
@@ -767,6 +776,7 @@ img {
   font-size: 2.2rem;
   font-family: 'Atyp', -apple-system, system-ui, sans-serif;
   line-height: 1;
+  transition: color .2s;
 }
 .footer__time,
 .footer__text {
@@ -785,10 +795,6 @@ img {
   line-height: 1;
   display: inline-block;
   margin: 0 1rem .25em;
-  transition: background-color .2s;
-}
-.footer__social_link:hover {
-  background-color: #ccc;
 }
 .footer__social_img {
   position: absolute;
@@ -797,6 +803,11 @@ img {
   transform: translate(-50%, -50%);
   width: auto;
   height: 1em;
+  filter: grayscale(1);
+  transition: filter .2s;
+}
+.footer__social_link:hover .footer__social_img {
+  filter: grayscale(0);
 }
 .footer__list {
   display: flex;
@@ -835,6 +846,8 @@ img {
   text-decoration: none;
   transition: color .2s;
 }
+.footer__studio:hover,
+.footer__tel:hover,
 .footer__link:hover,
 .footer__text_link:hover {
   color: #710EB1;
@@ -851,16 +864,17 @@ img {
   color: #a09f9d;
   text-decoration: none;
   display: inline-block;
+  font-size: 1.4rem;
+  transition: color .2s;
 }
 .footer__studio_img {
-  width: 4.76em;
+  width: 5.86em;
   height: auto;
-  margin-right: .47em;
+  margin-right: .5em;
 }
 .footer__studio_caption {
   display: inline-block;
   vertical-align: middle;
-  font-size: .875rem;
   padding-top: .15em;
 }
 @media (min-width: 48em) {
