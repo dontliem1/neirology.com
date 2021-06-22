@@ -415,9 +415,6 @@ img {
   .header__contact {
     font-size: 2.2rem;
   }
-  .header__contact .btn--text {
-    font-size: .675em;
-  }
 }
 
 /* Hero */
@@ -447,14 +444,19 @@ img {
 @media (min-width: 72em) {
   .hero--bg {
     background-color: #FFEECC;
-    padding-top: 23rem;
+    padding-top: 30rem;
     padding-bottom: 3rem;
-    margin-top: -8.6rem;
+    margin-top: -8.7rem;
   }
   .hero__title {
     font-size: 3.2rem;
     padding-left: 1.5rem;
     padding-right: 1.5em;
+  }
+}
+@media (min-width: 86em) {
+  .hero--bg {
+    margin-top: -9.9rem;
   }
 }
 
