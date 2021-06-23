@@ -6,10 +6,8 @@
     <title>{{ title or metadata.title }}</title>
     <meta name="description" content="{{ description or metadata.description }}">
     <link rel="icon" href="{{ '/favicon.svg' | url }}" type="image/svg+xml">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="stylesheet" href="{{ '/static/css/dialog-polyfill.css' | url }}" />
     <link rel="stylesheet" href="{{ '/static/css/index.css' | url }}">
-    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   </head>
   <body>
   <script src="{{ '/static/js/dialog-polyfill.js' | url }}"></script>
@@ -57,7 +55,7 @@
             {%- endfor %}
           </ul>
           <p class="header__contact">
-            <a class="header__tel" href="tel:88006003264">8 800 600 32 64</a>
+            <a class="header__tel" href="tel:88006003264">8 800 600 32 64</a><br>
             <!-- Для кнопок, вызывающих попапы добавляем aria-haspopup="dialog" и прописываем id <dialog>'а в aria-controls -->
             <button class="btn--text" type="button" aria-haspopup="dialog" aria-controls="callback">Перезвоните мне</button>
           </p>
@@ -88,10 +86,11 @@
         </div>
       </nav>
     </header>
+  <!-- Если какой-то попап нужно открыть при загрузке страницы, добавьте ему аттрибут [open] -->
     <dialog class="popup" id="callback">
       <h2 class="popup__title">Перезвоните мне</h2>
       <form class="popup__close" method="dialog">
-        <button class="popup__close_icon" type="submit" aria-label="Закрыть окно" title="Закрыть">╳</button>
+        <button class="popup__close_icon" type="submit" aria-label="Закрыть окно" title="Закрыть"></button>
       </form>
       <form class="popup__form" action="" method="post">
         <p class="form__row">
@@ -100,12 +99,16 @@
         </p>
         <p class="form__row">
           <label class="form__label" for="callbackTel">Номер телефона</label>
-          <input class="form__input" type="tel" placeholder="+7 ___ ___-__-__" id="callbackTel" name="tel">
+          <!-- Ошибка показывается, если инпуту добавить .form__input--error -->
+          <input class="form__input" type="tel" placeholder="+7 ___ ___-__-__" id="callbackTel" name="tel" required>
+          <span class="form__error" hidden>Введите телефон, чтобы мы могли перезвонить и подтвердить запись.</span>
         </p>
         <p class="form__row">
           <label class="form__label" for="callbackComment">Комментарий</label>
           <textarea class="form__input" placeholder="Если мы должны знать что-то важное, расскажите об этом здесь" id="callbackComment" name="comment" rows="5"></textarea>
         </p>
+        <p class="form__message form__message--success" hidden><b>Спасибо!</b> Скоро с вами свяжется менеджер.</p>
+        <p class="form__message form__message--fail" hidden><b>Что-то пошло не так!</b> Если проблема повторится, пожалуйста, позвоните по телефону. <a class="color--inherit" href="tel:88006003264">Позвонить нам →</a></p>
         <input class="btn form__submit" type="submit" value="Оставить заявку">
         <p class="form__policy">Отправляя заявку, вы соглашаетесь<br>с <a class="form__policy_link" href="">условиями обработки персональных данных</a></p>
       </form>

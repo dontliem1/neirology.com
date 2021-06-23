@@ -45,7 +45,6 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
     "node_modules/van11y-accessible-tab-panel-aria/dist/van11y-accessible-tab-panel-aria.min.js": "static/js/van11y-accessible-tab-panel-aria.min.js",
     "node_modules/dialog-polyfill/dist/dialog-polyfill.js": "static/js/dialog-polyfill.js",
-    "node_modules/dialog-polyfill/dist/dialog-polyfill.css": "static/css/dialog-polyfill.css"
   });
   eleventyConfig.addPassthroughCopy("favicon.svg");
 

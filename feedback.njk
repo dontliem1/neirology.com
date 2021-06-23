@@ -29,13 +29,12 @@ path: feedback
         <button class="filter__btn" type="button" aria-haspopup="dialog" aria-controls="filterProblems">Выберите проблемы</button>
         <button class="filter__btn" type="button" aria-haspopup="dialog" aria-controls="filterProfile">Выберите профиль специалиста</button>
         <button class="filter__btn" type="button" aria-haspopup="dialog" aria-controls="filterName">Выберите специалиста</button>
+        <input class="filter__submit btn" type="submit" value="Показать">
       </fieldset>
-      <input class="filter__submit btn" type="submit" value="Фильтровать отзывы">
-
       <dialog class="popup" id="filterProblems">
         <h3 class="popup__title">Проблемы</h3>
         <div class="popup__close">
-          <button class="popup__close_icon" type="button" aria-label="Закрыть окно" title="Закрыть" onclick="this.parentElement.parentElement.close();">╳</button>
+          <button class="popup__close_icon" type="button" aria-label="Закрыть окно" title="Закрыть" onclick="this.parentElement.parentElement.close();"></button>
         </div>
         <fieldset class="filter__fieldset filter__fieldset--checkboxes">
           <legend class="filter__fieldset_legend">Выберите направления</legend>
@@ -71,7 +70,7 @@ path: feedback
       <dialog class="popup" id="filterProfile">
         <h3 class="popup__title">Специализация</h3>
         <div class="popup__close">
-          <button class="popup__close_icon" type="button" aria-label="Закрыть окно" title="Закрыть" onclick="this.parentElement.parentElement.close();">╳</button>
+          <button class="popup__close_icon" type="button" aria-label="Закрыть окно" title="Закрыть" onclick="this.parentElement.parentElement.close();"></button>
         </div>
         <fieldset class="filter__fieldset filter__fieldset--checkboxes">
           <legend class="filter__fieldset_legend">Какой специалист интересует?</legend>
@@ -107,7 +106,7 @@ path: feedback
       <dialog class="popup" id="filterName">
         <h3 class="popup__title">Специалист</h3>
         <div class="popup__close">
-          <button class="popup__close_icon" type="button" aria-label="Закрыть окно" title="Закрыть" onclick="this.parentElement.parentElement.close();">╳</button>
+          <button class="popup__close_icon" type="button" aria-label="Закрыть окно" title="Закрыть" onclick="this.parentElement.parentElement.close();"></button>
         </div>
         <fieldset class="filter__fieldset filter__fieldset--checkboxes">
           <legend class="filter__fieldset_legend">Выберите специалиста</legend>
