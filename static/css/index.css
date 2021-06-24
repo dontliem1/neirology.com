@@ -19,8 +19,16 @@ body {
   color: #181716;
   scroll-behavior: smooth;
 }
-*:focus  {
-  outline-color: #710EB1;
+:focus-visible,
+.filter__checkbox_btn:focus-within {
+  outline: rgba(113, 14, 177, .5) solid 3px;
+  outline-offset: 3px;
+}
+/* Safari Fix */
+@supports selector(:nth-child(1 of x)) {
+  .filter__checkbox_btn:focus-within {
+    outline: auto;
+  }
 }
 .invisible {
   border: 0;
@@ -234,7 +242,8 @@ img {
   bottom: 0;
   left: 0;
   pointer-events: none;
-  background: linear-gradient(-90deg, rgba(255,255,255,1), rgba(255,255,255,0) 1.5rem), linear-gradient(90deg, rgba(255,255,255,1), rgba(255,255,255,0) 1.5rem);
+  background: linear-gradient(-90deg, rgba(255,255,255,1), rgba(255,255,255,0) 1.5rem),
+              linear-gradient(90deg, rgba(255,255,255,1), rgba(255,255,255,0) 1.5rem);
 }
 
 @keyframes bounce-right {
@@ -392,7 +401,7 @@ img {
   color: inherit;
   transition: color .2s;
   min-width: 15em;
-  outline-offset: -5px;
+  outline-offset: -3px;
 }
 .header__nav-subitem:first-child .header__nav-sublink {
   padding-top: 1.12em;
@@ -500,6 +509,7 @@ img {
   line-height: 1.45;
   color: #a09f9d;
   margin-top: 0;
+  font-weight: 600;
 }
 .js-tablist {
   display: flex;
@@ -646,10 +656,6 @@ img {
   cursor: pointer;
   transition: color .2s;
   border-radius: .5em;
-}
-.filter__checkbox_btn:focus-within {
-  outline-style: auto;
-  outline-color: #710EB1;
 }
 .filter__checkbox_label {
   margin-right: .5em;
@@ -981,6 +987,10 @@ dialog:not([open]) {
   display: none;
 }
 
+::backdrop {
+  background: rgba(51, 51, 51, .8);
+}
+
 dialog + .backdrop {
   position: fixed;
   top: 0; right: 0; bottom: 0; left: 0;
@@ -1021,8 +1031,22 @@ dialog.fixed {
 }
 @media (min-width: 40em) {
   .popup {
-    height: fit-content;
-    padding-bottom: .5rem;
+    height: min-content;
+  }
+  .popup::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+  /* Safari Fix */
+  @supports selector(:nth-child(1 of x)) {
+    .popup {
+      padding-bottom: .5rem;
+    }
   }
 }
 .popup__title {
@@ -1052,7 +1076,16 @@ dialog.fixed {
   transition: color .2s;
   background: url("../img/close_black.svg") 50% 1.75rem /1em no-repeat;
   vertical-align: top;
-  outline-offset: -5px;
+  outline-offset: -3px;
+}
+.popup__close_icon::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -2;
 }
 .form__row {
   display: flex;

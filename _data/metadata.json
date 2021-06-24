@@ -2,21 +2,11 @@
   "title": "Нейро-пси",
   "url": "https://neirology.com/",
   "language": "ru",
-  "description": "I am writing about my experiences as a naval navel-gazer.",
-  "feed": {
-    "subtitle": "I am writing about my experiences as a naval navel-gazer.",
-    "filename": "feed.xml",
-    "path": "/feed/feed.xml",
-    "id": "https://example.com/"
-  },
-  "jsonfeed": {
-    "path": "/feed/feed.json",
-    "url": "https://example.com/feed/feed.json"
-  },
+  "description": "Демо-версия сайта Нейро-Пси.",
   "author": {
-    "name": "Your Name Here",
-    "email": "youremailaddress@example.com",
-    "url": "https://example.com/about-me/"
+    "name": "Студия Евгения Лепёхина",
+    "email": "misha@lepekhin.studio",
+    "url": "https://lepekhin.studio/"
   },
   "navigation": [
     {
