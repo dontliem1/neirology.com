@@ -310,7 +310,7 @@ img {
   padding-right: 1em;
   transition: color .2s;
 }
-.header__nav-link:hover {
+.header__nav-link[href]:hover {
   color: #710EB1;
 }
 .nav-item-active {
@@ -330,6 +330,9 @@ img {
   border: 1px solid #d1d1d1;
   margin: 0 0 0 -1.12em;
   animation: fade-in-bottom 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+.page__top_wrapper .header__nav_subnav {
+  margin: 0;
 }
 @keyframes fade-in-bottom {
   0% {
@@ -389,6 +392,7 @@ img {
   color: inherit;
   transition: color .2s;
   min-width: 15em;
+  outline-offset: -5px;
 }
 .header__nav-subitem:first-child .header__nav-sublink {
   padding-top: 1.12em;
@@ -396,11 +400,8 @@ img {
 .header__nav-subitem:last-child .header__nav-sublink {
   padding-bottom: 1.12em;
 }
-.header__nav-sublink:hover {
+.header__nav-sublink[href]:hover {
   color: #710EB1;
-}
-.header__nav-sublink:focus {
-  outline-offset: -5px;
 }
 @media (min-width: 72em) {
   .page__top {

@@ -22,7 +22,7 @@
     <div class="page__top">
       <div class="container">
         <div class="page__top_wrapper">
-          Клиника в <button class="page__top_select" type="button" title="Выбрать город" onclick="this.classList.toggle('page__top_select--expanded');">Нижнем Новгороде</button>
+          Клиника в <button class="page__top_select" type="button" title="Выбрать город" aria-haspopup="true" onclick="this.setAttribute().toggle('page__top_select--expanded');">Нижнем Новгороде</button>
           <ul class="page__top_cities header__nav_subnav" id="cities">
             <li class="header__nav-subitem"><a class="header__nav-sublink" href="">Екатеринбург</a></li>
             <li class="header__nav-subitem"><a class="header__nav-sublink" href="">Краснодар</a></li>
@@ -39,9 +39,9 @@
           <!-- Если есть подменю, добавляем к <li> .header__nav-item--parent -->
           <!-- Если находимся сейчас на этой странице, добавляем к <li> .header__nav-item-active -->
           <ul class="header__list header__list--desktop">
-            {%- for entry in metadata.navigation %}
+            {%- for entry in metadata.navigation.slice(0,4) %}
               <li class="header__nav-item{% if entry.url == path %} header__nav-item--active{% endif %}{% if (entry.items) %} header__nav-item--parent{%- endif %}">
-                <a class="header__nav-link" href="{{ entry.url | url }}">{{ entry.label }}</a>
+                <a class="header__nav-link" href="{{ entry.url | url }}"{% if (entry.items) %} aria-haspopup="true"{%- endif %}>{{ entry.label }}</a>
                 {% if (entry.items)  %}
                   <ul class="header__nav_subnav">
                     {%- for sublink in entry.items %}
@@ -53,6 +53,18 @@
                 {% endif %}
               </li>
             {%- endfor %}
+            {% if (metadata.navigation.slice(4,10))  %}
+              <li class="header__nav-item header__nav-item--parent">
+                <span class="header__nav-link" aria-haspopup="true">Ещё</span>
+                <ul class="header__nav_subnav">
+                {%- for entry in metadata.navigation.slice(4,10) %}
+                  <li class="header__nav-subitem{% if entry.url == path %} header__nav-item-active{% endif %}">
+                    <a class="header__nav-sublink" href="{{ entry.url | url }}">{{ entry.label }}</a>
+                  </li>
+                {%- endfor %}
+                </ul>
+              </li>
+            {% endif %}
           </ul>
           <p class="header__contact">
             <a class="header__tel" href="tel:88006003264">8 800 600 32 64</a><br>
@@ -64,24 +76,10 @@
         <div class="header__list-wrapper--mobile">
           <ul class="header__list header__list--mobile" hidden>
             {%- for entry in metadata.navigation %}
-              {% if entry.label != 'Ещё' %}
               <li class="header__nav-item{% if entry.url == page.url %} header__nav-item--active{% endif %}">
                 <a class="header__nav-link" href="{{ entry.url | url }}">{{ entry.label }}</a>
               </li>
-              {% endif %}
             {%- endfor %}
-            <li class="header__nav-item">
-              <a class="header__nav-link" href="">О клинике</a>
-            </li>
-            <li class="header__nav-item">
-              <a class="header__nav-link" href="">Цены</a>
-            </li>
-            <li class="header__nav-item">
-              <a class="header__nav-link" href="">Мы в СМИ</a>
-            </li>
-            <li class="header__nav-item">
-              <a class="header__nav-link" href="">Вакансии</a>
-            </li>
           </ul>
         </div>
       </nav>
@@ -132,14 +130,11 @@
           <a class="footer__social_link" href=""><img class="footer__social_img" src="{{ '/static/img/ig.svg' | url }}" width="16" height="16" alt="Инстаграм"></a>
         </div>
         <ul class="footer__list">
-          <li class="footer__item"><a class="footer__link" href="">Первичные консультации</a></li>
-          <li class="footer__item"><a class="footer__link" href="">Лечебные программы</a></li>
-          <li class="footer__item"><a class="footer__link" href="">Специалисты</a></li>
-          <li class="footer__item"><a class="footer__link" href="">Отзывы</a></li>
-          <li class="footer__item"><a class="footer__link" href="">О клинике</a></li>
-          <li class="footer__item"><a class="footer__link" href="">Блог</a></li>
-          <li class="footer__item"><a class="footer__link" href="">Контакты</a></li>
-          <li class="footer__item"><a class="footer__link" href="">Вакансии</a></li>
+          {%- for entry in metadata.footNav %}
+            <li class="footer__item{% if entry.url == page.url %} footer-item--active{% endif %}">
+              <a class="footer__link" href="{{ entry.url | url }}">{{ entry.label }}</a>
+            </li>
+          {%- endfor %}
         </ul>
       </div>
       <div class="footer__divider"></div>
