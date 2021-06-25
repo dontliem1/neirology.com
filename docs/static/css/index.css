@@ -79,7 +79,6 @@ img {
 .btn:enabled {
   cursor: pointer;
 }
-.btn:enabled:hover,
 .btn:active {
   color: #710EB1;
 }
@@ -93,9 +92,6 @@ img {
   cursor: pointer;
   margin: 0;
   transition: color .2s;
-}
-.btn--text:hover {
-  color: inherit;
 }
 
 /* Banner */
@@ -423,9 +419,6 @@ img {
   color: #710EB1;
 }
 @media (min-width: 72em) {
-  .page__top {
-    text-align: right;
-  }
   .header__nav {
     flex-wrap: nowrap;
     padding-top: .9rem;
@@ -566,9 +559,6 @@ img {
 .js-tablist__link[aria-selected="false"] {
   cursor: pointer;
 }
-.js-tablist__link[aria-selected="false"]:hover {
-  color: #710EB1;
-}
 .js-tabcontent[aria-hidden="true"] {
   display: none;
 }
@@ -648,7 +638,6 @@ img {
   margin-left: .5em;
   line-height: 1;
 }
-.filter__btn:hover,
 .filter__btn:active {
   color: #710EB1;
 }
@@ -919,7 +908,7 @@ img {
   width: 5.86em;
   height: auto;
   margin-right: .5em;
-  filter: grayscale(1) opacity(.3);
+  filter: grayscale(1) opacity(.6);
   transition: filter .2s;
 }
 .footer__studio:hover .footer__studio_img {
