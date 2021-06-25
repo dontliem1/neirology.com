@@ -465,7 +465,7 @@ img {
 .hero--bg {
   background-color: #FFEECC;
   padding-top: 13rem;
-  background-position: center;
+  background-position: bottom;
   background-size: cover;
   background-repeat: no-repeat;
 }
