@@ -296,6 +296,11 @@ img {
     will-change: transform;
   }
 }
+@media (prefers-reduced-motion: reduce) {
+  .header__nav-item {
+    animation: none;
+  }
+}
 
 .header__list--mobile .header__nav-item:first-child {
   padding-left: 1.5rem;
@@ -339,6 +344,11 @@ img {
   border: 1px solid #d1d1d1;
   margin: 0 0 0 -1.12em;
   animation: fade-in-bottom 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .header__nav_subnav {
+    animation: none;
+  }
 }
 .page__top_wrapper .header__nav_subnav {
   margin: 0;
@@ -507,7 +517,7 @@ img {
   font-size: 1.3rem;
   text-transform: uppercase;
   line-height: 1.45;
-  color: #a09f9d;
+  color: #767574;
   margin-top: 0;
   font-weight: 600;
 }
@@ -758,7 +768,7 @@ img {
   font-size: 1.4rem;
   text-transform: uppercase;
   line-height: 1.45;
-  color: #a09f9d;
+  color: #767574;
 }
 .feedback__offline_text {
   margin: 0;
@@ -819,7 +829,7 @@ img {
 .footer__time,
 .footer__text {
   font-size: 1.4rem;
-  color: #a09f9d;
+  color: #767574;
 }
 .footer__social_list {
   text-align: center;
@@ -899,7 +909,7 @@ img {
 .footer__studio {
   margin-top: 1.5rem;
   flex-shrink: 0;
-  color: #a09f9d;
+  color: #767574;
   text-decoration: none;
   display: inline-block;
   font-size: 1.4rem;
@@ -1095,7 +1105,7 @@ dialog.fixed {
 }
 .form__label {
   text-transform: uppercase;
-  color: #a09f9d;
+  color: #767574;
   font-size: 1.3rem;
   margin-bottom: .385em;
   font-weight: 600;
