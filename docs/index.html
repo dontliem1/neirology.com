@@ -16,7 +16,7 @@
         <a class="page__banner_link" href="">
           Новая клиника Нейро-пси в Екатеринбурге
         </a>
-        <button class="page__banner_close" type="button" aria-label="Скрыть сообщение" title="Скрыть сообщение" onclick="this.parentElement.parentElement.hidden = true;"></button>
+        <button class="page__banner_close" type="button" aria-label="Скрыть сообщение" title="Скрыть сообщение" onclick="this.parentElement.parentElement.hidden = true; window.localStorage.setItem('hideBanner', '1');"></button>
       </p>
     </div>
     <div class="page__top">
@@ -126,11 +126,11 @@
                 
               </li>
               <li class="header__nav-item">
-                <a class="header__nav-link" href="specialists">Специалисты</a>
+                <a class="header__nav-link" href="/neirology.com/specialists">Специалисты</a>
                 
               </li>
               <li class="header__nav-item">
-                <a class="header__nav-link" href="feedback">Отзывы</a>
+                <a class="header__nav-link" href="/neirology.com/feedback">Отзывы</a>
                 
               </li>
             
@@ -169,10 +169,10 @@
                 <a class="header__nav-link" href=".">Лечебные программы</a>
               </li>
               <li class="header__nav-item">
-                <a class="header__nav-link" href="specialists">Специалисты</a>
+                <a class="header__nav-link" href="/neirology.com/specialists">Специалисты</a>
               </li>
               <li class="header__nav-item">
-                <a class="header__nav-link" href="feedback">Отзывы</a>
+                <a class="header__nav-link" href="/neirology.com/feedback">Отзывы</a>
               </li>
               <li class="header__nav-item">
                 <a class="header__nav-link" href=".">О клинике</a>
@@ -231,6 +231,7 @@
   <p>Работающие страницы:</p>
   <ul>
     <li><a class="form__policy_link" href="/neirology.com/feedback">Отзывы</a></li>
+    <li><a class="form__policy_link" href="/neirology.com/specialists">Специалисты</a></li>
   </ul>
 </div>
 
@@ -317,6 +318,11 @@
           header.classList.remove('header--sticky');
         }
       });
+    </script>
+    <script>
+      if (window.localStorage.getItem('hideBanner')) {
+        document.querySelector('.page__banner').hidden = true;
+      }
     </script>
   </body>
 </html>

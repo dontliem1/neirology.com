@@ -16,7 +16,7 @@
         <a class="page__banner_link" href="">
           Новая клиника Нейро-пси в Екатеринбурге
         </a>
-        <button class="page__banner_close" type="button" aria-label="Скрыть сообщение" title="Скрыть сообщение" onclick="this.parentElement.parentElement.hidden = true;"></button>
+        <button class="page__banner_close" type="button" aria-label="Скрыть сообщение" title="Скрыть сообщение" onclick="this.parentElement.parentElement.hidden = true; window.localStorage.setItem('hideBanner', '1');"></button>
       </p>
     </div>
     <div class="page__top">
@@ -126,11 +126,11 @@
                 
               </li>
               <li class="header__nav-item">
-                <a class="header__nav-link" href="specialists">Специалисты</a>
+                <a class="header__nav-link" href="/neirology.com/specialists">Специалисты</a>
                 
               </li>
               <li class="header__nav-item header__nav-item--active">
-                <a class="header__nav-link" href="feedback">Отзывы</a>
+                <a class="header__nav-link" href="/neirology.com/feedback">Отзывы</a>
                 
               </li>
             
@@ -169,10 +169,10 @@
                 <a class="header__nav-link" href=".">Лечебные программы</a>
               </li>
               <li class="header__nav-item">
-                <a class="header__nav-link" href="specialists">Специалисты</a>
+                <a class="header__nav-link" href="/neirology.com/specialists">Специалисты</a>
               </li>
               <li class="header__nav-item">
-                <a class="header__nav-link" href="feedback">Отзывы</a>
+                <a class="header__nav-link" href="/neirology.com/feedback">Отзывы</a>
               </li>
               <li class="header__nav-item">
                 <a class="header__nav-link" href=".">О клинике</a>
@@ -221,7 +221,6 @@
     <main class="tmpl-home">
 
       
-
 <!-- Если у шапки сайта есть фон, добавляем .hero--bg, и путь к картинке в style -->
 <div class="hero hero--bg" style="background-image: url('/neirology.com/static/img/feedbackHero.svg');">
   <div class="container">
@@ -392,33 +391,7 @@
   </div>
   <div id="online" class="js-tabcontent">
     <h2 class="js-tabcontent__heading">Рейтинг клиники на независимых порталах</h2>
-    
-    
-    <ol reversed class="postlist" style="counter-reset: start-from 5">
-
-  <li class="postlist-item">
-    <a href="/neirology.com/posts/thirdpost/" class="postlist-link"><code>/posts/thirdpost/</code></a>
-    <time class="postlist-date" datetime="Sat Jun 19 2021 10:35:12 GMT+0300 (Moscow Standard Time)">Sat Jun 19 2021 10:35:12 GMT+0300 (Moscow Standard Time)</time>
-    
-  </li>
-
-  <li class="postlist-item">
-    <a href="/neirology.com/posts/firstpost/" class="postlist-link"><code>/posts/firstpost/</code></a>
-    <time class="postlist-date" datetime="Sat Jun 19 2021 10:35:12 GMT+0300 (Moscow Standard Time)">Sat Jun 19 2021 10:35:12 GMT+0300 (Moscow Standard Time)</time>
-    
-  </li>
-
-  <li class="postlist-item">
-    <a href="/neirology.com/posts/fourthpost/" class="postlist-link">This is my fourth post.</a>
-    <time class="postlist-date" datetime="Sun Sep 30 2018 03:00:00 GMT+0300 (Moscow Standard Time)">Sun Sep 30 2018 03:00:00 GMT+0300 (Moscow Standard Time)</time>
-    
-      
-      <a href="/neirology.com/tags/second-tag/" class="post-tag">second tag</a>
-    
-  </li>
-
-</ol>
-
+    Здесь будут онлайн-отзывы
   </div>
 </div>
 
@@ -557,6 +530,11 @@
           header.classList.remove('header--sticky');
         }
       });
+    </script>
+    <script>
+      if (window.localStorage.getItem('hideBanner')) {
+        document.querySelector('.page__banner').hidden = true;
+      }
     </script>
   </body>
 </html>

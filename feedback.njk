@@ -1,9 +1,8 @@
 ---
 title: Отзывы | Нейро-Пси
 layout: layouts/home.njk
-path: feedback
+path: /feedback
 ---
-{% set maxPosts = collections.posts.length | min(3) %}
 
 <!-- Если у шапки сайта есть фон, добавляем .hero--bg, и путь к картинке в style -->
 <div class="hero hero--bg" style="background-image: url('{{ '/static/img/feedbackHero.svg' | url }}');">
@@ -162,9 +161,7 @@ path: feedback
   </div>
   <div id="online" class="js-tabcontent">
     <h2 class="js-tabcontent__heading">Рейтинг клиники на независимых порталах</h2>
-    {% set postslist = collections.posts | head(-3) %}
-    {% set postslistCounter = collections.posts | length %}
-    {% include "postslist.njk" %}
+    Здесь будут онлайн-отзывы
   </div>
 </div>
 

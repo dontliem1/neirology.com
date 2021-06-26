@@ -60,6 +60,9 @@ img {
 .text--nowrap {
   white-space: nowrap;
 }
+.color--gray {
+  color: #767574;
+}
 .color--inherit {
   color: inherit;
 }
@@ -75,6 +78,12 @@ img {
   line-height: 1.45;
   transition: color .2s;
   min-width: 13.5rem;
+}
+a.btn {
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  display: inline-block;
 }
 .btn:enabled {
   cursor: pointer;
@@ -472,6 +481,14 @@ img {
   background-size: cover;
   background-repeat: no-repeat;
 }
+.hero--specialist {
+  background-position: top;
+  padding-top: 29.2rem;
+}
+.hero--specialist .hero__title {
+  background-color: #FEEDCB;
+  color: inherit;
+}
 .hero__title {
   font-size: 2.2rem;
   line-height: 1.25;
@@ -490,6 +507,9 @@ img {
     padding-top: 30rem;
     padding-bottom: 3rem;
     margin-top: -9.1rem;
+  }
+  .hero--specialist {
+    padding-top: 47.6rem;
   }
   .hero__title {
     font-size: 3.2rem;
@@ -573,16 +593,37 @@ img {
 }
 
 /* Filters */
+.filter__toggle {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid #e7e6e3;
+  margin: 0;
+  padding-top: 1.5rem;
+}
+.filter__toggle_btn {
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+}
 .filter {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
   gap: 0 .5rem;
-  padding-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e7e6e3;
+}
+.filter__toggle + .filter {
+  border-bottom: 0;
+  padding-top: 1.5rem;
+}
+.filter[hidden] {
+  display: none;
 }
 .filter__fieldset {
   padding: 0;
-  margin: 0 -.25rem;
+  margin: 0 -.3em;
   border: 0;
   display: flex;
   flex-wrap: wrap;
@@ -608,8 +649,12 @@ img {
   padding: 0 0 0 .15rem;
 }
 @media (min-width: 72em) {
+  .filter__toggle,
   .filter__fieldset:not(.filter__fieldset--checkboxes) .filter__fieldset_legend {
     display: none;
+  }
+  .filter[hidden] {
+    display: flex;
   }
 }
 .filter__btn {
@@ -623,7 +668,7 @@ img {
   border-radius: .5em;
   text-align: left;
   cursor: pointer;
-  margin: .5rem .25rem 0;
+  margin: .5rem .3rem 0;
   transition: color .2s;
   flex-basis: 19em;
   flex-grow: 1;
@@ -666,19 +711,21 @@ img {
 .filter__checkbox_tick {
   display: inline-block;
   padding: .5em;
-  color: #d5d4d1;
-  border: 1px solid;
-  border-radius: .25rem;
-  transition: color .2s;
+  border: 1px solid #d5d4d1;
+  border-radius: .4rem;
+  transition: border-color .2s, background-color .2s;
   margin-left: .5em;
 }
+.filter__checkbox_tick--radio {
+  border-radius: 1em;
+}
 .filter__checkbox:checked ~ .filter__checkbox_tick {
-  color: #710EB1;
-  background: url("../img/tick.svg") center /60% no-repeat currentColor;
+  background: url("../img/tick.svg") center /60% no-repeat #710EB1;
+  border-color: #710EB1;
 }
 .filter__submit {
   flex-grow: 1;
-  margin: .5rem .25rem;
+  margin: .5rem .3rem;
 }
 
 /* Offline feedback */
@@ -688,14 +735,11 @@ img {
   list-style: none;
 }
 .feedback__offline_item {
-  border-top: 1px solid #e7e6e3;
+  border-bottom: 1px solid #e7e6e3;
   display: flex;
   padding-top: 2rem;
   padding-bottom: 1.5rem;
   align-items: flex-start;
-}
-.feedback__offline_item:last-child {
-  border-bottom: 1px solid #e7e6e3;
 }
 .feedback__offline_link {
   flex-basis: 6.4rem;
@@ -708,7 +752,7 @@ img {
   cursor: zoom-in;
 }
 .feedback__offline_img {
-  border-radius: .25rem;
+  border-radius: .4rem;
   border: 1px solid #bcbcbc;
   width: 100%;
   height: auto;
@@ -967,6 +1011,131 @@ img {
   }
 }
 
+/* Specialists */
+.specialists {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.specialists__item {
+  border-bottom: 1px solid #e7e6e3;
+  padding-top: 3rem;
+  padding-bottom: 1.5rem;
+}
+.specialists__item_hero {
+  display: block;
+  padding: 30.5rem 1.1rem 1rem;
+  background-color: #eee;
+  border-radius: .4rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+  flex-basis: 50%;
+  text-decoration: none;
+  color: inherit;
+}
+.specialists__item_title {
+  font-family: 'Atyp', -apple-system, system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 2.4rem;
+  padding: .25em;
+  border-radius: .4rem;
+  background-color: #FEEDCB;
+  display: block;
+  line-height: 1.1;
+  max-width: 13.75em;
+}
+.specialists__item_text {
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.45;
+}
+.specialist__job {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #549635;
+}
+.specialist__description,
+.specialist__preview {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+.specialist__heading {
+  font-family: 'Atyp', -apple-system, system-ui, sans-serif;
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin: 0;
+}
+.specialist__heading--big {
+  font-size: 2.4rem;
+}
+.specialist__link::after {
+  content: '';
+  padding: .4em;
+  display: inline-block;
+  background: url("../img/down_small.svg") center /contain no-repeat;
+  transform: rotate(-90deg);
+  margin-left: .25em;
+  opacity: .5;
+}
+.specialist__rating {
+  font-size: 1.4rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  display: inline-block;
+}
+.specialist__rating_star {
+  color: #FFBC00;
+  margin-right: .15em;
+}
+@media (min-width: 48em) {
+  .specialists__item {
+    display: flex;
+  }
+  .specialists__item_text {
+    display: inline-flex;
+    padding-left: 2rem;
+  }
+}
+@media (min-width: 72em) {
+  .specialists {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    border-top: 1px solid #e7e6e3;
+  }
+  .specialists__item {
+    border-bottom: 0;
+    padding-top: 3rem;
+    padding-bottom: 0;
+    display: inline-block;
+  }
+  .specialists__item_hero {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 22rem 2rem 2rem;
+  }
+  .specialists__item_title {
+    max-width: 30.8rem;
+    padding: .6rem;
+  }
+  .specialists__item_text {
+    border-bottom-left-radius: .4rem;
+    border-bottom-right-radius: .4rem;
+    padding-right: 2rem;
+    border-bottom: 1px solid #e7e6e3;
+    border-left: 1px solid #e7e6e3;
+    border-right: 1px solid #e7e6e3;
+    display: block;
+    padding-bottom: 1.5rem;
+  }
+  .specialist__link {
+    margin-right: .5rem;
+  }
+}
+
 /* Popups */
 dialog {
   position: absolute;
@@ -1010,7 +1179,7 @@ dialog.fixed {
 .popup {
   background-color: #FBFAF7;
   border: 0;
-  border-radius: .25rem;
+  border-radius: .4rem;
   padding: 1.5rem 1.5rem 1.75rem;
   position: fixed;
   -webkit-overflow-scrolling: touch;

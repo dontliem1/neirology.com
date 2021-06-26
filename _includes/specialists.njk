@@ -1,0 +1,17 @@
+<ul class="specialists">
+{% for specialist in collections.specialists %}
+  <li class="specialists__item">
+    <a class="specialists__item_hero" style="background-image: url({{ ('/static/img/'+specialist.data.img) | url }});" href="{{ specialist.url | url }}">
+      <span class="specialists__item_title">{{ specialist.data.title }}</span>
+    </a>
+    <div class="specialists__item_text">
+      <p class="specialist__job">{{ specialist.data.job }}</p>
+      <p class="specialist__description">{{ specialist.data.description }}</p>
+      <p class="specialist__preview">{{ specialist.data.preview }}</p>
+      {% include "calendar.njk" %}
+      <a href="{{ specialist.url | url }}" class="specialist__link btn">{{ specialist.data.btn }}</a>
+      <span class="specialist__rating"><span class="specialist__rating_star">★</span>5 <span class="color--gray">на основе 48 отзывов</span></span>
+    </div>
+  </li>
+{% endfor %}
+</ul>

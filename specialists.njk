@@ -1,0 +1,182 @@
+---
+title: Специалисты | Нейро-Пси
+layout: layouts/home.njk
+path: /specialists
+---
+
+<!-- Если у шапки сайта есть фон, добавляем .hero--bg, и путь к картинке в style -->
+<div class="hero hero--bg" style="background-image: url('{{ '/static/img/specialists.svg' | url }}');">
+  <div class="container">
+    <h1 class="hero__title">Специалисты клиники</h1>
+  </div>
+</div>
+
+<div class="container">
+  <p class="filter__toggle">
+    <span class="color--gray">10 специалистов</span>
+    <button class="filter__toggle_btn btn--text" type="button" aria-controls="filter" onclick="this.innerText = ((this.innerText==='Показать фильтр') ? 'Скрыть' : 'Показать') + ' фильтр'; document.getElementById(this.getAttribute('aria-controls')).hidden ^= true;">Показать фильтр</button>
+  </p>
+  <form class="filter" action="" method="get" id="filter" hidden>
+    <fieldset class="filter__fieldset">
+      <button class="filter__btn" type="button" aria-haspopup="dialog" aria-controls="filterGender">Выберите пол специалиста</button>
+      <button class="filter__btn" type="button" aria-haspopup="dialog" aria-controls="filterProfile">На чём специализируется</button>
+      <button class="filter__btn" type="button" aria-haspopup="dialog" aria-controls="filterNuances">Выберите нюансы подхода</button>
+      <input class="filter__submit btn" type="submit" value="Показать">
+    </fieldset>
+
+    <dialog class="popup" id="filterGender">
+      <h3 class="popup__title">Пол специалиста</h3>
+      <div class="popup__close">
+        <button class="popup__close_icon" type="button" aria-label="Закрыть окно" title="Закрыть" onclick="this.parentElement.parentElement.close();"></button>
+      </div>
+      <fieldset class="filter__fieldset filter__fieldset--checkboxes">
+        <legend class="filter__fieldset_legend">С кем работать комфортнее?</legend>
+        <p class="filter__checkbox_row">
+          <label class="filter__checkbox_btn">
+            <input class="filter__checkbox invisible" name="gender" value="male" type="radio">
+            <span class="filter__checkbox_label">С мужчиной</span>
+            <span class="filter__checkbox_count">20</span>
+            <span class="filter__checkbox_tick filter__checkbox_tick--radio"></span>
+          </label>
+        </p>
+        <p class="filter__checkbox_row">
+          <label class="filter__checkbox_btn">
+            <input class="filter__checkbox invisible" name="gender" value="female" type="radio">
+            <span class="filter__checkbox_label">С женщиной</span>
+            <span class="filter__checkbox_count">15</span>
+            <span class="filter__checkbox_tick filter__checkbox_tick--radio"></span>
+          </label>
+        </p>
+        <p class="filter__checkbox_row">
+          <label class="filter__checkbox_btn">
+            <input class="filter__checkbox invisible" name="gender" value="any" type="radio">
+            <span class="filter__checkbox_label">И с тем, и с тем</span>
+            <span class="filter__checkbox_count">35</span>
+            <span class="filter__checkbox_tick filter__checkbox_tick--radio"></span>
+          </label>
+        </p>
+      </fieldset>
+      <button class="btn form__submit" type="button" onclick="this.parentElement.close();">Выбрать</button>
+    </dialog>
+
+    <dialog class="popup" id="filterProfile">
+      <h3 class="popup__title">Специализация</h3>
+      <div class="popup__close">
+        <button class="popup__close_icon" type="button" aria-label="Закрыть окно" title="Закрыть" onclick="this.parentElement.parentElement.close();"></button>
+      </div>
+      <fieldset class="filter__fieldset filter__fieldset--checkboxes">
+        <legend class="filter__fieldset_legend">Какого специалиста ищете?</legend>
+        <button class="filter__all btn--text" type="button">Выбрать всё</button>
+        <p class="filter__checkbox_row">
+          <label class="filter__checkbox_btn">
+            <input class="filter__checkbox invisible" name="profiles[]" value="kpt" type="checkbox">
+            <span class="filter__checkbox_label">КПТ-терапевт</span>
+            <span class="filter__checkbox_count">20</span>
+            <span class="filter__checkbox_tick"></span>
+          </label>
+        </p>
+        <p class="filter__checkbox_row">
+          <label class="filter__checkbox_btn">
+            <input class="filter__checkbox invisible" name="profiles[]" value="ast" type="checkbox">
+            <span class="filter__checkbox_label">ACT-терапевт</span>
+            <span class="filter__checkbox_count">15</span>
+            <span class="filter__checkbox_tick"></span>
+          </label>
+        </p>
+        <p class="filter__checkbox_row">
+          <label class="filter__checkbox_btn">
+            <input class="filter__checkbox invisible" name="profiles[]" value="psychiatrist" type="checkbox">
+            <span class="filter__checkbox_label">Психиатр</span>
+            <span class="filter__checkbox_count">15</span>
+            <span class="filter__checkbox_tick"></span>
+          </label>
+        </p>
+      </fieldset>
+      <button class="btn form__submit" type="button" onclick="this.parentElement.close();">Выбрать</button>
+    </dialog>
+
+    <dialog class="popup" id="filterNuances">
+      <h3 class="popup__title">Нюансы подхода</h3>
+      <div class="popup__close">
+        <button class="popup__close_icon" type="button" aria-label="Закрыть окно" title="Закрыть" onclick="this.parentElement.parentElement.close();"></button>
+      </div>
+      <fieldset class="filter__fieldset filter__fieldset--checkboxes">
+        <legend class="filter__fieldset_legend">Что вам важно в терапии?</legend>
+        <button class="filter__all btn--text" type="button">Выбрать всё</button>
+        <p class="filter__checkbox_row">
+          <label class="filter__checkbox_btn">
+            <input class="filter__checkbox invisible" name="nuances[]" value="care" type="checkbox">
+            <span class="filter__checkbox_label">Забота</span>
+            <span class="filter__checkbox_count">20</span>
+            <span class="filter__checkbox_tick"></span>
+          </label>
+        </p>
+        <p class="filter__checkbox_row">
+          <label class="filter__checkbox_btn">
+            <input class="filter__checkbox invisible" name="nuances[]" value="rational" type="checkbox">
+            <span class="filter__checkbox_label">Рациональный подход</span>
+            <span class="filter__checkbox_count">15</span>
+            <span class="filter__checkbox_tick"></span>
+          </label>
+        </p>
+        <p class="filter__checkbox_row">
+          <label class="filter__checkbox_btn">
+            <input class="filter__checkbox invisible" name="nuances[]" value="lgbt" type="checkbox">
+            <span class="filter__checkbox_label">ЛГБТ-френдли</span>
+            <span class="filter__checkbox_count">5</span>
+            <span class="filter__checkbox_tick"></span>
+          </label>
+        </p>
+      </fieldset>
+      <button class="btn form__submit" type="button" onclick="this.parentElement.close();">Выбрать</button>
+    </dialog>
+
+  </form>
+
+  {% include "specialists.njk" %}
+</div>
+<!-- На страницах с вкладками подключаем van11y-accessible-tab-panel-aria -->
+<script src="{{ '/static/js/van11y-accessible-tab-panel-aria.min.js' | url }}"></script>
+<script>
+  // Оживляем кнопки Выбрать всё
+  const checkboxLists = document.getElementsByClassName('filter__fieldset--checkboxes');
+  for (let i = 0; i < checkboxLists.length; i++) {
+    let toggleAllBtn = checkboxLists[i].querySelector('.filter__all');
+    if (toggleAllBtn) {
+        checkboxLists[i].addEventListener('change', function (e) {
+            let toggleAllBtn = e.currentTarget.querySelector('.filter__all');
+            let checkboxes = e.currentTarget.querySelectorAll('.filter__checkbox');
+            for (let j = 0; j < checkboxes.length; j++) {
+                if (checkboxes[j].checked === true) {
+                    toggleAllBtn.innerText = 'Очистить';
+                    return;
+                }
+            }
+            toggleAllBtn.innerText = 'Выбрать всё';
+        });
+        toggleAllBtn.addEventListener('click', function (e) {
+            let checkboxes = e.currentTarget.parentElement.querySelectorAll('.filter__checkbox');
+            if (e.currentTarget.innerText === 'Выбрать всё') {
+                for (let j = 0; j < checkboxes.length; j++) {
+                    checkboxes[j].checked = true;
+                }
+                e.currentTarget.innerText = 'Очистить';
+            } else {
+                for (let j = 0; j < checkboxes.length; j++) {
+                    checkboxes[j].checked = false;
+                }
+                e.currentTarget.innerText = 'Выбрать всё';
+            }
+        });
+    }
+  }
+
+  // Оживляем кнопки Читать полностью
+  const expandBtns = document.getElementsByClassName('feedback__expand');
+  for (let i = 0; i < expandBtns.length; i++) {
+    expandBtns[i].addEventListener('click', function (e) {
+      e.currentTarget.hidden = true;
+      e.currentTarget.parentElement.querySelector('.feedback__offline_text--collapsed').classList.remove('feedback__offline_text--collapsed');
+    })
+  }
+</script>

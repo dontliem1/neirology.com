@@ -1,0 +1,6 @@
+{
+  "tags": [
+    "specialists"
+  ],
+  "layout": "layouts/specialist.njk"
+}
