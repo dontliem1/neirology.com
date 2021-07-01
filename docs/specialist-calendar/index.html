@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Специалисты | Нейро-Пси</title>
+    <title>Нейро-пси</title>
     <meta name="description" content="Демо-версия сайта Нейро-Пси.">
     <link rel="icon" href="/neirology.com/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="/neirology.com/static/css/index.css">
@@ -125,7 +125,7 @@
                   </ul>
                 
               </li>
-              <li class="header__nav-item header__nav-item--active">
+              <li class="header__nav-item">
                 <a class="header__nav-link" href="/neirology.com/specialists">Специалисты</a>
                 
               </li>
@@ -218,229 +218,230 @@
       </form>
     </dialog>
 
-    <main class="tmpl-home">
+    <main>
 
-      
-<!-- Если у шапки сайта есть фон, добавляем .hero--bg, и путь к картинке в style -->
-<div class="hero hero--bg" style="background-image: url('/neirology.com/static/img/specialists.svg');">
+      <!-- Если у шапки сайта есть фон, добавляем .hero--bg, и путь к картинке в style -->
+<div class="hero hero--bg hero--specialist" style="background-image: url('/neirology.com/static/img/kuznecov.jpg');">
   <div class="container">
-    <h1 class="hero__title">Специалисты клиники</h1>
+    <h1 class="hero__title">Кузнецов Сергей Олегович</h1>
+  </div>
+</div>
+<div class="specialist__body container">
+  <div class="specialist__tags">
+    <p class="specialist__job">Ведущий специалист клиники</p>
+    <p class="specialist__description">Системный семейный психотерапевт, КПТ-терапевт</p>
+  </div>
+  <div class="specialist__calendar">
+    <!-- в [data-dates] помещаем свободные окошки через запятую в порядке возрастания -->
+<div class="calendar specialist__booking" data-dates="2021-07-02T11:00:00,2021-08-05T12:00:00,2021-08-06T13:00:00">
+  <h1 class="specialist__heading">Запись на приём</h1>
+  <div class="calendar__main">
+    <button class="btn" type="button" aria-haspopup="dialog" aria-controls="book"></button>
   </div>
 </div>
 
-<div class="container">
-  <p class="filter__toggle">
-    <span class="color--gray">10 специалистов</span>
-    <button class="filter__toggle_btn btn--text" type="button" aria-controls="filter" onclick="this.innerText = ((this.innerText==='Показать фильтр') ? 'Скрыть' : 'Показать') + ' фильтр'; document.getElementById(this.getAttribute('aria-controls')).hidden ^= true;">Показать фильтр</button>
-  </p>
-  <form class="filter" action="" method="get" id="filter" hidden>
-    <fieldset class="filter__fieldset">
-      <button class="filter__btn" type="button" aria-haspopup="dialog" aria-controls="filterGender">Выберите пол специалиста</button>
-      <button class="filter__btn" type="button" aria-haspopup="dialog" aria-controls="filterProfile">На чём специализируется</button>
-      <button class="filter__btn" type="button" aria-haspopup="dialog" aria-controls="filterNuances">Выберите нюансы подхода</button>
-      <input class="filter__submit btn" type="submit" value="Показать">
-    </fieldset>
-
-    <dialog class="popup" id="filterGender">
-      <h3 class="popup__title">Пол специалиста</h3>
-      <div class="popup__close">
-        <button class="popup__close_icon" type="button" aria-label="Закрыть окно" title="Закрыть" onclick="this.parentElement.parentElement.close();"></button>
+  </div>
+  <div class="specialist__content">
+    <div class="specialist__content_features specialist__content_features--abriged">
+      <div class="specialist__content_features_wrapper">
+        <h2 class="specialist__heading">О специалисте</h2>
+        <p class="specialist__description">Особенности: энергичность, оптимизм и системность. Ведущий специалист клиники. Поможет справится там, где это казалось невозможным.  Меняет модель мышления с самокритичной на поддерживающую. Учит относится к себе с глубоким состраданием и искренней симпатией, что дает опыт принятия, отсутствие которого, очень часто — корень проблемы. Мастерски помогает клиентам находить инсайты и понимать себя.</p>
+        <div class="specialist__banner">
+          <h2 class="specialist__heading">Кому подойдёт работа с Сергеем</h2>
+          <p class="specialist__description">Тому, кто ищет современного, адекватного психиатра/психотерапевта для того, чтобы точно понять причины своего состояния и что с ними делать. Если есть сомнения, нужны ли медикаменты и/или психотерапия.</p>
+        </div>
+        <h2 class="specialist__heading">C чем поможет?</h2>
+        <ul class="specialist__features">
+          <li class="specialist__feature">принятие решений: тупик в жизни, выгорание, «не понимаю, куда двигаться», отсутствие поддержки.</li>
+          <li class="specialist__feature">отношения, семья: конфликты/скандалы, холодность, обиды, предразвод/развод, одиночество.</li>
+          <li class="specialist__feature">родительство: эмоциональное выгорание, конфликты с ребенком, родительское «бессилие», родительские страхи.</li>
+          <li class="specialist__feature">депрессивное: депрессия, апатия, хроническая усталость, тоска.</li>
+          <li class="specialist__feature">тревожное: панические атаки, страхи, фобии.</li>
+          <li class="specialist__feature">навязчивости: ОКР, навязчивые мысли/ритуалы.</li>
+          <li class="specialist__feature">соматическое: ВСД, физические симптомы невроза, бессонница/гипорсомния (все время хочется спать), расстройства кишечника, остеохондроз, головные боли.</li>
+          <li class="specialist__feature">подростки: неуправляемость/замкнутость, немотивированность к учебе, хамство, подавленность, трудности в общении.</li>
+          <li class="specialist__feature">пищевое: анорексия/булимия, отвращение к телу.</li>
+        </ul>
+        <h2 class="specialist__heading">C чем не поможет?</h2>
+        <ul class="specialist__features">
+          <li class="specialist__feature">дети: истерики, агрессивность, физические проявления невроза (энурез/энкопрез), плаксивость, непослушание.</li>
+          <li class="specialist__feature">большая психиатрия: БАР, расстройства шизофренического спектра, психозы.</li>
+          <li class="specialist__feature">возрастное: деменция, возрастные изменения психики.</li>
+        </ul>
       </div>
-      <fieldset class="filter__fieldset filter__fieldset--checkboxes">
-        <legend class="filter__fieldset_legend">С кем работать комфортнее?</legend>
-        <p class="filter__checkbox_row">
-          <label class="filter__checkbox_btn">
-            <input class="filter__checkbox invisible" name="gender" value="male" type="radio">
-            <span class="filter__checkbox_label">С мужчиной</span>
-            <span class="filter__checkbox_count">20</span>
-            <span class="filter__checkbox_tick filter__checkbox_tick--radio"></span>
-          </label>
-        </p>
-        <p class="filter__checkbox_row">
-          <label class="filter__checkbox_btn">
-            <input class="filter__checkbox invisible" name="gender" value="female" type="radio">
-            <span class="filter__checkbox_label">С женщиной</span>
-            <span class="filter__checkbox_count">15</span>
-            <span class="filter__checkbox_tick filter__checkbox_tick--radio"></span>
-          </label>
-        </p>
-        <p class="filter__checkbox_row">
-          <label class="filter__checkbox_btn">
-            <input class="filter__checkbox invisible" name="gender" value="any" type="radio">
-            <span class="filter__checkbox_label">И с тем, и с тем</span>
-            <span class="filter__checkbox_count">35</span>
-            <span class="filter__checkbox_tick filter__checkbox_tick--radio"></span>
-          </label>
-        </p>
-      </fieldset>
-      <button class="btn form__submit" type="button" onclick="this.parentElement.close();">Выбрать</button>
-    </dialog>
-
-    <dialog class="popup" id="filterProfile">
-      <h3 class="popup__title">Специализация</h3>
-      <div class="popup__close">
-        <button class="popup__close_icon" type="button" aria-label="Закрыть окно" title="Закрыть" onclick="this.parentElement.parentElement.close();"></button>
-      </div>
-      <fieldset class="filter__fieldset filter__fieldset--checkboxes">
-        <legend class="filter__fieldset_legend">Какого специалиста ищете?</legend>
-        <button class="filter__all btn--text" type="button">Выбрать всё</button>
-        <p class="filter__checkbox_row">
-          <label class="filter__checkbox_btn">
-            <input class="filter__checkbox invisible" name="profiles[]" value="kpt" type="checkbox">
-            <span class="filter__checkbox_label">КПТ-терапевт</span>
-            <span class="filter__checkbox_count">20</span>
-            <span class="filter__checkbox_tick"></span>
-          </label>
-        </p>
-        <p class="filter__checkbox_row">
-          <label class="filter__checkbox_btn">
-            <input class="filter__checkbox invisible" name="profiles[]" value="ast" type="checkbox">
-            <span class="filter__checkbox_label">ACT-терапевт</span>
-            <span class="filter__checkbox_count">15</span>
-            <span class="filter__checkbox_tick"></span>
-          </label>
-        </p>
-        <p class="filter__checkbox_row">
-          <label class="filter__checkbox_btn">
-            <input class="filter__checkbox invisible" name="profiles[]" value="psychiatrist" type="checkbox">
-            <span class="filter__checkbox_label">Психиатр</span>
-            <span class="filter__checkbox_count">15</span>
-            <span class="filter__checkbox_tick"></span>
-          </label>
-        </p>
-      </fieldset>
-      <button class="btn form__submit" type="button" onclick="this.parentElement.close();">Выбрать</button>
-    </dialog>
-
-    <dialog class="popup" id="filterNuances">
-      <h3 class="popup__title">Нюансы подхода</h3>
-      <div class="popup__close">
-        <button class="popup__close_icon" type="button" aria-label="Закрыть окно" title="Закрыть" onclick="this.parentElement.parentElement.close();"></button>
-      </div>
-      <fieldset class="filter__fieldset filter__fieldset--checkboxes">
-        <legend class="filter__fieldset_legend">Что вам важно в терапии?</legend>
-        <button class="filter__all btn--text" type="button">Выбрать всё</button>
-        <p class="filter__checkbox_row">
-          <label class="filter__checkbox_btn">
-            <input class="filter__checkbox invisible" name="nuances[]" value="care" type="checkbox">
-            <span class="filter__checkbox_label">Забота</span>
-            <span class="filter__checkbox_count">20</span>
-            <span class="filter__checkbox_tick"></span>
-          </label>
-        </p>
-        <p class="filter__checkbox_row">
-          <label class="filter__checkbox_btn">
-            <input class="filter__checkbox invisible" name="nuances[]" value="rational" type="checkbox">
-            <span class="filter__checkbox_label">Рациональный подход</span>
-            <span class="filter__checkbox_count">15</span>
-            <span class="filter__checkbox_tick"></span>
-          </label>
-        </p>
-        <p class="filter__checkbox_row">
-          <label class="filter__checkbox_btn">
-            <input class="filter__checkbox invisible" name="nuances[]" value="lgbt" type="checkbox">
-            <span class="filter__checkbox_label">ЛГБТ-френдли</span>
-            <span class="filter__checkbox_count">5</span>
-            <span class="filter__checkbox_tick"></span>
-          </label>
-        </p>
-      </fieldset>
-      <button class="btn form__submit" type="button" onclick="this.parentElement.close();">Выбрать</button>
-    </dialog>
-
-  </form>
-
-  <ul class="specialists">
-
-  <li class="specialists__item">
-    <a class="specialists__item_hero" style="background-image: url(/neirology.com/static/img/kuznecov.jpg);" href="/neirology.com/specialists/kuznecov/">
-      <span class="specialists__item_title">Кузнецов Сергей Олегович</span>
-    </a>
-    <div class="specialists__item_text">
-      <p class="specialist__job">Ведущий специалист клиники</p>
-      <p class="specialist__description">Системный семейный психотерапевт, КПТ-терапевт</p>
-      <p class="specialist__preview">Разработает схему вашей проблемы и шаги по ее устранению. Поддержит на пути реальных изменений. Покажет проблему, как она есть. Не приукрасит и не добавит чего-то своего. Демонстрирует в терапии альтернативное отношение, чтобы Вы смогли его прожить на собственном опыте, а не теоретически.</p>
-      
-      <p class="specialist__booking">
-        <button class="btn" type="button" aria-haspopup="dialog" aria-controls="bookKuznecov">Записаться к Сергею</button>
-      </p>
-      
-
-      <a href="/neirology.com/specialists/kuznecov/" class="specialist__link btn">Подробнее о Сергее</a>
-      <span class="specialist__rating"><span class="specialist__rating_star">★</span>5 <span class="color--gray">на основе 48 отзывов</span></span>
+      <button class="js-tabcontent__expand btn--text" type="button" onclick="this.parentElement.classList.remove('specialist__content_features--abriged');" hidden>Читать подробнее о специалисте</button>
     </div>
-  </li>
 
-</ul>
+    <h2 class="specialist__heading specialist__heading--big">Отзывы о работе</h2>
+    <div class="js-tabs">
+      <ul class="js-tablist" data-hx="h2">
+        <li class="js-tablist__item">
+          <a href="#offline" class="js-tablist__link">Рукописные (40)</a>
+        </li>
+        <li class="js-tablist__item">
+          <a href="#online" class="js-tablist__link">В интернете</a>
+        </li>
+      </ul>
+      <!-- Если отзывов больше двух добавляем класс js-tabcontent--abriged -->
+      <div id="offline" class="js-tabcontent js-tabcontent--abriged">
+        <h2 class="invisible">Отзывы, оставленные в клиниках</h2>
+        <ul class="feedback__offline">
+            <li class="feedback__offline_item">
+              <a class="feedback__offline_link" href="https://neirology.com/uploads/feedback/kuz04.jpg" aria-expanded="false">
+                <img class="feedback__offline_img" src="https://neirology.com/uploads/feedback/kuz04.jpg" alt="Фотография отзыва." width="64" height="88">
+              </a>
+              <div class="feedback__offline_info">
+                <h3 class="feedback__offline_title">О терапии депресии у Кузнецова</h3>
+                <dl class="feedback__offline_description">
+                  <dt class="feedback__offline_heading">Жалобы</dt>
+                  <dd class="feedback__offline_text">Тревожное расстройство, панические атаки.</dd>
+                  <dt class="feedback__offline_heading">Отзыв клиента</dt>
+                  <dd class="feedback__offline_text feedback__offline_text--collapsed"><span>За десять занятий четко было выявлены истоки самых серьезных проблем, что заставило реально, трезво без излишней трагичности посмотреть на все и переосмыслить своё мировоззрение. Появилось большое желание менять свою жизнь в лучшую сторону, просто жить и получать от этого удовольствие. Всё не так плохо! Спасибо, Сергей Олегович, без Вас этот путь к себе был бы долог и мучителен. Вы реально помогли!</span></dd>
+                </dl>
+                <button class="btn--text feedback__expand" type="button">Читать полностью</button>
+              </div>
+            </li>
+            <li class="feedback__offline_item">
+              <a class="feedback__offline_link" href="https://neirology.com/uploads/feedback/sev16.jpg" aria-expanded="false">
+                <img class="feedback__offline_img" src="https://neirology.com/uploads/feedback/sev16.jpg" alt="Фотография отзыва." width="64" height="88">
+              </a>
+              <div class="feedback__offline_info">
+                <h3 class="feedback__offline_title">О терапии тревоги у Рузанова</h3>
+                <dl class="feedback__offline_description">
+                  <dt class="feedback__offline_heading">Жалобы</dt>
+                  <dd class="feedback__offline_text">Тревожное расстройство, панические атаки.</dd>
+                  <dt class="feedback__offline_heading">Отзыв клиента</dt>
+                  <dd class="feedback__offline_text feedback__offline_text--collapsed"><span>Теперь я чувствую, что САМА строю свою жизнь, что моё состояние — это не болезнь и не судьба, а лишь отражение моих мыслей. И хочется теперь думать правильные, здоровые мысли. Есть силы жить, стремиться и быть счастливой и здоровой. Раньше и представить такого не могла! Обращайтесь, не тяните! Эти люди творят чудеса!</span></dd>
+                </dl>
+                <button class="btn--text feedback__expand" type="button">Читать полностью</button>
+              </div>
+            </li>
+            <li class="feedback__offline_item">
+              <a class="feedback__offline_link" href="https://neirology.com/uploads/feedback/kuz04.jpg" aria-expanded="false">
+                <img class="feedback__offline_img" src="https://neirology.com/uploads/feedback/kuz04.jpg" alt="Фотография отзыва." width="64" height="88">
+              </a>
+              <div class="feedback__offline_info">
+                <h3 class="feedback__offline_title">О терапии депрессии у Рузанова</h3>
+                <dl class="feedback__offline_description">
+                  <dt class="feedback__offline_heading">Жалобы</dt>
+                  <dd class="feedback__offline_text">Тревожное расстройство, панические атаки.</dd>
+                  <dt class="feedback__offline_heading">Отзыв клиента</dt>
+                  <dd class="feedback__offline_text feedback__offline_text--collapsed"><span>Теперь я чувствую, что САМА строю свою жизнь, что моё состояние — это не болезнь и не судьба, а лишь отражение моих мыслей. И хочется теперь думать правильные, здоровые мысли. Есть силы жить, стремиться и быть счастливой и здоровой. Раньше и представить такого не могла! Обращайтесь, не тяните! Эти люди творят чудеса!</span></dd>
+                </dl>
+                <button class="btn--text feedback__expand" type="button">Читать полностью</button>
+              </div>
+            </li>
+        </ul>
+        <button class="js-tabcontent__expand btn--text" type="button" onclick="this.parentElement.classList.remove('js-tabcontent--abriged');" hidden>Показать все отзывы</button>
+      </div>
+      <div id="online" class="js-tabcontent">
+        <h2 class="js-tabcontent__heading">Рейтинг на независимых порталах</h2>
+        Здесь будут онлайн-отзывы
+      </div>
+    </div>
+    <h2 class="specialist__heading specialist__heading--big">Дипломы и сертификаты</h2>
+    <ul class="specialist__certificates">
+        <li class="specialist__certificate">
+          <a class="specialist__certificate_link js-img__expand" href="https://neirology.com/uploads/feedback/kuz04.jpg" aria-expanded="false">
+            <img class="specialist__certificate_img" src="https://neirology.com/uploads/feedback/kuz04.jpg" alt="Скан сертификата." width="118" height="84">
+          </a>
+        </li>
+        <li class="specialist__certificate">
+          <a class="specialist__certificate_link js-img__expand" href="https://neirology.com/uploads/feedback/sev16.jpg" aria-expanded="false">
+            <img class="specialist__certificate_img" src="https://neirology.com/uploads/feedback/sev16.jpg" alt="Скан сертификата." width="118" height="84">
+          </a>
+        </li>
+        <li class="specialist__certificate">
+          <a class="specialist__certificate_link js-img__expand" href="https://neirology.com/uploads/feedback/kuz04.jpg" aria-expanded="false">
+            <img class="specialist__certificate_img" src="https://neirology.com/uploads/feedback/kuz04.jpg" alt="Скан сертификата." width="118" height="84">
+          </a>
+        </li>
+        <li class="specialist__certificate">
+          <a class="specialist__certificate_link js-img__expand" href="https://neirology.com/uploads/feedback/sev16.jpg" aria-expanded="false">
+            <img class="specialist__certificate_img" src="https://neirology.com/uploads/feedback/sev16.jpg" alt="Скан сертификата." width="118" height="84">
+          </a>
+        </li>
+        <li class="specialist__certificate">
+          <a class="specialist__certificate_link js-img__expand" href="https://neirology.com/uploads/feedback/kuz04.jpg" aria-expanded="false">
+            <img class="specialist__certificate_img" src="https://neirology.com/uploads/feedback/kuz04.jpg" alt="Скан сертификата." width="118" height="84">
+          </a>
+        </li>
+        <li class="specialist__certificate">
+          <a class="specialist__certificate_link js-img__expand" href="https://neirology.com/uploads/feedback/sev16.jpg" aria-expanded="false">
+            <img class="specialist__certificate_img" src="https://neirology.com/uploads/feedback/sev16.jpg" alt="Скан сертификата." width="118" height="84">
+          </a>
+        </li>
+    </ul>
+  </div>
+</div>
+<dialog class="popup" id="filterKuznecov">
+  <h2 class="popup__title">Записаться на приём</h2>
+  <form class="popup__close" method="dialog">
+    <button class="popup__close_icon" type="submit" aria-label="Закрыть окно" title="Закрыть"></button>
+  </form>
+  <form class="popup__form" action="" method="post">
+    <!-- в [data-dates] помещаем свободные окошки через запятую в порядке возрастания -->
+<div class="calendar specialist__booking" data-dates="2021-07-02T11:00:00,2021-08-05T12:00:00,2021-08-06T13:00:00">
+  <h1 class="specialist__heading">Запись на приём</h1>
+  <div class="calendar__main">
+    <button class="btn" type="button" aria-haspopup="dialog" aria-controls="book"></button>
+  </div>
+</div>
 
-
-  <dialog class="popup" id="bookKuznecov">
-    <h2 class="popup__title">Записаться на приём</h2>
-    <form class="popup__close" method="dialog">
-      <button class="popup__close_icon" type="submit" aria-label="Закрыть окно" title="Закрыть"></button>
-    </form>
-    <form class="popup__form" action="" method="post">
-      
-      <p class="form__row">
-        <label class="form__label" for="callbackName">Ваши имя и фамилия</label>
-        <input class="form__input" type="text" placeholder="Иван Иванов" id="callbackName" name="name">
-      </p>
-      <p class="form__row">
-        <label class="form__label" for="callbackTel">Номер телефона</label>
-        <!-- Ошибка показывается, если инпуту добавить .form__input--error -->
-        <input class="form__input" type="tel" placeholder="+7 ___ ___-__-__" id="callbackTel" name="tel" required>
-        <span class="form__error" hidden>Введите телефон, чтобы мы могли перезвонить и подтвердить запись.</span>
-      </p>
-      <p class="form__row">
-        <label class="form__label" for="callbackComment">Комментарий</label>
-        <textarea class="form__input" placeholder="Если мы должны знать что-то важное, расскажите об этом здесь" id="callbackComment" name="comment" rows="5"></textarea>
-      </p>
-      <p class="form__message form__message--success" hidden><b>Спасибо!</b> Скоро с вами свяжется менеджер.</p>
-      <p class="form__message form__message--fail" hidden><b>Что-то пошло не так!</b> Если проблема повторится, пожалуйста, позвоните по телефону. <a class="color--inherit" href="tel:88006003264">Позвонить нам →</a></p>
-      <input class="btn form__submit" type="submit" value="Оставить заявку">
-      <p class="form__policy">Отправляя заявку, вы соглашаетесь<br>с <a class="form__policy_link" href="">условиями обработки персональных данных</a></p>
-    </form>
-  </dialog>
-
-
+    <p class="form__row">
+      <label class="form__label" for="callbackName">Ваши имя и фамилия</label>
+      <input class="form__input" type="text" placeholder="Иван Иванов" id="callbackName" name="name">
+    </p>
+    <p class="form__row">
+      <label class="form__label" for="callbackTel">Номер телефона</label>
+      <!-- Ошибка показывается, если инпуту добавить .form__input--error -->
+      <input class="form__input" type="tel" placeholder="+7 ___ ___-__-__" id="callbackTel" name="tel" required>
+      <span class="form__error" hidden>Введите телефон, чтобы мы могли перезвонить и подтвердить запись.</span>
+    </p>
+    <p class="form__row">
+      <label class="form__label" for="callbackComment">Комментарий</label>
+      <textarea class="form__input" placeholder="Если мы должны знать что-то важное, расскажите об этом здесь" id="callbackComment" name="comment" rows="5"></textarea>
+    </p>
+    <p class="form__message form__message--success" hidden><b>Спасибо!</b> Скоро с вами свяжется менеджер.</p>
+    <p class="form__message form__message--fail" hidden><b>Что-то пошло не так!</b> Если проблема повторится, пожалуйста, позвоните по телефону. <a class="color--inherit" href="tel:88006003264">Позвонить нам →</a></p>
+    <input class="btn form__submit" type="submit" value="Оставить заявку">
+    <p class="form__policy">Отправляя заявку, вы соглашаетесь<br>с <a class="form__policy_link" href="">условиями обработки персональных данных</a></p>
+  </form>
+</dialog>
+<div class="container">
+  <h2 class="specialist__heading specialist__heading--big">Похожие специалисты</h2>
+  <ul class="specialist-others">
+    
+      <li class="specialist-others__item">
+        <a class="specialists__item_hero" style="background-image: url(/neirology.com/static/img/kuznecov.jpg);" href="/neirology.com/specialists/kuznecov/">
+          <span class="specialists__item_title">Кузнецов Сергей Олегович</span>
+        </a>
+      </li>
+      <li class="specialist-others__item">
+        <a class="specialists__item_hero" style="background-image: url(/neirology.com/static/img/kuznecov.jpg);" href="/neirology.com/specialists/kuznecov/">
+          <span class="specialists__item_title">Кузнецов Сергей Олегович</span>
+        </a>
+      </li>
+      <li class="specialist-others__item">
+        <a class="specialists__item_hero" style="background-image: url(/neirology.com/static/img/kuznecov.jpg);" href="/neirology.com/specialists/kuznecov/">
+          <span class="specialists__item_title">Кузнецов Сергей Олегович</span>
+        </a>
+      </li>
+    
+  </ul>
 </div>
 <!-- На страницах с вкладками подключаем van11y-accessible-tab-panel-aria -->
 <script src="/neirology.com/static/js/van11y-accessible-tab-panel-aria.min.js"></script>
 <script>
-  // Оживляем кнопки Выбрать всё
-  const checkboxLists = document.getElementsByClassName('filter__fieldset--checkboxes');
-  for (let i = 0; i < checkboxLists.length; i++) {
-    let toggleAllBtn = checkboxLists[i].querySelector('.filter__all');
-    if (toggleAllBtn) {
-        checkboxLists[i].addEventListener('change', function (e) {
-            let toggleAllBtn = e.currentTarget.querySelector('.filter__all');
-            let checkboxes = e.currentTarget.querySelectorAll('.filter__checkbox');
-            for (let j = 0; j < checkboxes.length; j++) {
-                if (checkboxes[j].checked === true) {
-                    toggleAllBtn.innerText = 'Очистить';
-                    return;
-                }
-            }
-            toggleAllBtn.innerText = 'Выбрать всё';
-        });
-        toggleAllBtn.addEventListener('click', function (e) {
-            let checkboxes = e.currentTarget.parentElement.querySelectorAll('.filter__checkbox');
-            if (e.currentTarget.innerText === 'Выбрать всё') {
-                for (let j = 0; j < checkboxes.length; j++) {
-                    checkboxes[j].checked = true;
-                }
-                e.currentTarget.innerText = 'Очистить';
-            } else {
-                for (let j = 0; j < checkboxes.length; j++) {
-                    checkboxes[j].checked = false;
-                }
-                e.currentTarget.innerText = 'Выбрать всё';
-            }
-        });
-    }
+  // Оживляем кнопки Читать полностью
+  const expandBtns = document.getElementsByClassName('feedback__expand');
+  for (let i = 0; i < expandBtns.length; i++) {
+    expandBtns[i].addEventListener('click', function (e) {
+      e.currentTarget.hidden = true;
+      e.currentTarget.parentElement.querySelector('.feedback__offline_text--collapsed').classList.remove('feedback__offline_text--collapsed');
+    })
   }
 </script>
-
 
     </main>
 
@@ -498,7 +499,7 @@
       </div>
     </footer>
 
-    <!-- Current page: /neirology.com/specialists/ -->
+    <!-- Current page: /neirology.com/specialist-calendar/ -->
     <script>
       // Полифилл для попапов
       const dialogs = document.getElementsByTagName('dialog');

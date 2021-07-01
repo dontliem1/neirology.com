@@ -1,31 +1,28 @@
 ---
 layout: layouts/base.njk
-templateClass: tmpl-specialist
 ---
 <!-- Если у шапки сайта есть фон, добавляем .hero--bg, и путь к картинке в style -->
-<div class="hero hero--bg hero--specialist" style="background-image: url('{{ ('/static/img/'+img) | url }}');">
+<div class="hero hero--bg hero--specialist" style="background-image: url('{{ ('/static/img/'+collections.specialists[0].data.img) | url }}');">
   <div class="container">
-    <h1 class="hero__title">{{ title }}</h1>
+    <h1 class="hero__title">{{ collections.specialists[0].data.title }}</h1>
   </div>
 </div>
 <div class="specialist__body container">
   <div class="specialist__tags">
-    <p class="specialist__job">{{ job }}</p>
-    <p class="specialist__description">{{ description }}</p>
+    <p class="specialist__job">{{ collections.specialists[0].data.job }}</p>
+    <p class="specialist__description">{{ collections.specialists[0].data.description }}</p>
   </div>
   <div class="specialist__calendar">
-    <p class="specialist__booking">
-      <button class="btn" type="button" aria-haspopup="dialog" aria-controls="book{{ id }}">{{ booking }}</button>
-    </p>
+    {% include 'calendar.njk' %}
   </div>
   <div class="specialist__content">
     <div class="specialist__content_features specialist__content_features--abriged">
       <div class="specialist__content_features_wrapper">
         <h2 class="specialist__heading">О специалисте</h2>
-        <p class="specialist__description">{{ about }}</p>
+        <p class="specialist__description">{{ collections.specialists[0].data.about }}</p>
         <div class="specialist__banner">
-          <h2 class="specialist__heading">{{ whom }}</h2>
-          <p class="specialist__description">{{ paragraph }}</p>
+          <h2 class="specialist__heading">{{ collections.specialists[0].data.whom }}</h2>
+          <p class="specialist__description">{{ collections.specialists[0].data.paragraph }}</p>
         </div>
         <h2 class="specialist__heading">C чем поможет?</h2>
         <ul class="specialist__features">
@@ -90,7 +87,7 @@ templateClass: tmpl-specialist
     </div>
     <h2 class="specialist__heading specialist__heading--big">Дипломы и сертификаты</h2>
     <ul class="specialist__certificates">
-      {%- for certificate in certificates %}
+      {%- for certificate in collections.specialists[0].data.certificates %}
         <li class="specialist__certificate">
           <a class="specialist__certificate_link js-img__expand" href="{{ certificate | url }}" aria-expanded="false">
             <img class="specialist__certificate_img" src="{{ certificate | url }}" alt="Скан сертификата." width="118" height="84">
@@ -100,12 +97,13 @@ templateClass: tmpl-specialist
     </ul>
   </div>
 </div>
-<dialog class="popup" id="book{{ id }}">
+<dialog class="popup" id="filter{{ collections.specialists[0].data.id }}">
   <h2 class="popup__title">Записаться на приём</h2>
   <form class="popup__close" method="dialog">
     <button class="popup__close_icon" type="submit" aria-label="Закрыть окно" title="Закрыть"></button>
   </form>
   <form class="popup__form" action="" method="post">
+    {% include 'calendar.njk' %}
     <p class="form__row">
       <label class="form__label" for="callbackName">Ваши имя и фамилия</label>
       <input class="form__input" type="text" placeholder="Иван Иванов" id="callbackName" name="name">

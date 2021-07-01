@@ -232,6 +232,7 @@
   <ul>
     <li><a class="form__policy_link" href="/neirology.com/feedback">Отзывы</a></li>
     <li><a class="form__policy_link" href="/neirology.com/specialists">Специалисты</a></li>
+    <li><a class="form__policy_link" href="/neirology.com/specialists-calendar">Специалисты с календарями</a></li>
   </ul>
 </div>
 
@@ -335,6 +336,159 @@
       // Запоминаем скрытый баннер
       if (window.localStorage.getItem('hideBanner')) {
         document.querySelector('.page__banner').hidden = true;
+      }
+    </script>
+    <script>
+      let calendars = document.getElementsByClassName('calendar');
+      for (let i = 0; i < calendars.length; i++) {
+        // Парсим окошки в массив datesWithTimes
+        let times = calendars[i].dataset.dates.split(',');
+        if (times[0]) {
+          calendars[i].querySelector('.calendar__main').remove();
+          let tempDateObj = {};
+          let tempDate = '';
+          let tempTimeString = '';
+          let datesWithTimes = {};
+          for (let j = 0; j < times.length; j++) {
+            tempDateObj = new Date(times[j]);
+            tempDate = tempDateObj.toLocaleDateString();
+            tempTimeString = tempDateObj.toLocaleTimeString('ru', { hour: '2-digit', minute: '2-digit' });
+            if (!datesWithTimes[tempDate]) {
+              datesWithTimes[tempDate] = {};
+            }
+            datesWithTimes[tempDate][tempTimeString] = times[j];
+          }
+
+          // Запоминаем сегодня
+          const today = (new Date()).toLocaleDateString();
+
+          // Строим массив months на два месяца вперед от первого окошка
+          let tempMonth = '';
+          let months = {};
+          tempDateObj = new Date(times[0]);
+          let lastDate = new Date();
+          lastDate.setTime(tempDateObj.getTime());
+          lastDate.setMonth( lastDate.getMonth() + 2 );
+          while (tempDateObj < lastDate) {
+            tempMonth = tempDateObj.toLocaleDateString('ru', { month: "long" });
+            if (!months[tempMonth]) {
+              months[tempMonth] = {};
+            }
+            months[tempMonth][tempDateObj.toLocaleDateString()] = {
+              weekday: tempDateObj.toLocaleDateString('ru', { weekday: "short" }),
+              number: tempDateObj.toLocaleDateString('ru', { day: "numeric" })
+            };
+            tempDateObj.setDate( tempDateObj.getDate() + 1 );
+          }
+
+          // Создаем DOM-элементы
+          // Список месяцев
+          let monthElements = document.createElement('ul');
+          monthElements.classList.add('calendar__months');
+          for (const month in months) {
+            let monthElement = document.createElement('li');
+
+            let monthTitle = document.createElement('b');
+            monthTitle.classList.add('calendar__month_title');
+            monthTitle.innerText = month;
+            monthElement.appendChild(monthTitle);
+
+            // Список дней в месяце
+            let days = months[month];
+            let daysElement = document.createElement('ul');
+            daysElement.classList.add('calendar__days');
+            for (const day in days) {
+              let dayWrapper = document.createElement('li');
+              const hasTimes = !!datesWithTimes[day];
+              let dayElement = document.createElement(hasTimes ? 'button' : 'span');
+              if (hasTimes) {
+                dayElement.type = 'button';
+                dayElement.value = day;
+                dayElement.onclick = function() {
+                  this.scrollIntoView({behavior: "smooth", inline: "start", block: "nearest"});
+                  this.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector('.calendar__times[aria-expanded=true]').removeAttribute('aria-expanded');
+                  let fieldsets = this.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll('.calendar__times');
+                  for (const fieldset of fieldsets) {
+                    if (fieldset.hasAttribute('aria-expanded')) {
+                      fieldset.removeAttribute('aria-expanded');
+                    }
+                    if (fieldset.querySelector('legend').innerText === this.value) {
+                      fieldset.setAttribute('aria-expanded', 'true');
+                    }
+                  }
+                  this.parentElement.parentElement.parentElement.parentElement.querySelector('.calendar__day[aria-selected=true]').removeAttribute('aria-selected');
+                  this.setAttribute('aria-selected', 'true');
+                }
+              }
+              dayElement.classList.add('calendar__day');
+              if (day === today) {
+                dayElement.classList.add('calendar__day--today');
+              }
+
+              let dayWeekday = document.createElement('span');
+              dayWeekday.innerText = days[day].weekday;
+              dayElement.appendChild(dayWeekday);
+
+              let dayNumber = document.createElement('span');
+              dayNumber.innerText = days[day].number;
+              dayElement.appendChild(dayNumber);
+
+              dayWrapper.appendChild(dayElement);
+              daysElement.appendChild(dayWrapper);
+            }
+
+            monthElement.appendChild(daysElement);
+            monthElements.appendChild(monthElement);
+          }
+          monthElements.querySelector('button.calendar__day').setAttribute('aria-selected', 'true');
+          calendars[i].appendChild(monthElements);
+
+          // Кнопка далее
+          let nextDayBtn = document.createElement('button');
+          nextDayBtn.type = 'button';
+          nextDayBtn.classList.add('calendar__next');
+          nextDayBtn.setAttribute('aria-label', 'Далее');
+          nextDayBtn.title = 'Далее';
+          nextDayBtn.onclick = function() {
+            let dayBtns = this.parentElement.querySelectorAll('button.calendar__day');
+            for (let j = 0; j < dayBtns.length; j++) {
+              if (dayBtns[j].hasAttribute('aria-selected')) {
+                if (j === dayBtns.length - 1) {
+                  dayBtns[0].click();
+                } else {
+                  dayBtns[j+1].click();
+                }
+                return;
+              }
+            }
+          }
+          calendars[i].appendChild(nextDayBtn);
+
+          // Список окошек
+          for (const dateWithTimes in datesWithTimes) {
+            let timesElement = document.createElement('fieldset');
+            timesElement.classList.add('calendar__times');
+            let timesLegend = document.createElement('legend');
+            timesLegend.innerText = dateWithTimes;
+            timesElement.appendChild(timesLegend);
+
+            const times = datesWithTimes[dateWithTimes];
+            for (const time in times) {
+              let timeBtn = document.createElement('button');
+              timeBtn.type = 'button';
+              timeBtn.innerText = time;
+              timeBtn.value = times[time];
+              timeBtn.classList.add('calendar__time');
+
+              timesElement.appendChild(timeBtn);
+            }
+
+            calendars[i].appendChild(timesElement);
+          }
+          calendars[i].querySelector('.calendar__times').setAttribute('aria-expanded', 'true');
+
+          // console.log(months);
+        }
       }
     </script>
   </body>

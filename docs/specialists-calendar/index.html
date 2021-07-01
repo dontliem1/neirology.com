@@ -353,7 +353,7 @@
   <ul class="specialists">
 
   <li class="specialists__item">
-    <a class="specialists__item_hero" style="background-image: url(/neirology.com/static/img/kuznecov.jpg);" href="/neirology.com/specialists/kuznecov/">
+    <a class="specialists__item_hero" style="background-image: url(/neirology.com/static/img/kuznecov.jpg);" href="/neirology.com/specialist-calendar">
       <span class="specialists__item_title">Кузнецов Сергей Олегович</span>
     </a>
     <div class="specialists__item_text">
@@ -361,12 +361,17 @@
       <p class="specialist__description">Системный семейный психотерапевт, КПТ-терапевт</p>
       <p class="specialist__preview">Разработает схему вашей проблемы и шаги по ее устранению. Поддержит на пути реальных изменений. Покажет проблему, как она есть. Не приукрасит и не добавит чего-то своего. Демонстрирует в терапии альтернативное отношение, чтобы Вы смогли его прожить на собственном опыте, а не теоретически.</p>
       
-      <p class="specialist__booking">
-        <button class="btn" type="button" aria-haspopup="dialog" aria-controls="bookKuznecov">Записаться к Сергею</button>
-      </p>
+        <!-- в [data-dates] помещаем свободные окошки через запятую в порядке возрастания -->
+<div class="calendar specialist__booking" data-dates="2021-07-02T11:00:00,2021-08-05T12:00:00,2021-08-06T13:00:00">
+  <h1 class="specialist__heading">Запись на приём</h1>
+  <div class="calendar__main">
+    <button class="btn" type="button" aria-haspopup="dialog" aria-controls="book"></button>
+  </div>
+</div>
+
       
 
-      <a href="/neirology.com/specialists/kuznecov/" class="specialist__link btn">Подробнее о Сергее</a>
+      <a href="/neirology.com/specialist-calendar" class="specialist__link btn">Подробнее о Сергее</a>
       <span class="specialist__rating"><span class="specialist__rating_star">★</span>5 <span class="color--gray">на основе 48 отзывов</span></span>
     </div>
   </li>
@@ -380,6 +385,15 @@
       <button class="popup__close_icon" type="submit" aria-label="Закрыть окно" title="Закрыть"></button>
     </form>
     <form class="popup__form" action="" method="post">
+      
+        <!-- в [data-dates] помещаем свободные окошки через запятую в порядке возрастания -->
+<div class="calendar specialist__booking" data-dates="2021-07-02T11:00:00,2021-08-05T12:00:00,2021-08-06T13:00:00">
+  <h1 class="specialist__heading">Запись на приём</h1>
+  <div class="calendar__main">
+    <button class="btn" type="button" aria-haspopup="dialog" aria-controls="book"></button>
+  </div>
+</div>
+
       
       <p class="form__row">
         <label class="form__label" for="callbackName">Ваши имя и фамилия</label>
@@ -498,7 +512,7 @@
       </div>
     </footer>
 
-    <!-- Current page: /neirology.com/specialists/ -->
+    <!-- Current page: /neirology.com/specialists-calendar/ -->
     <script>
       // Полифилл для попапов
       const dialogs = document.getElementsByTagName('dialog');
