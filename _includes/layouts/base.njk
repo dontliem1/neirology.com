@@ -154,6 +154,7 @@
 
     <!-- Current page: {{ page.url | url }} -->
     <script>
+      // Полифилл для попапов
       const dialogs = document.getElementsByTagName('dialog');
       const dialogBtns = document.querySelectorAll('[aria-haspopup="dialog"]');
       for (let i = 0; i < dialogs.length; i++) {
@@ -169,6 +170,17 @@
       }
     </script>
     <script>
+      // Оживляем просмотр отзывов и дипломов
+      const expandLinks = document.getElementsByClassName('js-img__expand');
+      for (let i = 0; i < expandLinks.length; i++) {
+        expandLinks[i].addEventListener('click', function (e) {
+          e.preventDefault();
+          e.currentTarget.setAttribute('aria-expanded', (e.currentTarget.getAttribute('aria-expanded') === 'false'));
+        })
+      }
+    </script>
+    <script>
+      // Закрепляем скролл
       const header = document.querySelector('.header');
 
       window.addEventListener("scroll", () => {
@@ -180,6 +192,7 @@
       });
     </script>
     <script>
+      // Запоминаем скрытый баннер
       if (window.localStorage.getItem('hideBanner')) {
         document.querySelector('.page__banner').hidden = true;
       }

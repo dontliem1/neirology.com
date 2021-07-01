@@ -142,7 +142,7 @@ path: /feedback
     <ul class="feedback__offline">
       {%- for entry in metadata.offlineFeedback %}
         <li class="feedback__offline_item">
-          <a class="feedback__offline_link" href="{{ entry.img | url }}" aria-expanded="false">
+          <a class="feedback__offline_link js-img__expand" href="{{ entry.img | url }}" aria-expanded="false">
             <img class="feedback__offline_img" src="{{ entry.img | url }}" alt="Фотография отзыва." width="64" height="88">
           </a>
           <div class="feedback__offline_info">
@@ -197,15 +197,6 @@ path: /feedback
         e.currentTarget.innerText = 'Выбрать всё';
       }
     });
-  }
-
-  // Оживляем просмотр отзывов
-  const feedbackLinks = document.getElementsByClassName('feedback__offline_link');
-  for (let i = 0; i < feedbackLinks.length; i++) {
-    feedbackLinks[i].addEventListener('click', function (e) {
-      e.preventDefault();
-      e.currentTarget.setAttribute('aria-expanded', (e.currentTarget.getAttribute('aria-expanded') === 'false'));
-    })
   }
   // Оживляем кнопки Читать полностью
   const expandBtns = document.getElementsByClassName('feedback__expand');

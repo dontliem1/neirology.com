@@ -358,7 +358,7 @@
     </form>
     <ul class="feedback__offline">
         <li class="feedback__offline_item">
-          <a class="feedback__offline_link" href="https://neirology.com/uploads/feedback/kuz04.jpg" aria-expanded="false">
+          <a class="feedback__offline_link js-img__expand" href="https://neirology.com/uploads/feedback/kuz04.jpg" aria-expanded="false">
             <img class="feedback__offline_img" src="https://neirology.com/uploads/feedback/kuz04.jpg" alt="Фотография отзыва." width="64" height="88">
           </a>
           <div class="feedback__offline_info">
@@ -373,11 +373,26 @@
           </div>
         </li>
         <li class="feedback__offline_item">
-          <a class="feedback__offline_link" href="https://neirology.com/uploads/feedback/sev16.jpg" aria-expanded="false">
+          <a class="feedback__offline_link js-img__expand" href="https://neirology.com/uploads/feedback/sev16.jpg" aria-expanded="false">
             <img class="feedback__offline_img" src="https://neirology.com/uploads/feedback/sev16.jpg" alt="Фотография отзыва." width="64" height="88">
           </a>
           <div class="feedback__offline_info">
             <h3 class="feedback__offline_title">О терапии тревоги у Рузанова</h3>
+            <dl class="feedback__offline_description">
+              <dt class="feedback__offline_heading">Жалобы</dt>
+              <dd class="feedback__offline_text">Тревожное расстройство, панические атаки.</dd>
+              <dt class="feedback__offline_heading">Отзыв клиента</dt>
+              <dd class="feedback__offline_text feedback__offline_text--collapsed"><span>Теперь я чувствую, что САМА строю свою жизнь, что моё состояние — это не болезнь и не судьба, а лишь отражение моих мыслей. И хочется теперь думать правильные, здоровые мысли. Есть силы жить, стремиться и быть счастливой и здоровой. Раньше и представить такого не могла! Обращайтесь, не тяните! Эти люди творят чудеса!</span></dd>
+            </dl>
+            <button class="btn--text feedback__expand" type="button">Читать полностью</button>
+          </div>
+        </li>
+        <li class="feedback__offline_item">
+          <a class="feedback__offline_link js-img__expand" href="https://neirology.com/uploads/feedback/kuz04.jpg" aria-expanded="false">
+            <img class="feedback__offline_img" src="https://neirology.com/uploads/feedback/kuz04.jpg" alt="Фотография отзыва." width="64" height="88">
+          </a>
+          <div class="feedback__offline_info">
+            <h3 class="feedback__offline_title">О терапии депрессии у Рузанова</h3>
             <dl class="feedback__offline_description">
               <dt class="feedback__offline_heading">Жалобы</dt>
               <dd class="feedback__offline_text">Тревожное расстройство, панические атаки.</dd>
@@ -427,15 +442,6 @@
         e.currentTarget.innerText = 'Выбрать всё';
       }
     });
-  }
-
-  // Оживляем просмотр отзывов
-  const feedbackLinks = document.getElementsByClassName('feedback__offline_link');
-  for (let i = 0; i < feedbackLinks.length; i++) {
-    feedbackLinks[i].addEventListener('click', function (e) {
-      e.preventDefault();
-      e.currentTarget.setAttribute('aria-expanded', (e.currentTarget.getAttribute('aria-expanded') === 'false'));
-    })
   }
   // Оживляем кнопки Читать полностью
   const expandBtns = document.getElementsByClassName('feedback__expand');
@@ -506,6 +512,7 @@
 
     <!-- Current page: /neirology.com/feedback/ -->
     <script>
+      // Полифилл для попапов
       const dialogs = document.getElementsByTagName('dialog');
       const dialogBtns = document.querySelectorAll('[aria-haspopup="dialog"]');
       for (let i = 0; i < dialogs.length; i++) {
@@ -521,6 +528,17 @@
       }
     </script>
     <script>
+      // Оживляем просмотр отзывов и дипломов
+      const expandLinks = document.getElementsByClassName('js-img__expand');
+      for (let i = 0; i < expandLinks.length; i++) {
+        expandLinks[i].addEventListener('click', function (e) {
+          e.preventDefault();
+          e.currentTarget.setAttribute('aria-expanded', (e.currentTarget.getAttribute('aria-expanded') === 'false'));
+        })
+      }
+    </script>
+    <script>
+      // Закрепляем скролл
       const header = document.querySelector('.header');
 
       window.addEventListener("scroll", () => {
@@ -532,6 +550,7 @@
       });
     </script>
     <script>
+      // Запоминаем скрытый баннер
       if (window.localStorage.getItem('hideBanner')) {
         document.querySelector('.page__banner').hidden = true;
       }

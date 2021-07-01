@@ -8,13 +8,16 @@ templateClass: tmpl-specialist
     <h1 class="hero__title">{{ title }}</h1>
   </div>
 </div>
-<div class="container specialist__body">
+<div class="specialist__body container">
   <div class="specialist__tags">
     <p class="specialist__job">{{ job }}</p>
     <p class="specialist__description">{{ description }}</p>
   </div>
   <div class="specialist__calendar">
-    {% include 'calendar.njk' %}
+    {# include 'calendar.njk' #}
+    <p class="specialist__booking">
+      <button class="btn" type="button" aria-haspopup="dialog" aria-controls="filter{{ id }}">{{ booking }}</button>
+    </p>
   </div>
   <div class="specialist__content">
     <h2 class="specialist__heading">О специалисте</h2>
@@ -24,10 +27,25 @@ templateClass: tmpl-specialist
       <p class="specialist__description">{{ paragraph }}</p>
     </div>
     <h2 class="specialist__heading">C чем поможет?</h2>
+    <ul class="specialist__features">
+      <li class="specialist__feature">принятие решений: тупик в жизни, выгорание, «не понимаю, куда двигаться», отсутствие поддержки.</li>
+      <li class="specialist__feature">отношения, семья: конфликты/скандалы, холодность, обиды, предразвод/развод, одиночество.</li>
+      <li class="specialist__feature">родительство: эмоциональное выгорание, конфликты с ребенком, родительское «бессилие», родительские страхи.</li>
+      <li class="specialist__feature">депрессивное: депрессия, апатия, хроническая усталость, тоска.</li>
+      <li class="specialist__feature">тревожное: панические атаки, страхи, фобии.</li>
+      <li class="specialist__feature">навязчивости: ОКР, навязчивые мысли/ритуалы.</li>
+      <li class="specialist__feature">соматическое: ВСД, физические симптомы невроза, бессонница/гипорсомния (все время хочется спать), расстройства кишечника, остеохондроз, головные боли.</li>
+      <li class="specialist__feature">подростки: неуправляемость/замкнутость, немотивированность к учебе, хамство, подавленность, трудности в общении.</li>
+      <li class="specialist__feature">пищевое: анорексия/булимия, отвращение к телу.</li>
+    </ul>
     <h2 class="specialist__heading">C чем не поможет?</h2>
-
+    <ul class="specialist__features">
+      <li class="specialist__feature">дети: истерики, агрессивность, физические проявления невроза (энурез/энкопрез), плаксивость, непослушание.</li>
+      <li class="specialist__feature">большая психиатрия: БАР, расстройства шизофренического спектра, психозы.</li>
+      <li class="specialist__feature">возрастное: деменция, возрастные изменения психики.</li>
+    </ul>
     <h2 class="specialist__heading specialist__heading--big">Отзывы о работе</h2>
-    <div class="js-tabs container">
+    <div class="js-tabs">
       <ul class="js-tablist" data-hx="h2">
         <li class="js-tablist__item">
           <a href="#offline" class="js-tablist__link">Рукописные (40)</a>
@@ -36,7 +54,8 @@ templateClass: tmpl-specialist
           <a href="#online" class="js-tablist__link">В интернете</a>
         </li>
       </ul>
-      <div id="offline" class="js-tabcontent">
+      <!-- Если отзывов больше двух добавляем класс js-tabcontent--abriged -->
+      <div id="offline" class="js-tabcontent js-tabcontent--abriged">
         <h2 class="invisible">Отзывы, оставленные в клиниках</h2>
         <ul class="feedback__offline">
           {%- for entry in metadata.offlineFeedback %}
@@ -57,6 +76,7 @@ templateClass: tmpl-specialist
             </li>
           {%- endfor %}
         </ul>
+        <button class="js-tabcontent__expand btn--text" type="button" onclick="this.parentElement.classList.remove('js-tabcontent--abriged');" hidden>Показать все отзывы</button>
       </div>
       <div id="online" class="js-tabcontent">
         <h2 class="js-tabcontent__heading">Рейтинг на независимых порталах</h2>
@@ -64,13 +84,58 @@ templateClass: tmpl-specialist
       </div>
     </div>
     <h2 class="specialist__heading specialist__heading--big">Дипломы и сертификаты</h2>
+    <ul class="specialist__certificates">
+      {%- for certificate in certificates %}
+        <li class="specialist__certificate">
+          <a class="specialist__certificate_link js-img__expand" href="{{ certificate | url }}" aria-expanded="false">
+            <img class="specialist__certificate_img" src="{{ certificate | url }}" alt="Скан сертификата." width="118" height="84">
+          </a>
+        </li>
+      {%- endfor %}
+    </ul>
   </div>
 </div>
+<dialog class="popup" id="filter{{ id }}">
+  <h2 class="popup__title">Записаться на приём</h2>
+  <form class="popup__close" method="dialog">
+    <button class="popup__close_icon" type="submit" aria-label="Закрыть окно" title="Закрыть"></button>
+  </form>
+  <form class="popup__form" action="" method="post">
+    <p class="form__row">
+      <label class="form__label" for="callbackName">Ваши имя и фамилия</label>
+      <input class="form__input" type="text" placeholder="Иван Иванов" id="callbackName" name="name">
+    </p>
+    <p class="form__row">
+      <label class="form__label" for="callbackTel">Номер телефона</label>
+      <!-- Ошибка показывается, если инпуту добавить .form__input--error -->
+      <input class="form__input" type="tel" placeholder="+7 ___ ___-__-__" id="callbackTel" name="tel" required>
+      <span class="form__error" hidden>Введите телефон, чтобы мы могли перезвонить и подтвердить запись.</span>
+    </p>
+    <p class="form__row">
+      <label class="form__label" for="callbackComment">Комментарий</label>
+      <textarea class="form__input" placeholder="Если мы должны знать что-то важное, расскажите об этом здесь" id="callbackComment" name="comment" rows="5"></textarea>
+    </p>
+    <p class="form__message form__message--success" hidden><b>Спасибо!</b> Скоро с вами свяжется менеджер.</p>
+    <p class="form__message form__message--fail" hidden><b>Что-то пошло не так!</b> Если проблема повторится, пожалуйста, позвоните по телефону. <a class="color--inherit" href="tel:88006003264">Позвонить нам →</a></p>
+    <input class="btn form__submit" type="submit" value="Оставить заявку">
+    <p class="form__policy">Отправляя заявку, вы соглашаетесь<br>с <a class="form__policy_link" href="">условиями обработки персональных данных</a></p>
+  </form>
+</dialog>
 <div class="container">
   <h2 class="specialist__heading specialist__heading--big">Похожие специалисты</h2>
-  <ul class="specialists">
+  <ul class="specialist-others">
     {% for specialist in collections.specialists %}
-      <li class="specialists__item">
+      <li class="specialist-others__item">
+        <a class="specialists__item_hero" style="background-image: url({{ ('/static/img/'+specialist.data.img) | url }});" href="{{ specialist.url | url }}">
+          <span class="specialists__item_title">{{ specialist.data.title }}</span>
+        </a>
+      </li>
+      <li class="specialist-others__item">
+        <a class="specialists__item_hero" style="background-image: url({{ ('/static/img/'+specialist.data.img) | url }});" href="{{ specialist.url | url }}">
+          <span class="specialists__item_title">{{ specialist.data.title }}</span>
+        </a>
+      </li>
+      <li class="specialist-others__item">
         <a class="specialists__item_hero" style="background-image: url({{ ('/static/img/'+specialist.data.img) | url }});" href="{{ specialist.url | url }}">
           <span class="specialists__item_title">{{ specialist.data.title }}</span>
         </a>
@@ -81,14 +146,6 @@ templateClass: tmpl-specialist
 <!-- На страницах с вкладками подключаем van11y-accessible-tab-panel-aria -->
 <script src="{{ '/static/js/van11y-accessible-tab-panel-aria.min.js' | url }}"></script>
 <script>
-  // Оживляем просмотр отзывов
-  const feedbackLinks = document.getElementsByClassName('feedback__offline_link');
-  for (let i = 0; i < feedbackLinks.length; i++) {
-    feedbackLinks[i].addEventListener('click', function (e) {
-      e.preventDefault();
-      e.currentTarget.setAttribute('aria-expanded', (e.currentTarget.getAttribute('aria-expanded') === 'false'));
-    })
-  }
   // Оживляем кнопки Читать полностью
   const expandBtns = document.getElementsByClassName('feedback__expand');
   for (let i = 0; i < expandBtns.length; i++) {
