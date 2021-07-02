@@ -9,7 +9,9 @@
       <p class="specialist__description">{{ specialist.data.description }}</p>
       <p class="specialist__preview">{{ specialist.data.preview }}</p>
       {% if calendar === true %}
-        {% include "calendar.njk" %}
+        <!-- в [data-dates] помещаем свободные окошки через запятую в порядке возрастания -->
+        <!-- если календарь не в попапе, добавляем [data-popup] с id попапа записи -->
+        <div class="calendar specialist__booking" data-dates="2021-07-02T11:00:00,2021-08-05T12:00:00,2021-08-06T10:00:00,2021-08-06T13:00:00,2021-08-06T15:00:00,2021-08-06T17:00:00" data-popup="book{{ specialist.data.id }}"></div>
       {% else %}
       <p class="specialist__booking">
         <button class="btn" type="button" aria-haspopup="dialog" aria-controls="book{{ specialist.data.id }}">{{ specialist.data.booking }}</button>
@@ -31,7 +33,8 @@
     </form>
     <form class="popup__form" action="" method="post">
       {% if calendar === true %}
-        {% include "calendar.njk" %}
+        <!-- в [data-dates] помещаем свободные окошки через запятую в порядке возрастания -->
+        <div class="calendar specialist__booking" data-dates="2021-07-02T11:00:00,2021-08-05T12:00:00,2021-08-06T10:00:00,2021-08-06T13:00:00,2021-08-06T15:00:00,2021-08-06T17:00:00"></div>
       {% endif %}
       <p class="form__row">
         <label class="form__label" for="callbackName">Ваши имя и фамилия</label>

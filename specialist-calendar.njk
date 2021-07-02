@@ -13,7 +13,10 @@ layout: layouts/base.njk
     <p class="specialist__description">{{ collections.specialists[0].data.description }}</p>
   </div>
   <div class="specialist__calendar">
-    {% include 'calendar.njk' %}
+    <h1 class="specialist__heading">Запись на приём</h1>
+    <!-- в [data-dates] помещаем свободные окошки через запятую в порядке возрастания -->
+    <!-- если календарь не в попапе, добавляем [data-popup] с id попапа записи -->
+    <div class="calendar specialist__booking" data-dates="2021-07-02T11:00:00,2021-08-05T12:00:00,2021-08-06T10:00:00,2021-08-06T13:00:00,2021-08-06T15:00:00,2021-08-06T17:00:00" data-popup="book{{ collections.specialists[0].data.id }}"></div>
   </div>
   <div class="specialist__content">
     <div class="specialist__content_features specialist__content_features--abriged">
@@ -97,13 +100,14 @@ layout: layouts/base.njk
     </ul>
   </div>
 </div>
-<dialog class="popup" id="filter{{ collections.specialists[0].data.id }}">
+<dialog class="popup" id="book{{ collections.specialists[0].data.id }}">
   <h2 class="popup__title">Записаться на приём</h2>
   <form class="popup__close" method="dialog">
     <button class="popup__close_icon" type="submit" aria-label="Закрыть окно" title="Закрыть"></button>
   </form>
   <form class="popup__form" action="" method="post">
-    {% include 'calendar.njk' %}
+    <!-- в [data-dates] помещаем свободные окошки через запятую в порядке возрастания -->
+    <div class="calendar specialist__booking" data-dates="2021-07-02T11:00:00,2021-08-05T12:00:00,2021-08-06T10:00:00,2021-08-06T13:00:00,2021-08-06T15:00:00,2021-08-06T17:00:00"></div>
     <p class="form__row">
       <label class="form__label" for="callbackName">Ваши имя и фамилия</label>
       <input class="form__input" type="text" placeholder="Иван Иванов" id="callbackName" name="name">

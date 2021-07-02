@@ -297,7 +297,7 @@
       }
       for (let i = 0; i < dialogBtns.length; i++) {
         dialogBtns[i].onclick = function () {
-          let dialog = document.getElementById(this.getAttribute('aria-controls'));
+          const dialog = document.getElementById(this.getAttribute('aria-controls'));
           if (dialog) {
             dialog.showModal();
           }
@@ -337,8 +337,8 @@
       for (let i = 0; i < calendars.length; i++) {
         // Парсим окошки в массив datesWithTimes
         let times = calendars[i].dataset.dates.split(',');
+        let popup = calendars[i].dataset.popup;
         if (times[0]) {
-          calendars[i].querySelector('.calendar__main').remove();
           let tempDateObj = {};
           let tempDate = '';
           let tempTimeString = '';
@@ -384,7 +384,7 @@
 
             let monthTitle = document.createElement('b');
             monthTitle.classList.add('calendar__month_title');
-            monthTitle.innerText = month;
+            monthTitle.textContent = month;
             monthElement.appendChild(monthTitle);
 
             // Список дней в месяце
@@ -406,7 +406,7 @@
                     if (fieldset.hasAttribute('aria-expanded')) {
                       fieldset.removeAttribute('aria-expanded');
                     }
-                    if (fieldset.querySelector('legend').innerText === this.value) {
+                    if (fieldset.querySelector('legend').textContent === this.value) {
                       fieldset.setAttribute('aria-expanded', 'true');
                     }
                   }
@@ -420,11 +420,11 @@
               }
 
               let dayWeekday = document.createElement('span');
-              dayWeekday.innerText = days[day].weekday;
+              dayWeekday.textContent = days[day].weekday;
               dayElement.appendChild(dayWeekday);
 
               let dayNumber = document.createElement('span');
-              dayNumber.innerText = days[day].number;
+              dayNumber.textContent = days[day].number;
               dayElement.appendChild(dayNumber);
 
               dayWrapper.appendChild(dayElement);
@@ -463,18 +463,68 @@
             let timesElement = document.createElement('fieldset');
             timesElement.classList.add('calendar__times');
             let timesLegend = document.createElement('legend');
-            timesLegend.innerText = dateWithTimes;
+            timesLegend.textContent = dateWithTimes;
             timesElement.appendChild(timesLegend);
 
             const times = datesWithTimes[dateWithTimes];
             for (const time in times) {
-              let timeBtn = document.createElement('button');
-              timeBtn.type = 'button';
-              timeBtn.innerText = time;
-              timeBtn.value = times[time];
-              timeBtn.classList.add('calendar__time');
+              if (popup) {
+                let timeBtn = document.createElement('button');
+                timeBtn.type = 'button';
+                timeBtn.textContent = time;
+                timeBtn.setAttribute('aria-haspopup','dialog');
+                timeBtn.setAttribute('aria-controls',popup);
+                timeBtn.value = times[time];
+                timeBtn.classList.add('calendar__time');
+                timeBtn.onclick = function () {
+                  const dialog = document.getElementById(this.getAttribute('aria-controls'));
+                  const selectedDate = this.parentElement.querySelector('legend').textContent;
+                  if (dialog) {
+                    dialog.querySelector('.calendar__day[aria-selected=true]').removeAttribute('aria-selected');
+                    dialog.querySelector('.calendar__times[aria-expanded=true]').removeAttribute('aria-expanded');
+                    const legends = dialog.querySelectorAll('.calendar legend');
+                    for (let j = 0; j < legends.length; j++) {
+                      if (legends[j].textContent === selectedDate) {
+                        legends[j].parentElement.setAttribute('aria-expanded', 'true');
+                        const radios = legends[j].parentElement.querySelectorAll('input');
+                        for (let k = 0; k < radios.length; k++) {
+                          if (radios[k].value === this.value) {
+                            radios[k].checked = true;
+                            break;
+                          }
+                        }
+                        break;
+                      }
+                    }
+                    const dayBtns = dialog.querySelectorAll('.calendar__day');
+                    for (let j = 0; j < dayBtns.length; j++) {
+                      if (dayBtns[j].value === selectedDate) {
+                        dayBtns[j].setAttribute('aria-selected', 'true');
+                        break;
+                      }
+                    }
+                    dialog.showModal();
+                    dialog.querySelector('.calendar__day[aria-selected=true]').scrollIntoView({behavior: "smooth", inline: "nearest"});
+                  }
+                }
+                timesElement.appendChild(timeBtn);
+              } else {
+                let timeRadio = document.createElement('input');
+                timeRadio.type = 'radio';
+                timeRadio.name = 'time';
+                timeRadio.value = times[time];
+                timeRadio.classList.add('invisible');
 
-              timesElement.appendChild(timeBtn);
+                let timeLabel = document.createElement('span');
+                timeLabel.textContent = time;
+
+                let timeWrapper = document.createElement('label');
+                timeWrapper.classList.add('calendar__time_wrapper');
+                timeWrapper.appendChild(timeRadio);
+                timeWrapper.appendChild(timeLabel);
+
+                timesElement.appendChild(timeWrapper);
+              }
             }
 
             calendars[i].appendChild(timesElement);
@@ -482,6 +532,9 @@
           calendars[i].querySelector('.calendar__times').setAttribute('aria-expanded', 'true');
 
           // console.log(months);
+        } else {
+          //Если окошек нет.
+          calendars[i].textContent = 'Нет доступных окошек для записи.';
         }
       }
     </script>
