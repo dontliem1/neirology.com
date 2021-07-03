@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Нейро-пси</title>
-    <meta name="description" content="Демо-версия сайта Нейро-Пси.">
+    <title>Поздяева Анастасия Николаевна</title>
+    <meta name="description" content="Руководитель Самарского филиала. Главный врач. Психиатр. Психотерапевт">
     <link rel="icon" href="/neirology.com/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="/neirology.com/static/css/index.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -218,24 +218,23 @@
       </form>
     </dialog>
 
-    <main>
+    <main class="tmpl-specialist">
 
       <!-- Если у шапки сайта есть фон, добавляем .hero--bg, и путь к картинке в style -->
-<div class="hero hero--bg hero--specialist" style="background-image: url('/neirology.com/static/img/kuznecov.jpg');">
+<div class="hero hero--bg hero--specialist" style="background-image: url('/neirology.com/static/img/pozdyaeva.jpg');">
   <div class="container">
-    <h1 class="hero__title">Кузнецов Сергей Олегович</h1>
+    <h1 class="hero__title">Поздяева Анастасия Николаевна</h1>
   </div>
 </div>
 <div class="specialist__body container">
   <div class="specialist__tags">
-    <p class="specialist__job">Ведущий специалист клиники</p>
-    <p class="specialist__description">Системный семейный психотерапевт, КПТ-терапевт</p>
+    <p class="specialist__job">Топ-специалист клиники</p>
+    <p class="specialist__description">Руководитель Самарского филиала. Главный врач. Психиатр. Психотерапевт</p>
   </div>
   <div class="specialist__calendar">
-    <h1 class="specialist__heading">Запись на приём</h1>
-    <!-- в [data-dates] помещаем свободные окошки через запятую в порядке возрастания -->
-    <!-- если календарь не в попапе, добавляем [data-popup] с id попапа записи -->
-    <div class="calendar specialist__booking" data-dates="2021-07-02T11:00:00,2021-08-05T12:00:00,2021-08-06T10:00:00,2021-08-06T13:00:00,2021-08-06T15:00:00,2021-08-06T17:00:00" data-popup="bookKuznecov"></div>
+    <p class="specialist__booking">
+      <button class="btn" type="button" aria-haspopup="dialog" aria-controls="bookPozdyaeva">Записаться к Анастасии</button>
+    </p>
   </div>
   <div class="specialist__content">
     <div class="specialist__content_features specialist__content_features--abriged">
@@ -243,7 +242,7 @@
         <h2 class="specialist__heading">О специалисте</h2>
         <p class="specialist__description">Особенности: энергичность, оптимизм и системность. Ведущий специалист клиники. Поможет справится там, где это казалось невозможным.  Меняет модель мышления с самокритичной на поддерживающую. Учит относится к себе с глубоким состраданием и искренней симпатией, что дает опыт принятия, отсутствие которого, очень часто — корень проблемы. Мастерски помогает клиентам находить инсайты и понимать себя.</p>
         <div class="specialist__banner">
-          <h2 class="specialist__heading">Кому подойдёт работа с Сергеем</h2>
+          <h2 class="specialist__heading">Кому подойдёт работа с Анастасией</h2>
           <p class="specialist__description">Тому, кто ищет современного, адекватного психиатра/психотерапевта для того, чтобы точно понять причины своего состояния и что с ними делать. Если есть сомнения, нужны ли медикаменты и/или психотерапия.</p>
         </div>
         <h2 class="specialist__heading">C чем поможет?</h2>
@@ -370,14 +369,12 @@
     </ul>
   </div>
 </div>
-<dialog class="popup" id="bookKuznecov">
+<dialog class="popup" id="bookPozdyaeva">
   <h2 class="popup__title">Записаться на приём</h2>
   <form class="popup__close" method="dialog">
     <button class="popup__close_icon" type="submit" aria-label="Закрыть окно" title="Закрыть"></button>
   </form>
   <form class="popup__form" action="" method="post">
-    <!-- в [data-dates] помещаем свободные окошки через запятую в порядке возрастания -->
-    <div class="calendar specialist__booking" data-dates="2021-07-02T11:00:00,2021-08-05T12:00:00,2021-08-06T10:00:00,2021-08-06T13:00:00,2021-08-06T15:00:00,2021-08-06T17:00:00"></div>
     <p class="form__row">
       <label class="form__label" for="callbackName">Ваши имя и фамилия</label>
       <input class="form__input" type="text" placeholder="Иван Иванов" id="callbackName" name="name">
@@ -407,27 +404,7 @@
           <span class="specialists__item_title">Кузнецов Сергей Олегович</span>
         </a>
       </li>
-      <li class="specialist-others__item">
-        <a class="specialists__item_hero" style="background-image: url(/neirology.com/static/img/kuznecov.jpg);" href="/neirology.com/specialists/kuznecov/">
-          <span class="specialists__item_title">Кузнецов Сергей Олегович</span>
-        </a>
-      </li>
-      <li class="specialist-others__item">
-        <a class="specialists__item_hero" style="background-image: url(/neirology.com/static/img/kuznecov.jpg);" href="/neirology.com/specialists/kuznecov/">
-          <span class="specialists__item_title">Кузнецов Сергей Олегович</span>
-        </a>
-      </li>
     
-      <li class="specialist-others__item">
-        <a class="specialists__item_hero" style="background-image: url(/neirology.com/static/img/pozdyaeva.jpg);" href="/neirology.com/specialists/pozdyaeva/">
-          <span class="specialists__item_title">Поздяева Анастасия Николаевна</span>
-        </a>
-      </li>
-      <li class="specialist-others__item">
-        <a class="specialists__item_hero" style="background-image: url(/neirology.com/static/img/pozdyaeva.jpg);" href="/neirology.com/specialists/pozdyaeva/">
-          <span class="specialists__item_title">Поздяева Анастасия Николаевна</span>
-        </a>
-      </li>
       <li class="specialist-others__item">
         <a class="specialists__item_hero" style="background-image: url(/neirology.com/static/img/pozdyaeva.jpg);" href="/neirology.com/specialists/pozdyaeva/">
           <span class="specialists__item_title">Поздяева Анастасия Николаевна</span>
@@ -505,7 +482,7 @@
       </div>
     </footer>
 
-    <!-- Current page: /neirology.com/specialist-calendar/ -->
+    <!-- Current page: /neirology.com/specialists/pozdyaeva/ -->
     <script>
       // Полифилл для попапов
       const dialogs = document.getElementsByTagName('dialog');

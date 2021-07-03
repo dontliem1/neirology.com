@@ -371,10 +371,60 @@
     </div>
   </li>
 
+  <li class="specialists__item">
+    <a class="specialists__item_hero" style="background-image: url(/neirology.com/static/img/pozdyaeva.jpg);" href="/neirology.com/specialist-calendar">
+      <span class="specialists__item_title">Поздяева Анастасия Николаевна</span>
+    </a>
+    <div class="specialists__item_text">
+      <p class="specialist__job">Топ-специалист клиники</p>
+      <p class="specialist__description">Руководитель Самарского филиала. Главный врач. Психиатр. Психотерапевт</p>
+      <p class="specialist__preview">Проявляет по-настоящему доброе, сочувственное отношение к пациентам. Отличное понимание нейрофизиологии помогает ей использовать самые современные, таргетированные (сфокусированные на проблеме), методы воздействия.</p>
+      
+        <!-- в [data-dates] помещаем свободные окошки через запятую в порядке возрастания -->
+        <!-- если календарь не в попапе, добавляем [data-popup] с id попапа записи -->
+        <div class="calendar specialist__booking" data-dates="2021-07-02T11:00:00,2021-08-05T12:00:00,2021-08-06T10:00:00,2021-08-06T13:00:00,2021-08-06T15:00:00,2021-08-06T17:00:00" data-popup="bookPozdyaeva"></div>
+      
+
+      <a href="/neirology.com/specialist-calendar" class="specialist__link btn">Подробнее об Анастасии</a>
+      <span class="specialist__rating"><span class="specialist__rating_star">★</span>5 <span class="color--gray">на основе 48 отзывов</span></span>
+    </div>
+  </li>
+
 </ul>
 
 
   <dialog class="popup" id="bookKuznecov">
+    <h2 class="popup__title">Записаться на приём</h2>
+    <form class="popup__close" method="dialog">
+      <button class="popup__close_icon" type="submit" aria-label="Закрыть окно" title="Закрыть"></button>
+    </form>
+    <form class="popup__form" action="" method="post">
+      
+        <!-- в [data-dates] помещаем свободные окошки через запятую в порядке возрастания -->
+        <div class="calendar specialist__booking" data-dates="2021-07-02T11:00:00,2021-08-05T12:00:00,2021-08-06T10:00:00,2021-08-06T13:00:00,2021-08-06T15:00:00,2021-08-06T17:00:00"></div>
+      
+      <p class="form__row">
+        <label class="form__label" for="callbackName">Ваши имя и фамилия</label>
+        <input class="form__input" type="text" placeholder="Иван Иванов" id="callbackName" name="name">
+      </p>
+      <p class="form__row">
+        <label class="form__label" for="callbackTel">Номер телефона</label>
+        <!-- Ошибка показывается, если инпуту добавить .form__input--error -->
+        <input class="form__input" type="tel" placeholder="+7 ___ ___-__-__" id="callbackTel" name="tel" required>
+        <span class="form__error" hidden>Введите телефон, чтобы мы могли перезвонить и подтвердить запись.</span>
+      </p>
+      <p class="form__row">
+        <label class="form__label" for="callbackComment">Комментарий</label>
+        <textarea class="form__input" placeholder="Если мы должны знать что-то важное, расскажите об этом здесь" id="callbackComment" name="comment" rows="5"></textarea>
+      </p>
+      <p class="form__message form__message--success" hidden><b>Спасибо!</b> Скоро с вами свяжется менеджер.</p>
+      <p class="form__message form__message--fail" hidden><b>Что-то пошло не так!</b> Если проблема повторится, пожалуйста, позвоните по телефону. <a class="color--inherit" href="tel:88006003264">Позвонить нам →</a></p>
+      <input class="btn form__submit" type="submit" value="Оставить заявку">
+      <p class="form__policy">Отправляя заявку, вы соглашаетесь<br>с <a class="form__policy_link" href="">условиями обработки персональных данных</a></p>
+    </form>
+  </dialog>
+
+  <dialog class="popup" id="bookPozdyaeva">
     <h2 class="popup__title">Записаться на приём</h2>
     <form class="popup__close" method="dialog">
       <button class="popup__close_icon" type="submit" aria-label="Закрыть окно" title="Закрыть"></button>
@@ -533,7 +583,7 @@
       const header = document.querySelector('.header');
 
       window.addEventListener("scroll", () => {
-        if (window.pageYOffset > 20) {
+        if (window.pageYOffset > 60) {
           header.classList.add('header--sticky');
         } else {
           header.classList.remove('header--sticky');

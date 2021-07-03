@@ -135,16 +135,6 @@ templateClass: tmpl-specialist
           <span class="specialists__item_title">{{ specialist.data.title }}</span>
         </a>
       </li>
-      <li class="specialist-others__item">
-        <a class="specialists__item_hero" style="background-image: url({{ ('/static/img/'+specialist.data.img) | url }});" href="{{ specialist.url | url }}">
-          <span class="specialists__item_title">{{ specialist.data.title }}</span>
-        </a>
-      </li>
-      <li class="specialist-others__item">
-        <a class="specialists__item_hero" style="background-image: url({{ ('/static/img/'+specialist.data.img) | url }});" href="{{ specialist.url | url }}">
-          <span class="specialists__item_title">{{ specialist.data.title }}</span>
-        </a>
-      </li>
     {% endfor %}
   </ul>
 </div>

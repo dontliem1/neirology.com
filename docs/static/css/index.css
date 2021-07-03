@@ -481,10 +481,21 @@ a.btn {
   background-position: bottom;
   background-size: cover;
   background-repeat: no-repeat;
+  position: relative;
 }
 .hero--specialist {
   background-position: top;
   padding-top: 29.2rem;
+}
+.hero--specialist::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  pointer-events: none;
+  background: url("../img/pattern.svg") 45vw 9rem /100% no-repeat;
 }
 .hero--specialist .hero__title {
   background-color: #FEEDCB;
@@ -501,6 +512,7 @@ a.btn {
   display: inline-block;
   min-width: 25rem;
   margin: 0;
+  position: relative;
 }
 @media (min-width: 72em) {
   .hero--bg {
@@ -508,6 +520,10 @@ a.btn {
     padding-top: 30rem;
     padding-bottom: 3rem;
     margin-top: -9.1rem;
+  }
+  .hero--specialist::before {
+    background-position: 72vw 18vw;
+    background-size: 50%;
   }
   .hero--specialist {
     padding-top: 47.6rem;
@@ -546,7 +562,6 @@ a.btn {
 .js-tablist__item {
   flex-basis: 15.3rem;
   display: flex;
-  flex-grow: 1;
 }
 .js-tablist__link {
   display: flex;
@@ -593,7 +608,6 @@ a.btn {
   }
   .js-tablist__item {
     flex-basis: 12.8em;
-    flex-grow: 0;
   }
 }
 
@@ -606,6 +620,7 @@ a.btn {
   border-bottom: 1px solid #e7e6e3;
   margin: 0;
   padding-top: 1.5rem;
+  padding-bottom: .5rem;
 }
 .filter__toggle_btn {
   padding-top: .5rem;
@@ -1027,6 +1042,9 @@ a.btn {
   margin: 0;
   padding: 0;
 }
+.filter + .specialists {
+  margin-top: 2rem;
+}
 .specialists__item {
   border-bottom: 1px solid #e7e6e3;
   padding-bottom: 1.5rem;
@@ -1153,6 +1171,7 @@ a.btn {
 }
 .specialist__booking .btn {
   flex-grow: 1;
+  max-width: 28em;
 }
 .specialist__rating {
   font-size: 1.4rem;
@@ -1257,8 +1276,11 @@ a.btn {
   .specialists {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    column-gap: 3rem;
     border-top: 1px solid #e7e6e3;
+  }
+  .filter + .specialists {
+    margin-top: 0;
   }
   .specialists__item {
     border-bottom: 0;
@@ -1268,9 +1290,11 @@ a.btn {
   }
   .specialists__item_hero {
     display: block;
+    padding: 22rem 2rem 2rem;
+  }
+  .specialists .specialists__item_hero {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    padding: 22rem 2rem 2rem;
   }
   .specialists__item_title {
     max-width: 30.8rem;
@@ -1560,6 +1584,7 @@ textarea.form__input {
   top: 2.4rem;
   background: linear-gradient(90deg, rgba(255,255,255,1),rgba(255,255,255,0));
   pointer-events: none;
+  z-index: 1;
 }
 .popup .calendar::before {
   background: linear-gradient(90deg, rgba(251,250,247,0),rgba(251,250,247,1));
