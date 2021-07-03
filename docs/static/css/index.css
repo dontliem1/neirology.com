@@ -182,7 +182,7 @@ a.btn {
   background-color: rgba(255,255,255,0);
   transition: background-color .5s, border-bottom-color .5s;
   will-change: background-color, border-bottom-color;
-  z-index: 3;
+  z-index: 4;
   border-bottom: 1px solid rgba(231, 230, 227, 0);
 }
 .header--sticky {
@@ -482,6 +482,9 @@ a.btn {
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
+}
+.hero--specialists {
+  background-position: 75% 100%;
 }
 .hero--specialist {
   background-position: top;
@@ -1048,6 +1051,7 @@ a.btn {
 .specialists__item {
   border-bottom: 1px solid #e7e6e3;
   padding-bottom: 1.5rem;
+  margin-bottom: 3rem;
 }
 .specialists__item_hero {
   display: block;
@@ -1169,9 +1173,10 @@ a.btn {
   margin-bottom: 1.5rem;
   display: flex;
 }
-.specialist__booking .btn {
+.specialist__booking > .btn {
   flex-grow: 1;
   max-width: 28em;
+  background-color: #f9f1dd;
 }
 .specialist__rating {
   font-size: 1.4rem;
@@ -1286,6 +1291,7 @@ a.btn {
     border-bottom: 0;
     padding-top: 3rem;
     padding-bottom: 0;
+    margin-bottom: 0;
     display: inline-block;
   }
   .specialists__item_hero {
@@ -1660,7 +1666,7 @@ textarea.form__input {
   background-color: #fff;
   color: inherit;
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 .popup .calendar__day[aria-selected=true] {
   background-color: #FBFAF7;
