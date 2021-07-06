@@ -213,6 +213,7 @@ a.btn {
 .header__logo-link {
   flex-basis: 13.3rem;
   margin-right: 1em;
+  transition: filter .2s;
 }
 .header__logo-link[href]:hover {
   filter: hue-rotate(205deg);
