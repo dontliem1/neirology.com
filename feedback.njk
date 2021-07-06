@@ -25,15 +25,17 @@ path: /feedback
     <form class="filter" action="" method="get">
       <fieldset class="filter__fieldset">
         <legend class="filter__fieldset_legend">Фильтры</legend>
-        <button class="filter__btn" type="button" aria-haspopup="dialog" aria-controls="filterProblems">Выберите проблемы</button>
-        <button class="filter__btn" type="button" aria-haspopup="dialog" aria-controls="filterProfile">Выберите профиль специалиста</button>
-        <button class="filter__btn" type="button" aria-haspopup="dialog" aria-controls="filterName">Выберите специалиста</button>
+        <!-- В .filter__btn_counter вставляем кол-во значений из соответствующего get параметра -->
+        <button class="filter__btn" type="button" aria-haspopup="dialog" aria-controls="filterProblems" name="problems">Выберите проблемы <span class="filter__btn_counter"></span></button>
+        <button class="filter__btn" type="button" aria-haspopup="dialog" aria-controls="filterProfile" name="profiles">Выберите профиль специалиста <span class="filter__btn_counter"></span></button>
+        <button class="filter__btn" type="button" aria-haspopup="dialog" aria-controls="filterName" name="specialists">Выберите специалиста <span class="filter__btn_counter"></span></button>
         <input class="filter__submit btn" type="submit" value="Показать">
       </fieldset>
+
       <dialog class="popup" id="filterProblems">
         <h3 class="popup__title">Проблемы</h3>
         <div class="popup__close">
-          <button class="popup__close_icon" type="button" aria-label="Закрыть окно" title="Закрыть" onclick="this.parentElement.parentElement.close();"></button>
+          <button class="popup__close_icon js-filter__close" type="button" aria-label="Закрыть окно" title="Закрыть" aria-controls="filterProblems"></button>
         </div>
         <fieldset class="filter__fieldset filter__fieldset--checkboxes">
           <legend class="filter__fieldset_legend">Выберите направления</legend>
@@ -63,13 +65,13 @@ path: /feedback
             </label>
           </p>
         </fieldset>
-        <button class="btn form__submit" type="button" onclick="this.parentElement.close();">Выбрать</button>
+        <button class="btn form__submit js-filter__close" type="button" aria-controls="filterProblems">Выбрать</button>
       </dialog>
 
       <dialog class="popup" id="filterProfile">
         <h3 class="popup__title">Специализация</h3>
         <div class="popup__close">
-          <button class="popup__close_icon" type="button" aria-label="Закрыть окно" title="Закрыть" onclick="this.parentElement.parentElement.close();"></button>
+          <button class="popup__close_icon js-filter__close" type="button" aria-label="Закрыть окно" title="Закрыть" aria-controls="filterProfile"></button>
         </div>
         <fieldset class="filter__fieldset filter__fieldset--checkboxes">
           <legend class="filter__fieldset_legend">Какой специалист интересует?</legend>
@@ -99,13 +101,13 @@ path: /feedback
             </label>
           </p>
         </fieldset>
-        <button class="btn form__submit" type="button" onclick="this.parentElement.close();">Выбрать</button>
+        <button class="btn form__submit js-filter__close" type="button" aria-controls="filterProfile">Выбрать</button>
       </dialog>
 
       <dialog class="popup" id="filterName">
         <h3 class="popup__title">Специалист</h3>
         <div class="popup__close">
-          <button class="popup__close_icon" type="button" aria-label="Закрыть окно" title="Закрыть" onclick="this.parentElement.parentElement.close();"></button>
+          <button class="popup__close_icon js-filter__close" type="button" aria-label="Закрыть окно" title="Закрыть" aria-controls="filterName"></button>
         </div>
         <fieldset class="filter__fieldset filter__fieldset--checkboxes">
           <legend class="filter__fieldset_legend">Выберите специалиста</legend>
@@ -135,7 +137,7 @@ path: /feedback
             </label>
           </p>
         </fieldset>
-        <button class="btn form__submit" type="button" onclick="this.parentElement.close();">Выбрать</button>
+        <button class="btn form__submit js-filter__close" type="button" aria-controls="filterName">Выбрать</button>
       </dialog>
 
     </form>
@@ -168,36 +170,6 @@ path: /feedback
 <!-- На страницах с вкладками подключаем van11y-accessible-tab-panel-aria -->
 <script src="{{ '/static/js/van11y-accessible-tab-panel-aria.min.js' | url }}"></script>
 <script>
-  // Оживляем кнопки Выбрать всё
-  const checkboxLists = document.getElementsByClassName('filter__fieldset--checkboxes');
-  for (let i = 0; i < checkboxLists.length; i++) {
-    let toggleAllBtn = checkboxLists[i].querySelector('.filter__all');
-    checkboxLists[i].addEventListener('change', function (e) {
-      let toggleAllBtn = e.currentTarget.querySelector('.filter__all');
-      let checkboxes = e.currentTarget.querySelectorAll('.filter__checkbox');
-      for (let j = 0; j < checkboxes.length; j++) {
-        if (checkboxes[j].checked === true) {
-          toggleAllBtn.innerText = 'Очистить';
-          return;
-        }
-      }
-      toggleAllBtn.innerText = 'Выбрать всё';
-    });
-    toggleAllBtn.addEventListener('click', function (e) {
-      let checkboxes = e.currentTarget.parentElement.querySelectorAll('.filter__checkbox');
-      if (e.currentTarget.innerText === 'Выбрать всё') {
-        for (let j = 0; j < checkboxes.length; j++) {
-          checkboxes[j].checked = true;
-        }
-        e.currentTarget.innerText = 'Очистить';
-      } else {
-        for (let j = 0; j < checkboxes.length; j++) {
-          checkboxes[j].checked = false;
-        }
-        e.currentTarget.innerText = 'Выбрать всё';
-      }
-    });
-  }
   // Оживляем кнопки Читать полностью
   const expandBtns = document.getElementsByClassName('feedback__expand');
   for (let i = 0; i < expandBtns.length; i++) {

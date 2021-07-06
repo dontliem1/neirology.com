@@ -235,16 +235,17 @@
   </p>
   <form class="filter" action="" method="get" id="filter" hidden>
     <fieldset class="filter__fieldset">
-      <button class="filter__btn" type="button" aria-haspopup="dialog" aria-controls="filterGender">Выберите пол специалиста</button>
-      <button class="filter__btn" type="button" aria-haspopup="dialog" aria-controls="filterProfile">На чём специализируется</button>
-      <button class="filter__btn" type="button" aria-haspopup="dialog" aria-controls="filterNuances">Выберите нюансы подхода</button>
+      <!-- В .filter__btn_counter вставляем кол-во значений из соответствующего get параметра -->
+      <button class="filter__btn" type="button" aria-haspopup="dialog" aria-controls="filterGender" name="gender">Выберите пол специалиста <span class="filter__btn_counter"></span></button>
+      <button class="filter__btn" type="button" aria-haspopup="dialog" aria-controls="filterProfile" name="profiles">На чём специализируется <span class="filter__btn_counter"></span></button>
+      <button class="filter__btn" type="button" aria-haspopup="dialog" aria-controls="filterNuances" name="nuances">Выберите нюансы подхода <span class="filter__btn_counter"></span></button>
       <input class="filter__submit btn" type="submit" value="Показать">
     </fieldset>
 
     <dialog class="popup" id="filterGender">
       <h3 class="popup__title">Пол специалиста</h3>
       <div class="popup__close">
-        <button class="popup__close_icon" type="button" aria-label="Закрыть окно" title="Закрыть" onclick="this.parentElement.parentElement.close();"></button>
+        <button class="popup__close_icon js-filter__close" type="button" aria-label="Закрыть окно" title="Закрыть" aria-controls="filterGender"></button>
       </div>
       <fieldset class="filter__fieldset filter__fieldset--checkboxes">
         <legend class="filter__fieldset_legend">С кем работать комфортнее?</legend>
@@ -273,13 +274,13 @@
           </label>
         </p>
       </fieldset>
-      <button class="btn form__submit" type="button" onclick="this.parentElement.close();">Выбрать</button>
+      <button class="btn form__submit js-filter__close" type="button" aria-controls="filterGender">Выбрать</button>
     </dialog>
 
     <dialog class="popup" id="filterProfile">
       <h3 class="popup__title">Специализация</h3>
       <div class="popup__close">
-        <button class="popup__close_icon" type="button" aria-label="Закрыть окно" title="Закрыть" onclick="this.parentElement.parentElement.close();"></button>
+        <button class="popup__close_icon js-filter__close" type="button" aria-label="Закрыть окно" title="Закрыть" aria-controls="filterProfile"></button>
       </div>
       <fieldset class="filter__fieldset filter__fieldset--checkboxes">
         <legend class="filter__fieldset_legend">Какого специалиста ищете?</legend>
@@ -309,13 +310,13 @@
           </label>
         </p>
       </fieldset>
-      <button class="btn form__submit" type="button" onclick="this.parentElement.close();">Выбрать</button>
+      <button class="btn form__submit js-filter__close" type="button" aria-controls="filterProfile">Выбрать</button>
     </dialog>
 
     <dialog class="popup" id="filterNuances">
       <h3 class="popup__title">Нюансы подхода</h3>
       <div class="popup__close">
-        <button class="popup__close_icon" type="button" aria-label="Закрыть окно" title="Закрыть" onclick="this.parentElement.parentElement.close();"></button>
+        <button class="popup__close_icon js-filter__close" type="button" aria-label="Закрыть окно" title="Закрыть" aria-controls="filterNuances"></button>
       </div>
       <fieldset class="filter__fieldset filter__fieldset--checkboxes">
         <legend class="filter__fieldset_legend">Что вам важно в терапии?</legend>
@@ -345,7 +346,7 @@
           </label>
         </p>
       </fieldset>
-      <button class="btn form__submit" type="button" onclick="this.parentElement.close();">Выбрать</button>
+      <button class="btn form__submit js-filter__close" type="button" aria-controls="filterNuances">Выбрать</button>
     </dialog>
 
   </form>
@@ -361,13 +362,10 @@
       <p class="specialist__description">Системный семейный психотерапевт, КПТ-терапевт</p>
       <p class="specialist__preview">Разработает схему вашей проблемы и шаги по ее устранению. Поддержит на пути реальных изменений. Покажет проблему, как она есть. Не приукрасит и не добавит чего-то своего. Демонстрирует в терапии альтернативное отношение, чтобы Вы смогли его прожить на собственном опыте, а не теоретически.</p>
       
-      <p class="specialist__booking">
-        <button class="btn" type="button" aria-haspopup="dialog" aria-controls="bookKuznecov">Записаться к Сергею</button>
-      </p>
+        <p class="specialist__rating"><span class="specialist__rating_star">★</span>5 <span class="color--gray">на основе 48 отзывов</span></p>
+        <a href="/neirology.com/specialists/kuznecov/" class="specialist__link btn">Подробнее о Сергее</a>
+        <button class="btn btn--gray" type="button" aria-haspopup="dialog" aria-controls="bookKuznecov">Записаться на приём</button>
       
-
-      <a href="/neirology.com/specialists/kuznecov/" class="specialist__link btn">Подробнее о Сергее</a>
-      <span class="specialist__rating"><span class="specialist__rating_star">★</span>5 <span class="color--gray">на основе 48 отзывов</span></span>
     </div>
   </li>
 
@@ -380,13 +378,10 @@
       <p class="specialist__description">Руководитель Самарского филиала. Главный врач. Психиатр. Психотерапевт</p>
       <p class="specialist__preview">Проявляет по-настоящему доброе, сочувственное отношение к пациентам. Отличное понимание нейрофизиологии помогает ей использовать самые современные, таргетированные (сфокусированные на проблеме), методы воздействия.</p>
       
-      <p class="specialist__booking">
-        <button class="btn" type="button" aria-haspopup="dialog" aria-controls="bookPozdyaeva">Записаться к Анастасии</button>
-      </p>
+        <p class="specialist__rating"><span class="specialist__rating_star">★</span>5 <span class="color--gray">на основе 48 отзывов</span></p>
+        <a href="/neirology.com/specialists/pozdyaeva/" class="specialist__link btn">Подробнее об Анастасии</a>
+        <button class="btn btn--gray" type="button" aria-haspopup="dialog" aria-controls="bookPozdyaeva">Записаться на приём</button>
       
-
-      <a href="/neirology.com/specialists/pozdyaeva/" class="specialist__link btn">Подробнее об Анастасии</a>
-      <span class="specialist__rating"><span class="specialist__rating_star">★</span>5 <span class="color--gray">на основе 48 отзывов</span></span>
     </div>
   </li>
 
@@ -453,40 +448,6 @@
 </div>
 <!-- На страницах с вкладками подключаем van11y-accessible-tab-panel-aria -->
 <script src="/neirology.com/static/js/van11y-accessible-tab-panel-aria.min.js"></script>
-<script>
-  // Оживляем кнопки Выбрать всё
-  const checkboxLists = document.getElementsByClassName('filter__fieldset--checkboxes');
-  for (let i = 0; i < checkboxLists.length; i++) {
-    let toggleAllBtn = checkboxLists[i].querySelector('.filter__all');
-    if (toggleAllBtn) {
-        checkboxLists[i].addEventListener('change', function (e) {
-            let toggleAllBtn = e.currentTarget.querySelector('.filter__all');
-            let checkboxes = e.currentTarget.querySelectorAll('.filter__checkbox');
-            for (let j = 0; j < checkboxes.length; j++) {
-                if (checkboxes[j].checked === true) {
-                    toggleAllBtn.innerText = 'Очистить';
-                    return;
-                }
-            }
-            toggleAllBtn.innerText = 'Выбрать всё';
-        });
-        toggleAllBtn.addEventListener('click', function (e) {
-            let checkboxes = e.currentTarget.parentElement.querySelectorAll('.filter__checkbox');
-            if (e.currentTarget.innerText === 'Выбрать всё') {
-                for (let j = 0; j < checkboxes.length; j++) {
-                    checkboxes[j].checked = true;
-                }
-                e.currentTarget.innerText = 'Очистить';
-            } else {
-                for (let j = 0; j < checkboxes.length; j++) {
-                    checkboxes[j].checked = false;
-                }
-                e.currentTarget.innerText = 'Выбрать всё';
-            }
-        });
-    }
-  }
-</script>
 
 
     </main>
@@ -635,6 +596,8 @@
 
           // Создаем DOM-элементы
           // Список месяцев
+          let monthWrapper = document.createElement('div');
+          monthWrapper.classList.add('calendar__months_wrapper');
           let monthElements = document.createElement('ul');
           monthElements.classList.add('calendar__months');
           for (const month in months) {
@@ -657,9 +620,10 @@
                 dayElement.type = 'button';
                 dayElement.value = day;
                 dayElement.onclick = function() {
+                  const calendar = this.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
                   this.scrollIntoView({behavior: "smooth", inline: "start", block: "nearest"});
-                  this.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector('.calendar__times[aria-expanded=true]').removeAttribute('aria-expanded');
-                  let fieldsets = this.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll('.calendar__times');
+                  calendar.querySelector('.calendar__times[aria-expanded=true]').removeAttribute('aria-expanded');
+                  let fieldsets = calendar.querySelectorAll('.calendar__times');
                   for (const fieldset of fieldsets) {
                     if (fieldset.hasAttribute('aria-expanded')) {
                       fieldset.removeAttribute('aria-expanded');
@@ -668,7 +632,7 @@
                       fieldset.setAttribute('aria-expanded', 'true');
                     }
                   }
-                  this.parentElement.parentElement.parentElement.parentElement.querySelector('.calendar__day[aria-selected=true]').removeAttribute('aria-selected');
+                  calendar.querySelector('.calendar__day[aria-selected=true]').removeAttribute('aria-selected');
                   this.setAttribute('aria-selected', 'true');
                 }
               }
@@ -693,7 +657,8 @@
             monthElements.appendChild(monthElement);
           }
           monthElements.querySelector('button.calendar__day').setAttribute('aria-selected', 'true');
-          calendars[i].appendChild(monthElements);
+          monthWrapper.appendChild(monthElements);
+          calendars[i].appendChild(monthWrapper);
 
           // Кнопка далее
           let nextDayBtn = document.createElement('button');
@@ -793,6 +758,57 @@
         } else {
           //Если окошек нет.
           calendars[i].textContent = 'Нет доступных окошек для записи.';
+        }
+      }
+    </script>
+    <script>
+      let filterCloseBtns = document.getElementsByClassName('js-filter__close');
+      for (let i = 0; i < filterCloseBtns.length; i++) {
+        filterCloseBtns[i].addEventListener('click', function(e) {
+          const dialog = document.getElementById(e.target.getAttribute('aria-controls'));
+          const dialogInputs = dialog.querySelectorAll('input');
+          let filterCounter = 0;
+          for (let j = 0; j < dialogInputs.length; j++) {
+            if (dialogInputs[j].checked) {
+              filterCounter++;
+            }
+          }
+          document.querySelector('.filter__btn[aria-controls="' + dialog.id + '"] .filter__btn_counter').innerText = filterCounter > 0 ? filterCounter : '';
+          dialog.close();
+        })
+      }
+    </script>
+    <script>
+      // Оживляем кнопки Выбрать всё
+      const checkboxLists = document.getElementsByClassName('filter__fieldset--checkboxes');
+      for (let i = 0; i < checkboxLists.length; i++) {
+        let toggleAllBtn = checkboxLists[i].querySelector('.filter__all');
+        if (toggleAllBtn) {
+          checkboxLists[i].addEventListener('change', function (e) {
+            let toggleAllBtn = e.currentTarget.querySelector('.filter__all');
+            let checkboxes = e.currentTarget.querySelectorAll('.filter__checkbox');
+            for (let j = 0; j < checkboxes.length; j++) {
+              if (checkboxes[j].checked === true) {
+                toggleAllBtn.innerText = 'Очистить';
+                return;
+              }
+            }
+            toggleAllBtn.innerText = 'Выбрать всё';
+          });
+          toggleAllBtn.addEventListener('click', function (e) {
+            let checkboxes = e.currentTarget.parentElement.querySelectorAll('.filter__checkbox');
+            if (e.currentTarget.innerText === 'Выбрать всё') {
+              for (let j = 0; j < checkboxes.length; j++) {
+                checkboxes[j].checked = true;
+              }
+              e.currentTarget.innerText = 'Очистить';
+            } else {
+              for (let j = 0; j < checkboxes.length; j++) {
+                checkboxes[j].checked = false;
+              }
+              e.currentTarget.innerText = 'Выбрать всё';
+            }
+          });
         }
       }
     </script>

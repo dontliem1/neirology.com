@@ -15,7 +15,7 @@ templateClass: tmpl-specialist
   </div>
   <div class="specialist__calendar">
     <p class="specialist__booking">
-      <button class="btn" type="button" aria-haspopup="dialog" aria-controls="book{{ id }}">{{ booking }}</button>
+      <button class="btn" type="button" aria-haspopup="dialog" aria-controls="book{{ id }}">Записаться на приём</button>
     </p>
   </div>
   <div class="specialist__content">
@@ -65,7 +65,7 @@ templateClass: tmpl-specialist
         <ul class="feedback__offline">
           {%- for entry in metadata.offlineFeedback %}
             <li class="feedback__offline_item">
-              <a class="feedback__offline_link" href="{{ entry.img | url }}" aria-expanded="false">
+              <a class="feedback__offline_link js-img__expand" href="{{ entry.img | url }}" aria-expanded="false">
                 <img class="feedback__offline_img" src="{{ entry.img | url }}" alt="Фотография отзыва." width="64" height="88">
               </a>
               <div class="feedback__offline_info">
@@ -88,7 +88,7 @@ templateClass: tmpl-specialist
         Здесь будут онлайн-отзывы
       </div>
     </div>
-    <h2 class="specialist__heading specialist__heading--big">Дипломы и сертификаты</h2>
+    <h2 class="specialist__heading specialist__heading--big">Дипломы и сертификаты</h2>
     <ul class="specialist__certificates">
       {%- for certificate in certificates %}
         <li class="specialist__certificate">

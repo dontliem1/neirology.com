@@ -233,7 +233,7 @@
   </div>
   <div class="specialist__calendar">
     <p class="specialist__booking">
-      <button class="btn" type="button" aria-haspopup="dialog" aria-controls="bookKuznecov">Записаться к Сергею</button>
+      <button class="btn" type="button" aria-haspopup="dialog" aria-controls="bookKuznecov">Записаться на приём</button>
     </p>
   </div>
   <div class="specialist__content">
@@ -282,11 +282,11 @@
         <h2 class="invisible">Отзывы, оставленные в клиниках</h2>
         <ul class="feedback__offline">
             <li class="feedback__offline_item">
-              <a class="feedback__offline_link" href="https://neirology.com/uploads/feedback/kuz04.jpg" aria-expanded="false">
+              <a class="feedback__offline_link js-img__expand" href="https://neirology.com/uploads/feedback/kuz04.jpg" aria-expanded="false">
                 <img class="feedback__offline_img" src="https://neirology.com/uploads/feedback/kuz04.jpg" alt="Фотография отзыва." width="64" height="88">
               </a>
               <div class="feedback__offline_info">
-                <h3 class="feedback__offline_title">О терапии депресии у Кузнецова</h3>
+                <h3 class="feedback__offline_title">О терапии депресии у Кузнецова</h3>
                 <dl class="feedback__offline_description">
                   <dt class="feedback__offline_heading">Жалобы</dt>
                   <dd class="feedback__offline_text">Тревожное расстройство, панические атаки.</dd>
@@ -297,11 +297,11 @@
               </div>
             </li>
             <li class="feedback__offline_item">
-              <a class="feedback__offline_link" href="https://neirology.com/uploads/feedback/sev16.jpg" aria-expanded="false">
+              <a class="feedback__offline_link js-img__expand" href="https://neirology.com/uploads/feedback/sev16.jpg" aria-expanded="false">
                 <img class="feedback__offline_img" src="https://neirology.com/uploads/feedback/sev16.jpg" alt="Фотография отзыва." width="64" height="88">
               </a>
               <div class="feedback__offline_info">
-                <h3 class="feedback__offline_title">О терапии тревоги у Рузанова</h3>
+                <h3 class="feedback__offline_title">О терапии тревоги у Рузанова</h3>
                 <dl class="feedback__offline_description">
                   <dt class="feedback__offline_heading">Жалобы</dt>
                   <dd class="feedback__offline_text">Тревожное расстройство, панические атаки.</dd>
@@ -312,11 +312,11 @@
               </div>
             </li>
             <li class="feedback__offline_item">
-              <a class="feedback__offline_link" href="https://neirology.com/uploads/feedback/kuz04.jpg" aria-expanded="false">
+              <a class="feedback__offline_link js-img__expand" href="https://neirology.com/uploads/feedback/kuz04.jpg" aria-expanded="false">
                 <img class="feedback__offline_img" src="https://neirology.com/uploads/feedback/kuz04.jpg" alt="Фотография отзыва." width="64" height="88">
               </a>
               <div class="feedback__offline_info">
-                <h3 class="feedback__offline_title">О терапии депрессии у Рузанова</h3>
+                <h3 class="feedback__offline_title">О терапии депрессии у Рузанова</h3>
                 <dl class="feedback__offline_description">
                   <dt class="feedback__offline_heading">Жалобы</dt>
                   <dd class="feedback__offline_text">Тревожное расстройство, панические атаки.</dd>
@@ -334,7 +334,7 @@
         Здесь будут онлайн-отзывы
       </div>
     </div>
-    <h2 class="specialist__heading specialist__heading--big">Дипломы и сертификаты</h2>
+    <h2 class="specialist__heading specialist__heading--big">Дипломы и сертификаты</h2>
     <ul class="specialist__certificates">
         <li class="specialist__certificate">
           <a class="specialist__certificate_link js-img__expand" href="https://neirology.com/uploads/feedback/kuz04.jpg" aria-expanded="false">
@@ -572,6 +572,8 @@
 
           // Создаем DOM-элементы
           // Список месяцев
+          let monthWrapper = document.createElement('div');
+          monthWrapper.classList.add('calendar__months_wrapper');
           let monthElements = document.createElement('ul');
           monthElements.classList.add('calendar__months');
           for (const month in months) {
@@ -594,9 +596,10 @@
                 dayElement.type = 'button';
                 dayElement.value = day;
                 dayElement.onclick = function() {
+                  const calendar = this.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
                   this.scrollIntoView({behavior: "smooth", inline: "start", block: "nearest"});
-                  this.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector('.calendar__times[aria-expanded=true]').removeAttribute('aria-expanded');
-                  let fieldsets = this.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll('.calendar__times');
+                  calendar.querySelector('.calendar__times[aria-expanded=true]').removeAttribute('aria-expanded');
+                  let fieldsets = calendar.querySelectorAll('.calendar__times');
                   for (const fieldset of fieldsets) {
                     if (fieldset.hasAttribute('aria-expanded')) {
                       fieldset.removeAttribute('aria-expanded');
@@ -605,7 +608,7 @@
                       fieldset.setAttribute('aria-expanded', 'true');
                     }
                   }
-                  this.parentElement.parentElement.parentElement.parentElement.querySelector('.calendar__day[aria-selected=true]').removeAttribute('aria-selected');
+                  calendar.querySelector('.calendar__day[aria-selected=true]').removeAttribute('aria-selected');
                   this.setAttribute('aria-selected', 'true');
                 }
               }
@@ -630,7 +633,8 @@
             monthElements.appendChild(monthElement);
           }
           monthElements.querySelector('button.calendar__day').setAttribute('aria-selected', 'true');
-          calendars[i].appendChild(monthElements);
+          monthWrapper.appendChild(monthElements);
+          calendars[i].appendChild(monthWrapper);
 
           // Кнопка далее
           let nextDayBtn = document.createElement('button');
@@ -730,6 +734,57 @@
         } else {
           //Если окошек нет.
           calendars[i].textContent = 'Нет доступных окошек для записи.';
+        }
+      }
+    </script>
+    <script>
+      let filterCloseBtns = document.getElementsByClassName('js-filter__close');
+      for (let i = 0; i < filterCloseBtns.length; i++) {
+        filterCloseBtns[i].addEventListener('click', function(e) {
+          const dialog = document.getElementById(e.target.getAttribute('aria-controls'));
+          const dialogInputs = dialog.querySelectorAll('input');
+          let filterCounter = 0;
+          for (let j = 0; j < dialogInputs.length; j++) {
+            if (dialogInputs[j].checked) {
+              filterCounter++;
+            }
+          }
+          document.querySelector('.filter__btn[aria-controls="' + dialog.id + '"] .filter__btn_counter').innerText = filterCounter > 0 ? filterCounter : '';
+          dialog.close();
+        })
+      }
+    </script>
+    <script>
+      // Оживляем кнопки Выбрать всё
+      const checkboxLists = document.getElementsByClassName('filter__fieldset--checkboxes');
+      for (let i = 0; i < checkboxLists.length; i++) {
+        let toggleAllBtn = checkboxLists[i].querySelector('.filter__all');
+        if (toggleAllBtn) {
+          checkboxLists[i].addEventListener('change', function (e) {
+            let toggleAllBtn = e.currentTarget.querySelector('.filter__all');
+            let checkboxes = e.currentTarget.querySelectorAll('.filter__checkbox');
+            for (let j = 0; j < checkboxes.length; j++) {
+              if (checkboxes[j].checked === true) {
+                toggleAllBtn.innerText = 'Очистить';
+                return;
+              }
+            }
+            toggleAllBtn.innerText = 'Выбрать всё';
+          });
+          toggleAllBtn.addEventListener('click', function (e) {
+            let checkboxes = e.currentTarget.parentElement.querySelectorAll('.filter__checkbox');
+            if (e.currentTarget.innerText === 'Выбрать всё') {
+              for (let j = 0; j < checkboxes.length; j++) {
+                checkboxes[j].checked = true;
+              }
+              e.currentTarget.innerText = 'Очистить';
+            } else {
+              for (let j = 0; j < checkboxes.length; j++) {
+                checkboxes[j].checked = false;
+              }
+              e.currentTarget.innerText = 'Выбрать всё';
+            }
+          });
         }
       }
     </script>
