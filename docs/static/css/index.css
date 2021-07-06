@@ -1729,6 +1729,7 @@ textarea.form__input {
   margin: 0;
   color: #a09f9d;
   text-transform: capitalize;
+  transition: color .2s;
 }
 .calendar__day--today {
   background: url("data:image/svg+xml,%3Csvg viewBox='0 0 6 8' version='1.1' xmlns='http://www.w3.org/2000/svg' fill='%23FFBC00'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3C/svg%3E") bottom /.6rem no-repeat;
@@ -1736,6 +1737,9 @@ textarea.form__input {
 .calendar__day:enabled:not([aria-selected=true]) {
   cursor: pointer;
   color: inherit;
+}
+.calendar__day:enabled:not([aria-selected=true]):hover {
+  color: #710EB1;
 }
 .calendar__day:enabled:active {
   color: inherit;
@@ -1753,7 +1757,7 @@ textarea.form__input {
   z-index: 3;
 }
 .calendar__next {
-  background: #EAE9E6;
+  background-color: hsl(45, 9%, 91%);
   padding: 2rem;
   border: 0;
   border-radius: 2rem;
@@ -1763,6 +1767,10 @@ textarea.form__input {
   cursor: pointer;
   margin: 0;
   z-index: 1;
+  transition: background-color .2s;
+}
+.calendar__next:hover {
+  background-color: hsl(45, 9%, 94%);
 }
 .calendar__next::before {
   content: '';
