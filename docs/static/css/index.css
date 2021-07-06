@@ -103,7 +103,7 @@ a.btn {
   color: #710EB1;
 }
 .btn--text {
-  color: #710EB1;
+  color: hsl(276, 85%, 37%);
   padding: 0;
   border: 0;
   border-radius: 0;
@@ -112,6 +112,9 @@ a.btn {
   cursor: pointer;
   margin: 0;
   transition: color .2s;
+}
+.btn--text:hover {
+  color: hsl(276, 85%, 47%);
 }
 
 /* Banner */
@@ -357,7 +360,7 @@ a.btn {
   overflow-y: auto;
   max-height: calc(100vh - 8.5rem);
   -ms-overflow-style: none;
-  background-color: #fff;
+  background-color: #FBFAF7;
   border: 1px solid #d1d1d1;
   margin: 0 0 0 -1.12em;
   animation: fade-in-bottom 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
@@ -791,6 +794,10 @@ a.btn {
 }
 .js-img__expand {
   cursor: zoom-in;
+  transition: filter .2s;
+}
+.js-img__expand[aria-expanded="false"]:hover {
+  filter: brightness(1.05);
 }
 .js-img__expand > img {
   width: 100%;
@@ -806,7 +813,7 @@ a.btn {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #fff;
+  background-color: #FBFAF7;
   z-index: 5;
   max-width: none;
   margin: 0;
@@ -1170,6 +1177,9 @@ a.btn {
   margin-top: 0;
   margin-bottom: 1.5rem;
 }
+.specialist__calendar {
+  max-width: 40em;
+}
 .specialist__heading {
   font-family: 'Atyp', -apple-system, system-ui, sans-serif;
   font-size: 2.2rem;
@@ -1332,6 +1342,7 @@ a.btn {
     display: block;
     padding: 22rem 2rem 2rem;
     flex-basis: auto;
+    background-position-x: 50%;
   }
   .specialists .specialists__item_hero {
     border-bottom-left-radius: 0;
@@ -1474,6 +1485,7 @@ dialog.fixed {
   overflow-y: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  max-width: 100%;
 }
 .popup::-webkit-scrollbar {
   display: none;
@@ -1552,7 +1564,7 @@ dialog.fixed {
   line-height: 1.45;
 }
 .form__input {
-  background: #EAE9E6;
+  background-color: hsl(45, 9%, 91%);
   border-radius: .5em;
   font: inherit;
   margin: 0;
@@ -1561,6 +1573,10 @@ dialog.fixed {
   line-height: 1.45;
   box-sizing: border-box;
   max-width: 100%;
+  transition: background-color .2s;
+}
+.form__input:hover {
+  background-color: hsl(45, 9%, 94%);
 }
 textarea.form__input {
   min-height: 4em;
@@ -1645,6 +1661,10 @@ textarea.form__input {
   bottom: 2px;
   background: linear-gradient(90deg, rgba(251, 250, 247, 1), rgba(251, 250, 247, 0) 1.6rem);
   pointer-events: none;
+}
+.calendar__months_wrapper--ios::before,
+.calendar__months_wrapper--ios::after {
+  content: none;
 }
 .calendar__months_wrapper {
   overflow-x: hidden;
@@ -1762,12 +1782,16 @@ textarea.form__input {
 .calendar__time {
   cursor: pointer;
   border: 1px solid #FFBC00;
-  background-color: #f9f1dd;
+  background-color: hsl(43, 70%, 92%);
   border-radius: .8rem;
   font: inherit;
   padding: .3rem .9rem;
   margin: 0 1rem 1rem 0;
   color: inherit;
+  transition: background-color .2s;
+}
+.calendar__time:hover {
+  background-color: hsl(43, 70%, 95%);
 }
 .calendar__time_wrapper {
   display: inline-block;
@@ -1775,15 +1799,21 @@ textarea.form__input {
   position: relative;
 }
 .calendar__time_wrapper span {
-  cursor: pointer;
   border: 1px solid #FFBC00;
-  background-color: #f9f1dd;
+  background-color: hsl(43, 70%, 92%);
   border-radius: .8rem;
   display: block;
   padding: .3rem .9rem;
+  transition: background-color .2s;
+}
+.calendar__time_wrapper:hover span {
+  background-color: hsl(43, 70%, 95%);
 }
 .calendar__time_wrapper input:checked + span {
   background-color: #FFBC00;
+}
+.calendar__time_wrapper input:not(:checked) + span {
+  cursor: pointer;
 }
 .calendar__time_wrapper input:focus + span {
   outline: auto;

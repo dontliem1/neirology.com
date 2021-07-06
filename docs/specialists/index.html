@@ -598,6 +598,9 @@
           // Список месяцев
           let monthWrapper = document.createElement('div');
           monthWrapper.classList.add('calendar__months_wrapper');
+          if (['iPad Simulator', 'iPhone Simulator', 'iPod Simulator', 'iPad', 'iPhone', 'iPod'].includes(navigator.platform) || (navigator.userAgent.includes("Mac") && "ontouchend" in document)) {
+            monthWrapper.classList.add('calendar__months_wrapper calendar__months_wrapper--ios');
+          }
           let monthElements = document.createElement('ul');
           monthElements.classList.add('calendar__months');
           for (const month in months) {
