@@ -1662,9 +1662,11 @@ textarea.form__input {
   background: linear-gradient(90deg, rgba(251, 250, 247, 1), rgba(251, 250, 247, 0) 1.6rem);
   pointer-events: none;
 }
-.calendar__months_wrapper--ios::before,
-.calendar__months_wrapper--ios::after {
-  content: none;
+@supports (-webkit-touch-callout: none) {
+  .calendar__months_wrapper::before,
+  .calendar__months_wrapper::after {
+    content: none;
+  }
 }
 .calendar__months_wrapper {
   overflow-x: hidden;
