@@ -214,6 +214,9 @@ a.btn {
   flex-basis: 13.3rem;
   margin-right: 1em;
 }
+.header__logo-link[href]:hover {
+  filter: hue-rotate(205deg);
+}
 .header__logo-img {
   width: 100%;
   height: auto;
@@ -1095,10 +1098,14 @@ a.btn {
   font-size: 2.4rem;
   padding: .25em;
   border-radius: .4rem;
-  background-color: #FEEDCB;
+  background-color: hsl(40, 96%, 90%);
   display: block;
   line-height: 1.1;
   max-width: 13.75em;
+  transition: background-color .2s;
+}
+.specialists__item_hero:hover .specialists__item_title {
+  background-color: hsl(40, 96%, 94%);
 }
 .specialists__item_text {
   padding-top: 1.5rem;
@@ -1237,6 +1244,7 @@ a.btn {
   right: 0;
   background-image: linear-gradient(rgba(251, 250, 247, 0) 50%, rgba(251, 250, 247, 1));
   pointer-events: none;
+  z-index: 1;
 }
 .js-tabcontent--abriged .js-tabcontent__expand {
   display: block;
@@ -1247,6 +1255,7 @@ a.btn {
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 1;
 }
 .specialist__content .js-tabs {
   margin-bottom: 2.5rem;
