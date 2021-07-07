@@ -408,7 +408,24 @@
   </div>
   <div id="online" class="js-tabcontent">
     <h2 class="js-tabcontent__heading">Рейтинг клиники на независимых порталах</h2>
-    Здесь будут онлайн-отзывы
+    <ul class="feedback__online">
+        <li class="feedback__online_item">
+          <a class="feedback__online_link" href=".">
+            <img class="feedback__online_logo" src="/neirology.com/static/img/prodoktorov.svg" alt="Про Докторов" width="200">
+            <p class="feedback__online_rating">4.3</p>
+            <span class="feedback__online_stars"><span class="feedback__online_star">★</span><span class="feedback__online_star">★</span><span class="feedback__online_star">★</span><span class="feedback__online_star">★</span></span>
+            <p class="feedback__online_number">Отзывов: 856</p>
+          </a>
+        </li>
+        <li class="feedback__online_item">
+          <a class="feedback__online_link" href=".">
+            <img class="feedback__online_logo" src="/neirology.com/static/img/sberhealth.svg" alt="Сбер Здоровье" width="200">
+            <p class="feedback__online_rating">5.0</p>
+            <span class="feedback__online_stars"><span class="feedback__online_star">★</span><span class="feedback__online_star">★</span><span class="feedback__online_star">★</span><span class="feedback__online_star">★</span><span class="feedback__online_star">★</span></span>
+            <p class="feedback__online_number">Отзывов: 1890</p>
+          </a>
+        </li>
+    </ul>
   </div>
 </div>
 
@@ -528,6 +545,30 @@
       }
     </script>
     <script>
+      if (!("scrollBehavior" in document.documentElement.style)) {
+        function scrollTo(element, to, duration) {
+          var start = element.scrollLeft,
+            change = to - start,
+            currentTime = 0,
+            increment = 20;
+          var animateScroll = function(){
+            currentTime += increment;
+            var val = Math.easeInOutQuad(currentTime, start, change, duration);
+            element.scrollLeft = val;
+            if(currentTime < duration) {
+              setTimeout(animateScroll, increment);
+            }
+          };
+          animateScroll();
+        }
+
+        Math.easeInOutQuad = function (t, b, c, d) {
+          t /= d/2;
+          if (t < 1) return c/2*t*t + b;
+          t--;
+          return -c/2 * (t*(t-2) - 1) + b;
+        };
+      }
       let calendars = document.getElementsByClassName('calendar');
       for (let i = 0; i < calendars.length; i++) {
         // Парсим окошки в массив datesWithTimes
@@ -571,6 +612,23 @@
           }
 
           // Создаем DOM-элементы
+
+          // Кнопка назад
+          let previousDayBtn = document.createElement('button');
+          previousDayBtn.type = 'button';
+          previousDayBtn.classList.add('calendar__prev');
+          previousDayBtn.setAttribute('aria-label', 'Прошлые даты');
+          previousDayBtn.title = 'Прошлые даты';
+          previousDayBtn.onclick = function() {
+            let days = this.parentElement.querySelector('.calendar__months');
+            if (!("scrollBehavior" in document.documentElement.style)) {
+              scrollTo(days, days.scrollLeft - days.clientWidth, 600);
+            } else {
+              days.scrollLeft -= days.clientWidth;
+            }
+          }
+          calendars[i].appendChild(previousDayBtn);
+
           // Список месяцев
           let monthWrapper = document.createElement('div');
           monthWrapper.classList.add('calendar__months_wrapper');
@@ -597,7 +655,7 @@
                 dayElement.value = day;
                 dayElement.onclick = function() {
                   const calendar = this.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
-                  this.scrollIntoView({behavior: "smooth", inline: "start", block: "nearest"});
+                  this.scrollIntoView({behavior: "smooth", inline: "nearest", block: "nearest"});
                   calendar.querySelector('.calendar__times[aria-expanded=true]').removeAttribute('aria-expanded');
                   let fieldsets = calendar.querySelectorAll('.calendar__times');
                   for (const fieldset of fieldsets) {
@@ -640,19 +698,14 @@
           let nextDayBtn = document.createElement('button');
           nextDayBtn.type = 'button';
           nextDayBtn.classList.add('calendar__next');
-          nextDayBtn.setAttribute('aria-label', 'Далее');
-          nextDayBtn.title = 'Далее';
+          nextDayBtn.setAttribute('aria-label', 'Следующие даты');
+          nextDayBtn.title = 'Следующие даты';
           nextDayBtn.onclick = function() {
-            let dayBtns = this.parentElement.querySelectorAll('button.calendar__day');
-            for (let j = 0; j < dayBtns.length; j++) {
-              if (dayBtns[j].hasAttribute('aria-selected')) {
-                if (j === dayBtns.length - 1) {
-                  dayBtns[0].click();
-                } else {
-                  dayBtns[j+1].click();
-                }
-                return;
-              }
+            let days = this.parentElement.querySelector('.calendar__months');
+            if (!("scrollBehavior" in document.documentElement.style)) {
+              scrollTo(days, days.scrollLeft + days.clientWidth, 600);
+            } else {
+              days.scrollLeft += days.clientWidth;
             }
           }
           calendars[i].appendChild(nextDayBtn);
@@ -703,7 +756,7 @@
                       }
                     }
                     dialog.showModal();
-                    dialog.querySelector('.calendar__day[aria-selected=true]').scrollIntoView({behavior: "smooth", inline: "nearest"});
+                    dialog.querySelector('.calendar__months').scrollLeft = this.parentElement.parentElement.querySelector('.calendar__months').scrollLeft;
                   }
                 }
                 timesElement.appendChild(timeBtn);

@@ -11,7 +11,7 @@
       {% if calendar === true %}
         <!-- в [data-dates] помещаем свободные окошки через запятую в порядке возрастания -->
         <!-- если календарь не в попапе, добавляем [data-popup] с id попапа записи -->
-        <div class="calendar specialist__booking" data-dates="2021-07-02T11:00:00,2021-08-05T12:00:00,2021-08-06T10:00:00,2021-08-06T13:00:00,2021-08-06T15:00:00,2021-08-06T17:00:00" data-popup="book{{ specialist.data.id }}"></div>
+        <div class="calendar specialist__booking" data-dates="2021-07-12T11:00:00,2021-08-05T12:00:00,2021-08-06T10:00:00,2021-08-06T13:00:00,2021-08-06T15:00:00,2021-08-06T17:00:00" data-popup="book{{ specialist.data.id }}"></div>
       <a href="{% if calendar === true %}{{ '/specialist-calendar' | url }}{% else %}{{ specialist.url | url }}{% endif %}" class="specialist__link btn">{{ specialist.data.btn }}</a>
       <p class="specialist__rating"><span class="specialist__rating_star">★</span>5 <span class="color--gray">на основе 48 отзывов</span></p>
       {% else %}
@@ -33,7 +33,7 @@
     <form class="popup__form" action="" method="post">
       {% if calendar === true %}
         <!-- в [data-dates] помещаем свободные окошки через запятую в порядке возрастания -->
-        <div class="calendar specialist__booking" data-dates="2021-07-02T11:00:00,2021-08-05T12:00:00,2021-08-06T10:00:00,2021-08-06T13:00:00,2021-08-06T15:00:00,2021-08-06T17:00:00"></div>
+        <div class="calendar specialist__booking" data-dates="2021-07-12T11:00:00,2021-08-05T12:00:00,2021-08-06T10:00:00,2021-08-06T13:00:00,2021-08-06T15:00:00,2021-08-06T17:00:00"></div>
       {% endif %}
       <p class="form__row">
         <label class="form__label" for="callbackName">Ваши имя и фамилия</label>

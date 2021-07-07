@@ -162,6 +162,22 @@
       "img": "https://neirology.com/uploads/feedback/kuz04.jpg"
     }
   ],
+  "onlineFeedback": [
+    {
+      "title": "Про Докторов",
+      "url": "",
+      "rating": "4.3",
+      "rates": 856,
+      "img": "/static/img/prodoktorov.svg"
+    },
+    {
+      "title": "Сбер Здоровье",
+      "url": "",
+      "rating": "5.0",
+      "rates": 1890,
+      "img": "/static/img/sberhealth.svg"
+    }
+  ],
   "footNav": [
     {
       "label": "Первичные консультации",

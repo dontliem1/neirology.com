@@ -364,7 +364,7 @@
       
         <!-- в [data-dates] помещаем свободные окошки через запятую в порядке возрастания -->
         <!-- если календарь не в попапе, добавляем [data-popup] с id попапа записи -->
-        <div class="calendar specialist__booking" data-dates="2021-07-02T11:00:00,2021-08-05T12:00:00,2021-08-06T10:00:00,2021-08-06T13:00:00,2021-08-06T15:00:00,2021-08-06T17:00:00" data-popup="bookKuznecov"></div>
+        <div class="calendar specialist__booking" data-dates="2021-07-12T11:00:00,2021-08-05T12:00:00,2021-08-06T10:00:00,2021-08-06T13:00:00,2021-08-06T15:00:00,2021-08-06T17:00:00" data-popup="bookKuznecov"></div>
       <a href="/neirology.com/specialist-calendar" class="specialist__link btn">Подробнее о Сергее</a>
       <p class="specialist__rating"><span class="specialist__rating_star">★</span>5 <span class="color--gray">на основе 48 отзывов</span></p>
       
@@ -382,7 +382,7 @@
       
         <!-- в [data-dates] помещаем свободные окошки через запятую в порядке возрастания -->
         <!-- если календарь не в попапе, добавляем [data-popup] с id попапа записи -->
-        <div class="calendar specialist__booking" data-dates="2021-07-02T11:00:00,2021-08-05T12:00:00,2021-08-06T10:00:00,2021-08-06T13:00:00,2021-08-06T15:00:00,2021-08-06T17:00:00" data-popup="bookPozdyaeva"></div>
+        <div class="calendar specialist__booking" data-dates="2021-07-12T11:00:00,2021-08-05T12:00:00,2021-08-06T10:00:00,2021-08-06T13:00:00,2021-08-06T15:00:00,2021-08-06T17:00:00" data-popup="bookPozdyaeva"></div>
       <a href="/neirology.com/specialist-calendar" class="specialist__link btn">Подробнее об Анастасии</a>
       <p class="specialist__rating"><span class="specialist__rating_star">★</span>5 <span class="color--gray">на основе 48 отзывов</span></p>
       
@@ -400,7 +400,7 @@
     <form class="popup__form" action="" method="post">
       
         <!-- в [data-dates] помещаем свободные окошки через запятую в порядке возрастания -->
-        <div class="calendar specialist__booking" data-dates="2021-07-02T11:00:00,2021-08-05T12:00:00,2021-08-06T10:00:00,2021-08-06T13:00:00,2021-08-06T15:00:00,2021-08-06T17:00:00"></div>
+        <div class="calendar specialist__booking" data-dates="2021-07-12T11:00:00,2021-08-05T12:00:00,2021-08-06T10:00:00,2021-08-06T13:00:00,2021-08-06T15:00:00,2021-08-06T17:00:00"></div>
       
       <p class="form__row">
         <label class="form__label" for="callbackName">Ваши имя и фамилия</label>
@@ -431,7 +431,7 @@
     <form class="popup__form" action="" method="post">
       
         <!-- в [data-dates] помещаем свободные окошки через запятую в порядке возрастания -->
-        <div class="calendar specialist__booking" data-dates="2021-07-02T11:00:00,2021-08-05T12:00:00,2021-08-06T10:00:00,2021-08-06T13:00:00,2021-08-06T15:00:00,2021-08-06T17:00:00"></div>
+        <div class="calendar specialist__booking" data-dates="2021-07-12T11:00:00,2021-08-05T12:00:00,2021-08-06T10:00:00,2021-08-06T13:00:00,2021-08-06T15:00:00,2021-08-06T17:00:00"></div>
       
       <p class="form__row">
         <label class="form__label" for="callbackName">Ваши имя и фамилия</label>
@@ -562,6 +562,30 @@
       }
     </script>
     <script>
+      if (!("scrollBehavior" in document.documentElement.style)) {
+        function scrollTo(element, to, duration) {
+          var start = element.scrollLeft,
+            change = to - start,
+            currentTime = 0,
+            increment = 20;
+          var animateScroll = function(){
+            currentTime += increment;
+            var val = Math.easeInOutQuad(currentTime, start, change, duration);
+            element.scrollLeft = val;
+            if(currentTime < duration) {
+              setTimeout(animateScroll, increment);
+            }
+          };
+          animateScroll();
+        }
+
+        Math.easeInOutQuad = function (t, b, c, d) {
+          t /= d/2;
+          if (t < 1) return c/2*t*t + b;
+          t--;
+          return -c/2 * (t*(t-2) - 1) + b;
+        };
+      }
       let calendars = document.getElementsByClassName('calendar');
       for (let i = 0; i < calendars.length; i++) {
         // Парсим окошки в массив datesWithTimes
@@ -605,6 +629,23 @@
           }
 
           // Создаем DOM-элементы
+
+          // Кнопка назад
+          let previousDayBtn = document.createElement('button');
+          previousDayBtn.type = 'button';
+          previousDayBtn.classList.add('calendar__prev');
+          previousDayBtn.setAttribute('aria-label', 'Прошлые даты');
+          previousDayBtn.title = 'Прошлые даты';
+          previousDayBtn.onclick = function() {
+            let days = this.parentElement.querySelector('.calendar__months');
+            if (!("scrollBehavior" in document.documentElement.style)) {
+              scrollTo(days, days.scrollLeft - days.clientWidth, 600);
+            } else {
+              days.scrollLeft -= days.clientWidth;
+            }
+          }
+          calendars[i].appendChild(previousDayBtn);
+
           // Список месяцев
           let monthWrapper = document.createElement('div');
           monthWrapper.classList.add('calendar__months_wrapper');
@@ -631,7 +672,7 @@
                 dayElement.value = day;
                 dayElement.onclick = function() {
                   const calendar = this.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
-                  this.scrollIntoView({behavior: "smooth", inline: "start", block: "nearest"});
+                  this.scrollIntoView({behavior: "smooth", inline: "nearest", block: "nearest"});
                   calendar.querySelector('.calendar__times[aria-expanded=true]').removeAttribute('aria-expanded');
                   let fieldsets = calendar.querySelectorAll('.calendar__times');
                   for (const fieldset of fieldsets) {
@@ -674,19 +715,14 @@
           let nextDayBtn = document.createElement('button');
           nextDayBtn.type = 'button';
           nextDayBtn.classList.add('calendar__next');
-          nextDayBtn.setAttribute('aria-label', 'Далее');
-          nextDayBtn.title = 'Далее';
+          nextDayBtn.setAttribute('aria-label', 'Следующие даты');
+          nextDayBtn.title = 'Следующие даты';
           nextDayBtn.onclick = function() {
-            let dayBtns = this.parentElement.querySelectorAll('button.calendar__day');
-            for (let j = 0; j < dayBtns.length; j++) {
-              if (dayBtns[j].hasAttribute('aria-selected')) {
-                if (j === dayBtns.length - 1) {
-                  dayBtns[0].click();
-                } else {
-                  dayBtns[j+1].click();
-                }
-                return;
-              }
+            let days = this.parentElement.querySelector('.calendar__months');
+            if (!("scrollBehavior" in document.documentElement.style)) {
+              scrollTo(days, days.scrollLeft + days.clientWidth, 600);
+            } else {
+              days.scrollLeft += days.clientWidth;
             }
           }
           calendars[i].appendChild(nextDayBtn);
@@ -737,7 +773,7 @@
                       }
                     }
                     dialog.showModal();
-                    dialog.querySelector('.calendar__day[aria-selected=true]').scrollIntoView({behavior: "smooth", inline: "nearest"});
+                    dialog.querySelector('.calendar__months').scrollLeft = this.parentElement.parentElement.querySelector('.calendar__months').scrollLeft;
                   }
                 }
                 timesElement.appendChild(timeBtn);
