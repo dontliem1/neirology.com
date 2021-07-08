@@ -4,6 +4,14 @@ const dialogBtns = document.querySelectorAll('[aria-haspopup="dialog"]');
 for (let i = 0; i < dialogs.length; i++) {
   dialogPolyfill.registerDialog(dialogs[i]);
 }
+for (let i = 0; i < dialogBtns.length; i++) {
+  dialogBtns[i].onclick = function () {
+    const dialog = document.getElementById(this.getAttribute('aria-controls'));
+    if (dialog) {
+      dialog.showModal();
+    }
+  }
+}
 
 // Оживляем просмотр отзывов и дипломов
 const expandLinks = document.getElementsByClassName('js-img__expand');

@@ -7,6 +7,24 @@
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local(''),
+  url('../fonts/inter-v3-latin_cyrillic-regular.woff2') format('woff2'),
+  url('../fonts/inter-v3-latin_cyrillic-regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local(''),
+  url('../fonts/inter-v3-latin_cyrillic-600.woff2') format('woff2'),
+  url('../fonts/inter-v3-latin_cyrillic-600.woff') format('woff');
+}
 html {
   -webkit-text-size-adjust: 100%;
   font-size: 62.5%;
@@ -62,7 +80,7 @@ img {
   white-space: nowrap;
 }
 .color--gray {
-  color: #767574;
+  color: #50504f;
 }
 .color--inherit {
   color: inherit;
@@ -571,7 +589,7 @@ a.btn {
   font-size: 1.3rem;
   text-transform: uppercase;
   line-height: 1.45;
-  color: #767574;
+  color: #50504f;
   font-weight: 600;
 }
 .js-tablist {
@@ -874,7 +892,7 @@ a.btn {
   font-size: 1.4rem;
   text-transform: uppercase;
   line-height: 1.45;
-  color: #767574;
+  color: #50504f;
 }
 .feedback__offline_text {
   margin: 0;
@@ -1003,7 +1021,7 @@ a.btn {
 .footer__time,
 .footer__text {
   font-size: 1.4rem;
-  color: #767574;
+  color: #50504f;
 }
 .footer__social_list {
   text-align: center;
@@ -1083,7 +1101,7 @@ a.btn {
 .footer__studio {
   margin-top: 1.5rem;
   flex-shrink: 0;
-  color: #767574;
+  color: #50504f;
   text-decoration: none;
   display: inline-block;
   font-size: 1.4rem;
@@ -1173,7 +1191,7 @@ a.btn {
   background-color: #eee;
   border-radius: .4rem;
   background-size: cover;
-  background-position: 60% 0%;
+  background-position: 60% 0;
   background-repeat: no-repeat;
   flex-shrink: 0;
   flex-basis: 50%;
@@ -1655,7 +1673,7 @@ dialog.fixed {
 }
 .form__label {
   text-transform: uppercase;
-  color: #767574;
+  color: #50504f;
   font-size: 1.3rem;
   margin-bottom: .385em;
   font-weight: 600;
