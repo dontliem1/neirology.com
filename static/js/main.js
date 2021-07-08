@@ -153,10 +153,9 @@ for (let i = 0; i < calendars.length; i++) {
 
       // Список дней в месяце
       let days = months[month];
-      let daysElement = document.createElement('ul');
+      let daysElement = document.createElement('div');
       daysElement.classList.add('calendar__days');
       for (const day in days) {
-        let dayWrapper = document.createElement('li');
         const hasTimes = !!datesWithTimes[day];
         let dayElement = document.createElement(hasTimes ? 'button' : 'span');
         if (hasTimes) {
@@ -186,8 +185,7 @@ for (let i = 0; i < calendars.length; i++) {
 
         dayElement.textContent = days[day].weekday + ' ' + days[day].number;
 
-        dayWrapper.appendChild(dayElement);
-        daysElement.appendChild(dayWrapper);
+        daysElement.appendChild(dayElement);
       }
 
       monthElement.appendChild(daysElement);
@@ -275,13 +273,14 @@ for (let i = 0; i < calendars.length; i++) {
     calendars[i].textContent = 'Нет доступных окошек для записи.';
   }
 }
+//Отключаем кнопки календаря в крайних положениях
 if (calendars) {
   const observerPrevs = new IntersectionObserver(function (entries) {
     entries.forEach(entry => {
       entry.target.parentElement.parentElement.parentElement.parentElement.previousElementSibling.disabled = entry.isIntersecting;
     });
   });
-  const firstDays = document.querySelectorAll(".calendar__months > li:first-child li:first-child");
+  const firstDays = document.querySelectorAll(".calendar__months > li:first-child .calendar__day:first-child");
   firstDays.forEach(function (target) {
     observerPrevs.observe(target);
   });
@@ -290,7 +289,7 @@ if (calendars) {
       entry.target.parentElement.parentElement.parentElement.parentElement.nextElementSibling.disabled = entry.isIntersecting;
     });
   });
-  const lastDays = document.querySelectorAll(".calendar__months > li:last-child li:last-child");
+  const lastDays = document.querySelectorAll(".calendar__months > li:last-child .calendar__day:last-child");
   lastDays.forEach(function (target) {
     observerNexts.observe(target);
   });

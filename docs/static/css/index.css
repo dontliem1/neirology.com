@@ -1813,7 +1813,7 @@ textarea.form__input {
   left: 0;
   padding-right: 1em;
 }
-.calendar__months li:last-child li:last-child {
+.calendar__months li:last-child .calendar__day:last-child {
   scroll-snap-align: end;
   padding-right: .5rem;
 }
@@ -1824,14 +1824,7 @@ textarea.form__input {
   list-style: none;
   text-align: center;
 }
-.calendar__days > li {
-  scroll-snap-align: start;
-  padding-right: 1px;
-}
 .calendar__day {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
   padding: .8rem 1.6rem;
   border-radius: 0;
   border: 1px solid transparent;
@@ -1841,6 +1834,7 @@ textarea.form__input {
   color: #a09f9d;
   text-transform: capitalize;
   transition: color .2s;
+  scroll-snap-align: start;
 }
 .calendar__day--today {
   background: url("data:image/svg+xml,%3Csvg viewBox='0 0 6 8' version='1.1' xmlns='http://www.w3.org/2000/svg' fill='%23FFBC00'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3C/svg%3E") bottom /.6rem no-repeat;
