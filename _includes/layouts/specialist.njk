@@ -84,8 +84,8 @@ templateClass: tmpl-specialist
         <button class="js-tabcontent__expand btn--text" type="button" onclick="this.parentElement.classList.remove('js-tabcontent--abriged');" hidden>Показать все отзывы</button>
       </div>
       <div id="online" class="js-tabcontent">
-        <h2 class="js-tabcontent__heading">Рейтинг на независимых порталах</h2>
-        Здесь будут онлайн-отзывы
+        <h2 class="js-tabcontent__heading">Рейтинг специалиста на независимых порталах</h2>
+        {% include 'onlineFeedback.njk' %}
       </div>
     </div>
     <h2 class="specialist__heading specialist__heading--big">Дипломы и сертификаты</h2>

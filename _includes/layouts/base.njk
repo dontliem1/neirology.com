@@ -282,11 +282,30 @@
           }
           calendars[i].appendChild(previousDayBtn);
 
+          // Кнопка далее
+          let nextDayBtn = document.createElement('button');
+          nextDayBtn.type = 'button';
+          nextDayBtn.classList.add('calendar__next');
+          nextDayBtn.setAttribute('aria-label', 'Следующие даты');
+          nextDayBtn.title = 'Следующие даты';
+          nextDayBtn.onclick = function() {
+            let days = this.parentElement.querySelector('.calendar__months');
+            if (!("scrollBehavior" in document.documentElement.style)) {
+              scrollTo(days, days.scrollLeft + days.clientWidth, 600);
+            } else {
+              days.scrollLeft += days.clientWidth;
+            }
+          }
+
           // Список месяцев
           let monthWrapper = document.createElement('div');
           monthWrapper.classList.add('calendar__months_wrapper');
           let monthElements = document.createElement('ul');
           monthElements.classList.add('calendar__months');
+          monthElements.addEventListener('scroll', function(e) {
+            previousDayBtn.disabled = e.target.scrollLeft < 5;
+            nextDayBtn.disabled = e.target.scrollWidth - e.target.clientWidth - e.target.scrollLeft < 5;
+          });
           for (const month in months) {
             let monthElement = document.createElement('li');
 
@@ -346,21 +365,6 @@
           monthElements.querySelector('button.calendar__day').setAttribute('aria-selected', 'true');
           monthWrapper.appendChild(monthElements);
           calendars[i].appendChild(monthWrapper);
-
-          // Кнопка далее
-          let nextDayBtn = document.createElement('button');
-          nextDayBtn.type = 'button';
-          nextDayBtn.classList.add('calendar__next');
-          nextDayBtn.setAttribute('aria-label', 'Следующие даты');
-          nextDayBtn.title = 'Следующие даты';
-          nextDayBtn.onclick = function() {
-            let days = this.parentElement.querySelector('.calendar__months');
-            if (!("scrollBehavior" in document.documentElement.style)) {
-              scrollTo(days, days.scrollLeft + days.clientWidth, 600);
-            } else {
-              days.scrollLeft += days.clientWidth;
-            }
-          }
           calendars[i].appendChild(nextDayBtn);
 
           // Список окошек
@@ -435,8 +439,6 @@
             calendars[i].appendChild(timesElement);
           }
           calendars[i].querySelector('.calendar__times').setAttribute('aria-expanded', 'true');
-
-          // console.log(months);
         } else {
           //Если окошек нет.
           calendars[i].textContent = 'Нет доступных окошек для записи.';

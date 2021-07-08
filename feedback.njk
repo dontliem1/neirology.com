@@ -163,18 +163,7 @@ path: /feedback
   </div>
   <div id="online" class="js-tabcontent">
     <h2 class="js-tabcontent__heading">Рейтинг клиники на независимых порталах</h2>
-    <ul class="feedback__online">
-      {%- for entry in metadata.onlineFeedback %}
-        <li class="feedback__online_item">
-          <a class="feedback__online_link" href="{{ entry.url | url }}">
-            <img class="feedback__online_logo" src="{{ entry.img | url }}" alt="{{ entry.title }}" width="200">
-            <p class="feedback__online_rating">{{ entry.rating }}</p>
-            <span class="feedback__online_stars">{% for i in range(0, entry.rating | int) -%}<span class="feedback__online_star">★</span>{%- endfor %}</span>
-            <p class="feedback__online_number">Отзывов: {{ entry.rates }}</p>
-          </a>
-        </li>
-      {%- endfor %}
-    </ul>
+    {% include 'onlineFeedback.njk' %}
   </div>
 </div>
 

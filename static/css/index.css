@@ -565,7 +565,6 @@ a.btn {
   text-transform: uppercase;
   line-height: 1.45;
   color: #767574;
-  margin-top: 0;
   font-weight: 600;
 }
 .js-tablist {
@@ -944,12 +943,29 @@ a.btn {
   transition: color .2s;
 }
 .feedback__online_stars {
-  font-size: 2em;
-  color: hsl(44, 100%, 50%);
-  transition: color .2s;
+  font-family: 'Arial', sans-serif;
+  font-size: 3rem;
+  color: #ccc;
+  margin: 0;
+  line-height: 1;
 }
-.feedback__online_link:hover .feedback__online_rating,
-.feedback__online_link:hover .feedback__online_stars {
+.feedback__online_stars span {
+  margin-right: .4rem;
+}
+.feedback__online_stars--1 span:first-child,
+.feedback__online_stars--2 span:first-child,
+.feedback__online_stars--3 span:first-child,
+.feedback__online_stars--4 span:first-child,
+.feedback__online_stars--2 span:nth-child(2),
+.feedback__online_stars--3 span:nth-child(2),
+.feedback__online_stars--4 span:nth-child(2),
+.feedback__online_stars--3 span:nth-child(3),
+.feedback__online_stars--4 span:nth-child(3),
+.feedback__online_stars--4 span:nth-child(4),
+.feedback__online_stars--5 span {
+  color: #ffbb00;
+}
+.feedback__online_link:hover .feedback__online_rating {
   color: hsl(44, 100%, 60%);
 }
 .feedback__online_number {
@@ -1759,6 +1775,7 @@ textarea.form__input {
   scrollbar-width: none;
   -ms-overflow-style: none;
   scroll-behavior: smooth;
+  overscroll-behavior-x: contain
 }
 .calendar__months::-webkit-scrollbar {
   display: none;
@@ -1835,6 +1852,13 @@ textarea.form__input {
   margin: 0 0 1.5em;
   z-index: 1;
   transition: background-color .2s;
+  touch-action: manipulation;
+  opacity: .5;
+}
+.calendar__prev:enabled,
+.calendar__next:enabled {
+  cursor: pointer;
+  opacity: 1;
 }
 .calendar__prev:hover,
 .calendar__next:hover {
