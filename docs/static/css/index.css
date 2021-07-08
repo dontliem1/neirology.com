@@ -1283,7 +1283,7 @@ a.btn {
 .specialist__job {
   margin: 0 0 .5rem;
   font-size: 1.4rem;
-  color: #549635;
+  color: #32591f;
 }
 .specialist__description,
 .specialist__preview {
@@ -1822,6 +1822,7 @@ textarea.form__input {
   padding: 0;
   margin: 0;
   list-style: none;
+  text-align: center;
 }
 .calendar__days > li {
   scroll-snap-align: start;
@@ -1844,17 +1845,17 @@ textarea.form__input {
 .calendar__day--today {
   background: url("data:image/svg+xml,%3Csvg viewBox='0 0 6 8' version='1.1' xmlns='http://www.w3.org/2000/svg' fill='%23FFBC00'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3C/svg%3E") bottom /.6rem no-repeat;
 }
-.calendar__day:enabled:not([aria-selected=true]) {
+.calendar__day:enabled:not([aria-current="date"]) {
   cursor: pointer;
   color: inherit;
 }
-.calendar__day:enabled:not([aria-selected=true]):hover {
+.calendar__day:enabled:not([aria-current="date"]):hover {
   color: #710EB1;
 }
 .calendar__day:enabled:active {
   color: inherit;
 }
-.calendar__day[aria-selected=true] {
+.calendar__day[aria-current="date"] {
   border-top-left-radius: .4rem;
   border-top-right-radius: .4rem;
   border-top-color: #C4C4C4;

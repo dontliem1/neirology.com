@@ -175,8 +175,8 @@ for (let i = 0; i < calendars.length; i++) {
                 fieldset.setAttribute('aria-expanded', 'true');
               }
             }
-            calendar.querySelector('.calendar__day[aria-selected=true]').removeAttribute('aria-selected');
-            this.setAttribute('aria-selected', 'true');
+            calendar.querySelector('.calendar__day[aria-current="date"]').removeAttribute('aria-current');
+            this.setAttribute('aria-current', 'date');
           }
         }
         dayElement.classList.add('calendar__day');
@@ -184,13 +184,7 @@ for (let i = 0; i < calendars.length; i++) {
           dayElement.classList.add('calendar__day--today');
         }
 
-        let dayWeekday = document.createElement('span');
-        dayWeekday.textContent = days[day].weekday;
-        dayElement.appendChild(dayWeekday);
-
-        let dayNumber = document.createElement('span');
-        dayNumber.textContent = days[day].number;
-        dayElement.appendChild(dayNumber);
+        dayElement.textContent = days[day].weekday + ' ' + days[day].number;
 
         dayWrapper.appendChild(dayElement);
         daysElement.appendChild(dayWrapper);
@@ -199,7 +193,7 @@ for (let i = 0; i < calendars.length; i++) {
       monthElement.appendChild(daysElement);
       monthElements.appendChild(monthElement);
     }
-    monthElements.querySelector('button.calendar__day').setAttribute('aria-selected', 'true');
+    monthElements.querySelector('button.calendar__day').setAttribute('aria-current', 'date');
     monthWrapper.appendChild(monthElements);
     calendars[i].appendChild(monthWrapper);
     calendars[i].appendChild(nextDayBtn);
@@ -226,7 +220,7 @@ for (let i = 0; i < calendars.length; i++) {
             const dialog = document.getElementById(this.getAttribute('aria-controls'));
             const selectedDate = this.parentElement.querySelector('legend').textContent;
             if (dialog) {
-              dialog.querySelector('.calendar__day[aria-selected=true]').removeAttribute('aria-selected');
+              dialog.querySelector('.calendar__day[aria-current="date"]').removeAttribute('aria-current');
               dialog.querySelector('.calendar__times[aria-expanded=true]').removeAttribute('aria-expanded');
               const legends = dialog.querySelectorAll('.calendar legend');
               for (let j = 0; j < legends.length; j++) {
@@ -245,7 +239,7 @@ for (let i = 0; i < calendars.length; i++) {
               const dayBtns = dialog.querySelectorAll('.calendar__day');
               for (let j = 0; j < dayBtns.length; j++) {
                 if (dayBtns[j].value === selectedDate) {
-                  dayBtns[j].setAttribute('aria-selected', 'true');
+                  dayBtns[j].setAttribute('aria-current', 'date');
                   break;
                 }
               }
