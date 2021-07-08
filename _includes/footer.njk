@@ -1,0 +1,34 @@
+<footer class="footer">
+  <div class="footer__top container">
+    <p class="footer__contact">
+      <a class="footer__tel" href="tel:88006003264">8 800 600 32 64</a><br>
+      <small class="footer__time">Ежедневно с 10:00 до 21:00</small>
+    </p>
+    <img class="footer__logo" src="{{ '/static/img/logo_full.svg' | url }}" alt="Нейро-Пси" width="202" height="126">
+    <div class="footer__social_list">
+      <a class="footer__social_link" href=""><img class="footer__social_img" src="{{ '/static/img/fb.svg' | url }}" width="8" height="16" alt="Фейсбук"></a>
+      <a class="footer__social_link" href=""><img class="footer__social_img" src="{{ '/static/img/twitter.svg' | url }}" width="16" height="16" alt="Твиттер"></a>
+      <a class="footer__social_link" href=""><img class="footer__social_img" src="{{ '/static/img/ig.svg' | url }}" width="16" height="16" alt="Инстаграм"></a>
+    </div>
+    <ul class="footer__list">
+      {%- for entry in metadata.footNav %}
+        <li class="footer__item{% if entry.url == page.url %} footer-item--active{% endif %}">
+          <a class="footer__link" href="{{ entry.url | url }}">{{ entry.label }}</a>
+        </li>
+      {%- endfor %}
+    </ul>
+  </div>
+  <div class="footer__divider"></div>
+  <div class="footer__bottom container">
+    <div class="footer__text">
+      <p>Консультации и информационные услуги оказывают ООО «Нейрология». 0+ Для постановки диагноза и назначения плана лечения следует записаться на очный прием к специалисту</p>
+      <p>На сайте используются куки. <a href="" class="footer__text_link">Что это значит?</a></p>
+      <a href="" class="footer__text_link">Политика обработки и защиты персональных данных</a>
+      <p>© 2021 ООО «Нейрология». <span class="text--nowrap">Лицензия №ЛО-77-01-018632</span></p>
+    </div>
+    <a class="footer__studio" href="https://lepekhin.studio">
+      <img class="footer__studio_img" src="{{ '/static/img/lepekhin.svg' | url }}" alt="Лепёхин" width="82" height="32">
+      <span class="footer__studio_caption">Задизайнено<br>в Студии Евгения Лепёхина</span>
+    </a>
+  </div>
+</footer>

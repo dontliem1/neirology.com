@@ -1,6 +1,5 @@
 ---
 layout: layouts/base.njk
-templateClass: tmpl-specialist
 ---
 <!-- Если у шапки сайта есть фон, добавляем .hero--bg, и путь к картинке в style -->
 <div class="hero hero--bg hero--specialist" style="background-image: url('{{ ('/static/img/'+img) | url }}');">
@@ -53,7 +52,7 @@ templateClass: tmpl-specialist
     <div class="js-tabs">
       <ul class="js-tablist" data-hx="h2">
         <li class="js-tablist__item">
-          <a href="#offline" class="js-tablist__link">Рукописные (40)</a>
+          <a href="#offline" class="js-tablist__link">Рукописные ({{ metadata.offlineFeedback | length }})</a>
         </li>
         <li class="js-tablist__item">
           <a href="#online" class="js-tablist__link">В интернете</a>
@@ -140,13 +139,3 @@ templateClass: tmpl-specialist
 </div>
 <!-- На страницах с вкладками подключаем van11y-accessible-tab-panel-aria -->
 <script src="{{ '/static/js/van11y-accessible-tab-panel-aria.min.js' | url }}"></script>
-<script>
-  // Оживляем кнопки Читать полностью
-  const expandBtns = document.getElementsByClassName('feedback__expand');
-  for (let i = 0; i < expandBtns.length; i++) {
-    expandBtns[i].addEventListener('click', function (e) {
-      e.currentTarget.hidden = true;
-      e.currentTarget.parentElement.querySelector('.feedback__offline_text--collapsed').classList.remove('feedback__offline_text--collapsed');
-    })
-  }
-</script>

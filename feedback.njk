@@ -14,7 +14,7 @@ path: /feedback
 <div class="js-tabs container">
   <ul class="js-tablist" data-hx="h2">
     <li class="js-tablist__item">
-      <a href="#offline" class="js-tablist__link">Рукописные (40)</a>
+      <a href="#offline" class="js-tablist__link">Рукописные ({{ metadata.offlineFeedback | length }})</a>
     </li>
     <li class="js-tablist__item">
       <a href="#online" class="js-tablist__link">В интернете</a>
@@ -169,13 +169,3 @@ path: /feedback
 
 <!-- На страницах с вкладками подключаем van11y-accessible-tab-panel-aria -->
 <script src="{{ '/static/js/van11y-accessible-tab-panel-aria.min.js' | url }}"></script>
-<script>
-  // Оживляем кнопки Читать полностью
-  const expandBtns = document.getElementsByClassName('feedback__expand');
-  for (let i = 0; i < expandBtns.length; i++) {
-    expandBtns[i].addEventListener('click', function (e) {
-      e.currentTarget.hidden = true;
-      e.currentTarget.parentElement.querySelector('.feedback__offline_text--collapsed').classList.remove('feedback__offline_text--collapsed');
-    })
-  }
-</script>
