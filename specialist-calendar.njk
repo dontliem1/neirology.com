@@ -1,5 +1,7 @@
 ---
 layout: layouts/base.njk
+hasLightbox: true
+hasTabs: true
 ---
 <!-- Если у шапки сайта есть фон, добавляем .hero--bg, и путь к картинке в style -->
 <div class="hero hero--bg hero--specialist" style="background-image: url('{{ ('/static/img/'+collections.specialists[0].data.img) | url }}');">
@@ -62,10 +64,10 @@ layout: layouts/base.njk
       <!-- Если отзывов больше двух добавляем класс js-tabcontent--abriged -->
       <div id="offline" class="js-tabcontent js-tabcontent--abriged">
         <h2 class="invisible">Отзывы, оставленные в клиниках</h2>
-        <ul class="feedback__offline">
+        <ul class="feedback__offline js-gallery">
           {%- for entry in metadata.offlineFeedback %}
             <li class="feedback__offline_item">
-              <a class="feedback__offline_link js-img__expand" href="{{ entry.img | url }}" aria-expanded="false">
+              <a class="feedback__offline_link js-gallery__link" href="{{ entry.img | url }}" aria-expanded="false">
                 <img class="feedback__offline_img" src="{{ entry.img | url }}" alt="Фотография отзыва." width="64" height="88">
               </a>
               <div class="feedback__offline_info">
@@ -88,11 +90,11 @@ layout: layouts/base.njk
         {% include 'onlineFeedback.njk' %}
       </div>
     </div>
-    <h2 class="specialist__heading specialist__heading--big">Дипломы и сертификаты</h2>
-    <ul class="specialist__certificates">
+    <h2 class="specialist__heading specialist__heading--big">Дипломы и сертификаты</h2>
+    <ul class="specialist__certificates js-gallery">
       {%- for certificate in collections.specialists[0].data.certificates %}
         <li class="specialist__certificate">
-          <a class="specialist__certificate_link js-img__expand" href="{{ certificate | url }}" aria-expanded="false">
+          <a class="specialist__certificate_link js-gallery__link" href="{{ certificate | url }}" aria-expanded="false">
             <img class="specialist__certificate_img" src="{{ certificate | url }}" alt="Скан сертификата." width="118" height="84">
           </a>
         </li>
@@ -150,5 +152,3 @@ layout: layouts/base.njk
     {% endfor %}
   </ul>
 </div>
-<!-- На страницах с вкладками подключаем van11y-accessible-tab-panel-aria -->
-<script src="{{ '/static/js/van11y-accessible-tab-panel-aria.min.js' | url }}"></script>

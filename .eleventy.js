@@ -27,6 +27,10 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
     "node_modules/van11y-accessible-tab-panel-aria/dist/van11y-accessible-tab-panel-aria.min.js": "static/js/van11y-accessible-tab-panel-aria.min.js",
     "node_modules/dialog-polyfill/dist/dialog-polyfill.js": "static/js/dialog-polyfill.js",
+    "node_modules/photoswipe/dist/default-skin": "static/css/default-skin",
+    "node_modules/photoswipe/dist/photoswipe.css": "static/css/photoswipe.css",
+    "node_modules/photoswipe/dist/photoswipe.min.js": "static/js/photoswipe.min.js",
+    "node_modules/photoswipe/dist/photoswipe-ui-default.min.js": "static/js/photoswipe-ui-default.min.js",
   });
   eleventyConfig.addPassthroughCopy("favicon.svg");
 

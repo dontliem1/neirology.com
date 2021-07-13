@@ -740,7 +740,7 @@ a.btn {
   text-align: left;
   cursor: pointer;
   margin: .5rem .3rem 0;
-  flex-basis: 19em;
+  flex-basis: 19.4em;
   flex-grow: 1;
   line-height: 1.45;
   transition: color .2s, background-color .2s;
@@ -832,20 +832,24 @@ a.btn {
   color: inherit;
   text-decoration: none;
 }
-.js-img__expand {
+.pswp__caption .pswp__caption__center {
+  text-align: center;
+}
+.pswp__img {
+  object-fit: contain;
+}
+.js-gallery__link {
   cursor: zoom-in;
   transition: filter .2s;
 }
-.js-img__expand[aria-expanded="false"]:hover {
+.js-gallery__link:hover {
   filter: brightness(1.05);
-}
-.js-img__expand > img {
-  width: 100%;
-  height: auto;
 }
 .feedback__offline_img {
   border-radius: .4rem;
   border: 1px solid #bcbcbc;
+  width: 100%;
+  height: auto;
 }
 .js-img__expand[aria-expanded="true"] {
   position: fixed;
@@ -1380,6 +1384,7 @@ a.btn {
   border: 1px solid #eee;
   object-position: top;
   object-fit: cover;
+  max-width: 100%;
 }
 .js-img__expand > .specialist__certificate_img {
   min-height: 8.4rem;
