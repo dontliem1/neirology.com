@@ -1,0 +1,29 @@
+---
+layout: layouts/base.njk
+---
+<div class="hero hero--bg">
+  <div class="container">
+    <h1 class="hero__title">{{ title }}</h1>
+  </div>
+</div>
+<div class="container">
+  <div class="media__main">
+    <div class="page__lead">
+      {{ content | safe }}
+    </div>
+    <ul class="media__list">
+      {% for mediaPost in collections.media %}
+        {% set mediaLink = mediaPost.url | url %}
+        <li class="media__list_item">
+          <div class="media__list_text">
+            <h2 class="page__title media__list_title"><a href="{{ mediaLink }}">{{ mediaPost.data.title }}</a></h2>
+            <span class="color--gray">{{ mediaPost.data.date | readableDate }}</span>
+            <div class="media__list_description">{{ mediaPost.data.content | safe }}</div>
+            <a class="link--arrow" href="{{ mediaLink }}">Подробнее</a>
+          </div>
+          <a class="media__list_thumbnail" href="{{ mediaLink }}" aria-label="Перейти к статье"><img class="media__list_img" width="384" height="262" src="{{ mediaPost.data.img }}" alt=""></a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

@@ -17,6 +17,11 @@ module.exports = function(eleventyConfig) {
     return array.slice(0, n);
   });
 
+  // Human readable date
+  eleventyConfig.addFilter("readableDate", function(dateStr) {
+    return Date.parse(dateStr) ? (new Date(dateStr)).toLocaleDateString('ru', {day: "numeric", month: "long", year: "numeric"}) : dateStr;
+  });
+
   // Return the smallest number argument
   eleventyConfig.addFilter("min", (...numbers) => {
     return Math.min.apply(null, numbers);

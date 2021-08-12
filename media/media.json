@@ -1,0 +1,6 @@
+{
+  "tags": [
+    "media"
+  ],
+  "layout": "layouts/media_post.njk"
+}

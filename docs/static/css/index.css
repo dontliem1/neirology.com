@@ -29,6 +29,11 @@ html {
   -webkit-text-size-adjust: 100%;
   font-size: 62.5%;
 }
+@media (min-width: 108em) {
+  html {
+    font-size: 75%;
+  }
+}
 body {
   padding: 0;
   margin: 0;
@@ -360,7 +365,7 @@ a.btn {
   color: #710EB1;
 }
 .nav-item-active {
-  font-weight: 700;
+  font-weight: 600;
 }
 .header__nav_subnav {
   position: absolute;
@@ -509,13 +514,11 @@ a.btn {
 .hero--bg {
   background-color: #FFEECC;
   padding-top: 13rem;
-  background-position: bottom;
+  background-position: 75% 100%;
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
-}
-.hero--specialists {
-  background-position: 75% 100%;
+  background-image: url('../img/specialists.svg');
 }
 .hero--specialist {
   background-position: top;
@@ -575,6 +578,7 @@ a.btn {
     font-size: 3.2rem;
     padding-left: 1.5rem;
     padding-right: 1.5em;
+    max-width: 19em;
   }
 }
 @media (min-width: 86em) {
@@ -884,7 +888,7 @@ a.btn {
 }
 .feedback__offline_title {
   margin: 0;
-  font-weight: 700;
+  font-weight: 600;
   font-size: inherit;
   font-family: 'Atyp', -apple-system, system-ui, sans-serif;
 }
@@ -1831,7 +1835,7 @@ textarea.form__input {
   scrollbar-width: none;
   -ms-overflow-style: none;
   scroll-behavior: smooth;
-  overscroll-behavior-x: contain
+  overscroll-behavior-x: contain;
 }
 .calendar__months::-webkit-scrollbar {
   display: none;
@@ -2000,8 +2004,136 @@ textarea.form__input {
   }
 }
 
-@media (min-width: 108em) {
-  html {
-    font-size: 75%;
-  }
+/* 404 */
+.links {
+  margin-top: 2em;
+}
+.links__title {
+  margin: 0;
+  font-weight: 600;
+  font-size: inherit;
+  font-family: 'Atyp', -apple-system, system-ui, sans-serif;
+}
+.links__list {
+  padding: 0;
+  margin: 0;
+}
+.links__list_item {
+  margin-top: .5em;
+}
+.link--arrow {
+  color: hsl(276, 85%, 37%);
+  text-decoration: none;
+}
+.link--arrow::after {
+  content: ' →';
+}
+.link--arrow:hover {
+  color: hsl(276, 85%, 47%);
+}
+
+/* Page */
+.page__content--media {
+  padding-top: 2rem;
+}
+.page__lead,
+.page__content--media p:first-child {
+  font-size: 2.2rem;
+  line-height: 1.45;
+  margin-bottom: 3rem;
+}
+.page__content,
+.page__lead {
+  max-width: 80.6rem;
+}
+.page__content {
+  line-height: 1.45;
+}
+.page__content p {
+  margin-top: 0;
+  margin-bottom: .5em;
+}
+.media__content p:first-child,
+.page__content ul {
+  margin-top: 0;
+}
+.page__title {
+  font-size: 2.4rem;
+  line-height: 1.2;
+  font-family: 'Atyp', -apple-system, system-ui, sans-serif;
+  font-weight: 600;
+}
+.page__video_wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+.page__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+
+/* Мы в СМИ */
+.media__list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.media__list_item {
+  padding-bottom: 3rem;
+  border-bottom: 1px solid #d3d2d0;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+.media__list_item + .media__list_item {
+  padding-top: 3rem;
+}
+.media__list_thumbnail {
+  display: block;
+  position: relative;
+  flex-basis: 38rem;
+}
+.media__list_thumbnail::after {
+  content: '';
+  background: url("https://neirology.com/assets/images/dist/play.png") center /auto 50% no-repeat rgba(0,0,0,.4);
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: opacity .2s;
+}
+.media__list_thumbnail:hover::after {
+  opacity: .5;
+}
+.media__list_img {
+  width: 100%;
+  height: auto;
+}
+.media__list_text {
+  flex-basis: 40rem;
+  flex-grow: 1;
+}
+.media__list_title {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+.media__list_title a {
+  color: inherit;
+  text-decoration: none;
+}
+.media__list_description {
+  margin-top: .5rem;
+  margin-bottom: 2.5rem;
+}
+.media__list_description p {
+  margin-top: 0;
+  margin-bottom: .5em;
 }

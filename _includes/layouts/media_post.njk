@@ -1,0 +1,14 @@
+---
+layout: layouts/base.njk
+---
+<div class="hero hero--bg">
+  <div class="container">
+    <h1 class="hero__title">{{ title }}</h1>
+  </div>
+</div>
+<div class="container">
+  <div class="page__content page__content--media">
+    {{ content | safe }}
+    {% if video %}<div class="page__video_wrapper"><iframe class="page__video" width="560" height="315" src="https://www.youtube-nocookie.com/embed/{{ video }}" title="Проигрыватель Youtube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>{% endif %}
+  </div>
+</div>

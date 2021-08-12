@@ -4,11 +4,20 @@ permalink: 404.html
 eleventyExcludeFromCollections: true
 ---
 
-<div class="hero">
+<div class="hero hero--bg">
   <div class="container">
-    <h1 class="hero__title">Такой страницы не найдено</h1>
+    <h1 class="hero__title">Страница не найдена</h1>
   </div>
 </div>
 <div class="container">
-  Перейдите на <a class="btn--text" href="{{ '/' | url }}">домашнюю страницу</a>.
+  <p>Скорее всего, её кто-то удалил или такой никогда не существовало.</p>
+  <section class="links">
+    <h2 class="links__title">Посмотрите другие разделы</h2>
+    <ul class="links__list">
+      <li class="links__list_item"><a class="link--arrow">Первичные консультации</a></li>
+      <li class="links__list_item"><a class="link--arrow">С чем помогаем</a></li>
+      <li class="links__list_item"><a class="link--arrow" href="{{ '/specialists/' | url }}">Специалисты</a></li>
+      <li class="links__list_item"><a class="link--arrow" href="{{ '/feedback/' | url }}">Отзывы</a></li>
+    </ul>
+  </section>
 </div>
