@@ -39,6 +39,7 @@ body {
   margin: 0;
   font-family: 'Inter', -apple-system, system-ui, sans-serif;
   font-size: 1.7em;
+  line-height: 1.45;
   background-color: #FBFAF7;
   color: #181716;
   scroll-behavior: smooth;
@@ -99,7 +100,6 @@ img {
   border-radius: .8rem;
   font: inherit;
   padding: 1rem 2rem;
-  line-height: 1.45;
   transition: color .2s, background-color .2s;
   min-width: 13.5rem;
 }
@@ -194,7 +194,6 @@ a.btn {
   background: none;
   border: 0;
   border-radius: 0;
-  line-height: 1.45;
 }
 .page__top_select::after {
   content: '';
@@ -592,7 +591,6 @@ a.btn {
 .js-tabcontent__heading {
   font-size: 1.3rem;
   text-transform: uppercase;
-  line-height: 1.45;
   color: #50504f;
   font-weight: 600;
 }
@@ -622,7 +620,6 @@ a.btn {
   border-top: 1px solid #FFBC00;
   border-bottom: 1px solid #FFBC00;
   padding: .25em .6em;
-  line-height: 1.45;
   flex-grow: 1;
   color: inherit;
   text-decoration: none;
@@ -746,7 +743,6 @@ a.btn {
   margin: .5rem .3rem 0;
   flex-basis: 19.4em;
   flex-grow: 1;
-  line-height: 1.45;
   transition: color .2s, background-color .2s;
 }
 .filter__btn:hover {
@@ -899,7 +895,6 @@ a.btn {
   margin-top: 1rem;
   font-size: 1.4rem;
   text-transform: uppercase;
-  line-height: 1.45;
   color: #50504f;
 }
 .feedback__offline_text {
@@ -1034,7 +1029,6 @@ a.btn {
 }
 .footer__disclaimer {
   max-width: 48em;
-  line-height: 1.45;
 }
 .footer__legacy {
   vertical-align: bottom;
@@ -1051,7 +1045,6 @@ a.btn {
 .footer__text {
   font-size: 1.4rem;
   color: #50504f;
-  line-height: 1.45;
 }
 .footer__social_list {
   text-align: center;
@@ -1250,13 +1243,9 @@ a.btn {
   padding-top: 1.5rem;
   display: flex;
   flex-direction: column;
-  line-height: 1.45;
 }
 .specialist__body {
   padding-top: 1.5rem;
-}
-.specialist__content {
-  line-height: 1.45;
 }
 .specialist__content_features {
   margin-bottom: 2.5rem;
@@ -1711,7 +1700,6 @@ dialog.fixed {
   font-size: 1.3rem;
   margin-bottom: .385em;
   font-weight: 600;
-  line-height: 1.45;
 }
 .form__input {
   background-color: hsl(45, 9%, 91%);
@@ -1749,7 +1737,6 @@ textarea.form__input {
   margin-top: .89em;
   margin-bottom: 0;
   padding: .6em;
-  line-height: 1.45;
 }
 .form__message--success {
   background-color: #EFF4EC;
@@ -2021,33 +2008,37 @@ textarea.form__input {
 .links__list_item {
   margin-top: .5em;
 }
-.link--arrow {
+.link--arrow,
+.link--arrow_back {
   color: hsl(276, 85%, 37%);
   text-decoration: none;
+}
+.link--arrow_back::before {
+  content: '← ';
 }
 .link--arrow::after {
   content: ' →';
 }
+.link--arrow_back:hover,
 .link--arrow:hover {
   color: hsl(276, 85%, 47%);
 }
 
 /* Page */
-.page__content--media {
+.page__content {
   padding-top: 2rem;
 }
 .page__lead,
 .page__content--media p:first-child {
   font-size: 2.2rem;
-  line-height: 1.45;
   margin-bottom: 3rem;
+}
+.page__aside {
+  margin-top: 2rem;
 }
 .page__content,
 .page__lead {
   max-width: 80.6rem;
-}
-.page__content {
-  line-height: 1.45;
 }
 .page__content p {
   margin-top: 0;
@@ -2062,11 +2053,14 @@ textarea.form__input {
   line-height: 1.2;
   font-family: 'Atyp', -apple-system, system-ui, sans-serif;
   font-weight: 600;
+  margin-top: 0;
+  margin-bottom: .85rem;
 }
 .page__video_wrapper {
   position: relative;
   padding-bottom: 56.25%;
   height: 0;
+  margin-bottom: 6rem;
 }
 .page__video {
   position: absolute;
@@ -2076,11 +2070,37 @@ textarea.form__input {
   height: 100%;
   vertical-align: middle;
 }
+.page__pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.page__pagination a:last-child {
+  margin-left: 2rem;
+  text-align: right;
+}
+@media (min-width: 72em) {
+  .page__columns {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    justify-content: space-between;
+    column-gap: 2rem;
+  }
+  .page__aside {
+    position: sticky;
+    top: 8rem;
+  }
+  .page__content {
+    flex-basis: 80.6rem;
+  }
+}
 
 /* Мы в СМИ */
 .media__list {
   padding: 0;
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 3rem;
   list-style: none;
 }
 .media__list_item {
@@ -2101,7 +2121,7 @@ textarea.form__input {
 }
 .media__list_thumbnail::after {
   content: '';
-  background: url("https://neirology.com/assets/images/dist/play.png") center /auto 50% no-repeat rgba(0,0,0,.4);
+  background: url("data:image/svg+xml,%3Csvg width='69' height='52' fill='%23FFBC00' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8 0a8 8 0 00-8 8v36a8 8 0 008 8h53a8 8 0 008-8V8a8 8 0 00-8-8H8zm17 10l26 15.961-26 15.961V10z'/%3E%3C/svg%3E") center /25% auto no-repeat rgba(0,0,0,.4);
   opacity: 1;
   position: absolute;
   top: 0;
@@ -2109,6 +2129,7 @@ textarea.form__input {
   right: 0;
   bottom: 0;
   transition: opacity .2s;
+  border-radius: .4rem;
 }
 .media__list_thumbnail:hover::after {
   opacity: .5;
@@ -2116,6 +2137,7 @@ textarea.form__input {
 .media__list_img {
   width: 100%;
   height: auto;
+  border-radius: .4rem;
 }
 .media__list_text {
   flex-basis: 40rem;
@@ -2136,4 +2158,54 @@ textarea.form__input {
 .media__list_description p {
   margin-top: 0;
   margin-bottom: .5em;
+}
+.media__suggestions {
+  border-top: 1px solid #d3d2d0;
+  margin-top: 3rem;
+  padding-top: 2rem;
+}
+.media__suggestions_list {
+  margin-top: 2.5rem;
+}
+@media (min-width: 72em) {
+  .media__suggestions_list {
+    display: grid;
+    column-gap: 3rem;
+    align-items: start;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .media__suggestions_list .media__list_item {
+    flex-basis: 40rem;
+    flex-grow: 1;
+    padding: 0;
+    margin: 0;
+    border: 0;
+  }
+  .media__suggestions_list .media__list_description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* CTA */
+.cta {
+  background-color: #FFF8E5;
+  border-radius: .4rem;
+  padding: 2rem 20% 3rem 2rem;
+  position: relative;
+}
+.cta--bg::after {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  bottom: -1.5rem;
+  right: -1.5rem;
+  top: 0;
+  left: 0;
+  background: url("../img/chair.svg") bottom right /30% auto no-repeat;
+}
+.cta .btn {
+  margin-top: 1.5rem;
 }

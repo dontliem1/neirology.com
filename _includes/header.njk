@@ -42,7 +42,7 @@
         {%- endfor %}
         {% if (metadata.navigation.slice(4,10))  %}
           <li class="header__nav-item header__nav-item--parent">
-            <span class="header__nav-link" aria-haspopup="true">Ещё</span>
+            <span class="header__nav-link" aria-haspopup="true" tabindex="0">Ещё</span>
             <ul class="header__nav_subnav">
               {%- for entry in metadata.navigation.slice(4,10) %}
                 <li class="header__nav-subitem{% if entry.url == path %} header__nav-item-active{% endif %}">

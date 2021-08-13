@@ -6,8 +6,15 @@ layout: layouts/base.njk
     <h1 class="hero__title">{{ title }}</h1>
   </div>
 </div>
-<div class="container">
-  <div class="media__main">
+<div class="container page__columns">
+  <aside class="page__aside">
+    <div id="vk_groups"></div>
+    <script src="https://vk.com/js/api/openapi.js?169"></script>
+    <script>
+      VK.Widgets.Group("vk_groups", {mode: 3, width: "314", color1: 'FFF8E5', color3: 'FFBC00', no_cover: 1}, 20075849);
+    </script>
+  </aside>
+  <div class="page__content">
     <div class="page__lead">
       {{ content | safe }}
     </div>
@@ -25,5 +32,9 @@ layout: layouts/base.njk
         </li>
       {% endfor %}
     </ul>
+    <p class="page__pagination">
+      <a class="link--arrow_back" href="">Предыдущие 10 записей</a>
+      <a class="link--arrow" href="">Следующие 10 записей</a>
+    </p>
   </div>
 </div>
