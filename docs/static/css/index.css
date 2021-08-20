@@ -2017,9 +2017,9 @@ textarea.form__input {
 @media (min-width: 48em) {
   .oops {
     padding-top: 11rem;
-    background-origin: content-box;
-    background-position: 100% -11rem, 80% 20%;
-    background-size: 40%, auto 190%;
+    background-origin: content-box, padding-box;
+    background-position: 100% -11rem, 70% 100%;
+    background-size: 40%, auto 85%;
     padding-bottom: 20rem;
     max-width: 103rem;
   }
@@ -2076,6 +2076,9 @@ textarea.form__input {
 }
 .page__aside_navigation a:hover {
   color: hsl(0, 0%, 23%);
+}
+.page__aside_navigation a[aria-current=true] {
+  color: #710EB1;
 }
 .page__content,
 .page__lead {
@@ -2137,6 +2140,9 @@ textarea.form__input {
   margin: 0;
 }
 @media (min-width: 72em) {
+  .page__aside_navigation {
+    display: block;
+  }
   .page__columns {
     display: flex;
     flex-direction: row-reverse;

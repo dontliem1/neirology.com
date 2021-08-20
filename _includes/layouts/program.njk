@@ -15,11 +15,21 @@ layout: layouts/base.njk
 </div>
 <script>
   const headers = document.querySelectorAll('.page__content > h2');
-  console.log(headers);
   if (headers.length) {
+    const callback = function(entries, observer) {
+      if (entries[0].isIntersecting) {
+        document.querySelectorAll('.page__aside_navigation a').forEach((link) => link.ariaCurrent = "false");
+        document.querySelector('a[href="#' + entries[0].target.textContent + '"]').ariaCurrent = "true";
+      }
+    };
+    const observer = new IntersectionObserver(callback, {
+      threshold: 1.0
+    });
     const headersList = document.createElement('ul');
     headersList.classList.add('page__aside_navigation');
+    headersList.hidden = true;
     for (let header of headers) {
+      observer.observe(header);
       header.id = header.textContent;
       let headersListItem = document.createElement('li');
       let anchor = document.createElement('a');
