@@ -11,7 +11,7 @@
   "navigation": [
     {
       "label": "Первичные консультации",
-      "url": "",
+      "url": "/consult/",
       "items": [
         {
           "label": "Психиатр",
@@ -65,7 +65,7 @@
     },
     {
       "label": "C чем помогаем",
-      "url": "",
+      "url": "/programs/",
       "items": [
         {
           "label": "Панические атаки",
@@ -73,7 +73,7 @@
         },
         {
           "label": "Депрессия",
-          "url": ""
+          "url": "/programs/depression/"
         },
         {
           "label": "Вегето-сосудистая дистония",
@@ -119,11 +119,11 @@
     },
     {
       "label": "Специалисты",
-      "url": "/specialists"
+      "url": "/specialists/"
     },
     {
       "label": "Отзывы",
-      "url": "/feedback"
+      "url": "/feedback/"
     },
     {
       "label": "О клинике",
@@ -135,7 +135,7 @@
     },
     {
       "label": "Мы в СМИ",
-      "url": "/media"
+      "url": "/media/"
     },
     {
       "label": "Вакансии",
@@ -185,19 +185,19 @@
   "footNav": [
     {
       "label": "Первичные консультации",
-      "url": ""
+      "url": "/consult/"
     },
     {
       "label": "Лечебные программы",
-      "url": ""
+      "url": "/programs/"
     },
     {
       "label": "Специалисты",
-      "url": "specialists"
+      "url": "/specialists/"
     },
     {
       "label": "Отзывы",
-      "url": "feedback"
+      "url": "/feedback/"
     },
     {
       "label": "О клинике",

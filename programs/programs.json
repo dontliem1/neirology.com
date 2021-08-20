@@ -1,0 +1,6 @@
+{
+  "tags": [
+    "programs"
+  ],
+  "layout": "layouts/program.njk"
+}

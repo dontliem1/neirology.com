@@ -2,22 +2,10 @@
 layout: layouts/home.njk
 permalink: 404.html
 eleventyExcludeFromCollections: true
+title: Страница не найдена
 ---
 
-<div class="hero hero--bg">
-  <div class="container">
-    <h1 class="hero__title">Страница не найдена</h1>
-  </div>
-</div>
-<div class="container">
-  <p>Скорее всего, её кто-то удалил или такой никогда не существовало.</p>
-  <section class="links">
-    <h2 class="links__title">Посмотрите другие разделы</h2>
-    <ul class="links__list">
-      <li class="links__list_item"><a class="link--arrow">Первичные консультации</a></li>
-      <li class="links__list_item"><a class="link--arrow">С чем помогаем</a></li>
-      <li class="links__list_item"><a class="link--arrow" href="{{ '/specialists/' | url }}">Специалисты</a></li>
-      <li class="links__list_item"><a class="link--arrow" href="{{ '/feedback/' | url }}">Отзывы</a></li>
-    </ul>
-  </section>
+<div class="container oops">
+  <h1 class="oops__title">Ой! Этой страницы не существует</h1>
+  <p class="oops__text">Но есть <a href="{{ '/specialists/' | url }}" class="link--text">каталог специалистов</a> и <a href="{{ '/programs/' | url }}" class="link--text">список проблем</a>, с которыми помогаем справиться. Возможно, вам туда.</p>
 </div>

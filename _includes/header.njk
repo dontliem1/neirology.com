@@ -27,12 +27,12 @@
       <!-- Если находимся сейчас на этой странице, добавляем к <li> .header__nav-item-active -->
       <ul class="header__list header__list--desktop">
         {%- for entry in metadata.navigation.slice(0,4) %}
-          <li class="header__nav-item{% if entry.url == path %} header__nav-item--active{% endif %}{% if (entry.items) %} header__nav-item--parent{%- endif %}">
+          <li class="header__nav-item{% if entry.url == page.url %} header__nav-item--active{% endif %}{% if (entry.items) %} header__nav-item--parent{%- endif %}">
             <a class="header__nav-link" href="{{ entry.url | url }}"{% if (entry.items) %} aria-haspopup="true"{%- endif %}>{{ entry.label }}</a>
             {% if (entry.items)  %}
               <ul class="header__nav_subnav">
                 {%- for sublink in entry.items %}
-                  <li class="header__nav-subitem{% if sublink.url == path %} header__nav-item-active{% endif %}">
+                  <li class="header__nav-subitem{% if sublink.url == page.url %} header__nav-item--active{% endif %}">
                     <a class="header__nav-sublink" href="{{ sublink.url | url }}">{{ sublink.label }}</a>
                   </li>
                 {%- endfor %}

@@ -1,0 +1,37 @@
+---
+layout: layouts/base.njk
+---
+<div class="hero"{% if color %} style="background-color: {{ color }};"{% endif %}>
+  <div class="container">
+    <h1 class="hero__title">{{ title }}</h1>
+  </div>
+</div>
+<div class="container page__columns">
+  <aside class="page__aside"></aside>
+  <div class="page__content">
+    <p class="page__lead">{{ lead }}</p>
+    {{ content | safe }}
+  </div>
+</div>
+<script>
+  const headers = document.querySelectorAll('.page__content > h2');
+  console.log(headers);
+  if (headers.length) {
+    const headersList = document.createElement('ul');
+    headersList.classList.add('page__aside_navigation');
+    for (let header of headers) {
+      header.id = header.textContent;
+      let headersListItem = document.createElement('li');
+      let anchor = document.createElement('a');
+      anchor.href = '#' + header.textContent;
+      anchor.textContent = header.textContent;
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        header.scrollIntoView({block: "center", behavior: "smooth"});
+      })
+      headersListItem.appendChild(anchor);
+      headersList.appendChild(headersListItem);
+    }
+    document.querySelector('.page__aside').appendChild(headersList);
+  }
+</script>

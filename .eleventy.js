@@ -1,6 +1,5 @@
 const fs = require("fs");
 const markdownIt = require("markdown-it");
-const markdownItAnchor = require("markdown-it-anchor");
 
 module.exports = function(eleventyConfig) {
   // Add plugins
@@ -44,10 +43,6 @@ module.exports = function(eleventyConfig) {
     html: true,
     breaks: true,
     linkify: true
-  }).use(markdownItAnchor, {
-    permalink: true,
-    permalinkClass: "direct-link",
-    permalinkSymbol: "#"
   });
   eleventyConfig.setLibrary("md", markdownLibrary);
 

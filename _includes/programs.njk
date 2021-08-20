@@ -1,0 +1,32 @@
+---
+layout: layouts/home.njk
+---
+
+<div class="hero hero--bg">
+  <div class="container">
+    <h1 class="hero__title">{{ title }}</h1>
+  </div>
+</div>
+<div class="container page__columns">
+  <aside class="page__aside">
+    <div class="cta">
+      <h2 class="page__title">Есть вопросы? Ответим</h2>
+      <p>Оставьте заявку, мы перезвоним,  ответим на все вопросы и поможем записаться на консультацию, если она потребуется</p>
+      <button class="btn" type="button">Перезвоните мне</button>
+    </div>
+  </aside>
+  <div class="page__content">
+    <div class="page__lead">
+      {{ content | safe }}
+    </div>
+    <ul class="media__list">
+      {% for item in collections.programs %}
+        <li class="media__list_item">
+          <a href="{{ item.url | url }}">
+            <h2 class="page__title media__list_title">{{ item.data.title }}</h2>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
