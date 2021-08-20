@@ -1,6 +1,6 @@
 ---
 title: Терапия депрессии
-hero: http://i3.ytimg.com/vi/fJKXNLEYj_8/hqdefault.jpg
+hero: /static/img/hero_blue.png
 color: "#C1DEFF"
 lead: Если вы узнали себя в описаниях ниже, то скорее всего вы столкнулись с депрессией.
 ---

@@ -8,6 +8,20 @@ layout: layouts/home.njk
   </div>
 </div>
 <div class="container page__columns">
+  <div class="page__content">
+    {% if content %}
+      <div class="page__lead">
+        {{ content | safe }}
+      </div>
+    {% endif %}
+    <ul class="table-contents">
+      {% for item in collections.programs %}
+        <li>
+          <a class="table-contents__link page__title" href="{{ item.url | url }}">{{ item.data.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
   <aside class="page__aside">
     <div class="cta">
       <h2 class="page__title">Есть вопросы? Ответим</h2>
@@ -15,18 +29,4 @@ layout: layouts/home.njk
       <button class="btn" type="button">Перезвоните мне</button>
     </div>
   </aside>
-  <div class="page__content">
-    <div class="page__lead">
-      {{ content | safe }}
-    </div>
-    <ul class="media__list">
-      {% for item in collections.programs %}
-        <li class="media__list_item">
-          <a href="{{ item.url | url }}">
-            <h2 class="page__title media__list_title">{{ item.data.title }}</h2>
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
-  </div>
 </div>
