@@ -15,9 +15,12 @@ layout: layouts/home.njk
       </div>
     {% endif %}
     <ul class="table-contents">
-      {% for item in collections.programs %}
+      {% for item in collections.programs | reverse %}
         <li>
-          <a class="table-contents__link page__title" href="{{ item.url | url }}">{{ item.data.title }}</a>
+          <a class="table-contents__link" href="{{ item.url | url }}">
+            <span class="page__title">{{ item.data.title }}</span><br>
+            <span>{{ item.data.description }}</span>
+          </a>
         </li>
       {% endfor %}
     </ul>

@@ -86,40 +86,25 @@
             
               <ul class="header__nav_subnav">
                   <li class="header__nav-subitem">
-                    <a class="header__nav-sublink" href=".">Панические атаки</a>
+                    <a class="header__nav-sublink" href="/neirology.com/programs/anxiety/">Панические атаки</a>
                   </li>
                   <li class="header__nav-subitem">
                     <a class="header__nav-sublink" href="/neirology.com/programs/depression/">Депрессия</a>
                   </li>
                   <li class="header__nav-subitem">
-                    <a class="header__nav-sublink" href=".">Вегето-сосудистая дистония</a>
+                    <a class="header__nav-sublink" href="/neirology.com/programs/vsd/">Вегето-сосудистая дистония</a>
                   </li>
                   <li class="header__nav-subitem">
-                    <a class="header__nav-sublink" href=".">Тревожно-фобическое расстройство</a>
+                    <a class="header__nav-sublink" href="/neirology.com/programs/okr/">Обсессивно-компульсивное расстройство</a>
                   </li>
                   <li class="header__nav-subitem">
-                    <a class="header__nav-sublink" href=".">Обсессивно-компульсивное расстройство</a>
+                    <a class="header__nav-sublink" href="/neirology.com/programs/nevroses/">Нарушения невротического спектра</a>
                   </li>
                   <li class="header__nav-subitem">
-                    <a class="header__nav-sublink" href=".">Невроз</a>
+                    <a class="header__nav-sublink" href="/neirology.com/programs/eating-disorders/">Пищевые расстройства</a>
                   </li>
                   <li class="header__nav-subitem">
-                    <a class="header__nav-sublink" href=".">Анорексия, булимия</a>
-                  </li>
-                  <li class="header__nav-subitem">
-                    <a class="header__nav-sublink" href=".">Социофобия</a>
-                  </li>
-                  <li class="header__nav-subitem">
-                    <a class="header__nav-sublink" href=".">Детская программа</a>
-                  </li>
-                  <li class="header__nav-subitem">
-                    <a class="header__nav-sublink" href=".">Семейная программа</a>
-                  </li>
-                  <li class="header__nav-subitem">
-                    <a class="header__nav-sublink" href=".">Авиафобия</a>
-                  </li>
-                  <li class="header__nav-subitem">
-                    <a class="header__nav-sublink" href=".">Игромания</a>
+                    <a class="header__nav-sublink" href="/neirology.com/programs/children/">Детская психология</a>
                   </li>
               </ul>
             
@@ -143,7 +128,7 @@
                   <a class="header__nav-sublink" href=".">Цены</a>
                 </li>
                 <li class="header__nav-subitem">
-                  <a class="header__nav-sublink" href="/neirology.com/media/">Мы в СМИ</a>
+                  <a class="header__nav-sublink" href="/neirology.com/blog/">Блог</a>
                 </li>
                 <li class="header__nav-subitem">
                   <a class="header__nav-sublink" href=".">Вакансии</a>
@@ -183,7 +168,7 @@
             <a class="header__nav-link" href=".">Цены</a>
           </li>
           <li class="header__nav-item">
-            <a class="header__nav-link" href="/neirology.com/media/">Мы в СМИ</a>
+            <a class="header__nav-link" href="/neirology.com/blog/">Блог</a>
           </li>
           <li class="header__nav-item">
             <a class="header__nav-link" href=".">Вакансии</a>
@@ -203,17 +188,17 @@
   </form>
   <form class="popup__form" action="" method="post">
     <p class="form__row">
-      <label class="form__label" for="callbackName">Ваши имя и фамилия</label>
+      <label class="form__label page__subheading" for="callbackName">Ваши имя и фамилия</label>
       <input class="form__input" type="text" placeholder="Иван Иванов" id="callbackName" name="name">
     </p>
     <p class="form__row">
-      <label class="form__label" for="callbackTel">Номер телефона</label>
+      <label class="form__label page__subheading" for="callbackTel">Номер телефона</label>
       <!-- Ошибка показывается, если инпуту добавить .form__input--error -->
       <input class="form__input" type="tel" placeholder="+7 ___ ___-__-__" id="callbackTel" name="tel" required>
       <span class="form__error" hidden>Введите телефон, чтобы мы могли перезвонить и подтвердить запись.</span>
     </p>
     <p class="form__row">
-      <label class="form__label" for="callbackComment">Комментарий</label>
+      <label class="form__label page__subheading" for="callbackComment">Комментарий</label>
       <textarea class="form__input" placeholder="Если мы должны знать что-то важное, расскажите об этом здесь" id="callbackComment" name="comment" rows="5"></textarea>
     </p>
     <p class="form__message form__message--success" hidden><b>Спасибо!</b> Скоро с вами свяжется менеджер.</p>
@@ -235,7 +220,7 @@
 <div class="js-tabs container">
   <ul class="js-tablist" data-hx="h2">
     <li class="js-tablist__item">
-      <a href="#offline" class="js-tablist__link">Рукописные (3)</a>
+      <a href="#offline" class="js-tablist__link">Рукописные <span class="color--gray">(3)</span></a>
     </li>
     <li class="js-tablist__item">
       <a href="#online" class="js-tablist__link">В интернете</a>
@@ -245,7 +230,7 @@
     <h2 class="invisible">Отзывы, оставленные в клиниках</h2>
     <form class="filter" action="" method="get">
       <fieldset class="filter__fieldset">
-        <legend class="filter__fieldset_legend">Фильтры</legend>
+        <legend class="filter__fieldset_legend page__subheading">Фильтры</legend>
         <!-- В .filter__btn_counter вставляем кол-во значений из соответствующего get параметра -->
         <button class="filter__btn" type="button" aria-haspopup="dialog" aria-controls="filterProblems" name="problems">Выберите проблемы <span class="filter__btn_counter"></span></button>
         <button class="filter__btn" type="button" aria-haspopup="dialog" aria-controls="filterProfile" name="profiles">Выберите профиль специалиста <span class="filter__btn_counter"></span></button>
@@ -259,7 +244,7 @@
           <button class="popup__close_icon js-filter__close" type="button" aria-label="Закрыть окно" title="Закрыть" aria-controls="filterProblems"></button>
         </div>
         <fieldset class="filter__fieldset filter__fieldset--checkboxes">
-          <legend class="filter__fieldset_legend">Выберите направления</legend>
+          <legend class="filter__fieldset_legend page__subheading">Выберите направления</legend>
           <button class="filter__all btn--text" type="button">Выбрать всё</button>
           <p class="filter__checkbox_row">
             <label class="filter__checkbox_btn">
@@ -295,7 +280,7 @@
           <button class="popup__close_icon js-filter__close" type="button" aria-label="Закрыть окно" title="Закрыть" aria-controls="filterProfile"></button>
         </div>
         <fieldset class="filter__fieldset filter__fieldset--checkboxes">
-          <legend class="filter__fieldset_legend">Какой специалист интересует?</legend>
+          <legend class="filter__fieldset_legend page__subheading">Какой специалист интересует?</legend>
           <button class="filter__all btn--text" type="button">Выбрать всё</button>
           <p class="filter__checkbox_row">
             <label class="filter__checkbox_btn">
@@ -331,7 +316,7 @@
           <button class="popup__close_icon js-filter__close" type="button" aria-label="Закрыть окно" title="Закрыть" aria-controls="filterName"></button>
         </div>
         <fieldset class="filter__fieldset filter__fieldset--checkboxes">
-          <legend class="filter__fieldset_legend">Выберите специалиста</legend>
+          <legend class="filter__fieldset_legend page__subheading">Выберите специалиста</legend>
           <button class="filter__all btn--text" type="button">Выбрать всё</button>
           <p class="filter__checkbox_row">
             <label class="filter__checkbox_btn">
@@ -370,9 +355,9 @@
           <div class="feedback__offline_info">
             <h3 class="feedback__offline_title">О терапии депресии у Кузнецова</h3>
             <dl class="feedback__offline_description">
-              <dt class="feedback__offline_heading">Жалобы</dt>
+              <dt class="feedback__offline_heading page__subheading">Жалобы</dt>
               <dd class="feedback__offline_text">Тревожное расстройство, панические атаки.</dd>
-              <dt class="feedback__offline_heading">Отзыв клиента</dt>
+              <dt class="feedback__offline_heading page__subheading">Отзыв клиента</dt>
               <dd class="feedback__offline_text feedback__offline_text--collapsed"><span>За десять занятий четко было выявлены истоки самых серьезных проблем, что заставило реально, трезво без излишней трагичности посмотреть на все и переосмыслить своё мировоззрение. Появилось большое желание менять свою жизнь в лучшую сторону, просто жить и получать от этого удовольствие. Всё не так плохо! Спасибо, Сергей Олегович, без Вас этот путь к себе был бы долог и мучителен. Вы реально помогли!</span></dd>
             </dl>
             <button class="btn--text feedback__expand" type="button">Читать полностью</button>
@@ -385,9 +370,9 @@
           <div class="feedback__offline_info">
             <h3 class="feedback__offline_title">О терапии тревоги у Рузанова</h3>
             <dl class="feedback__offline_description">
-              <dt class="feedback__offline_heading">Жалобы</dt>
+              <dt class="feedback__offline_heading page__subheading">Жалобы</dt>
               <dd class="feedback__offline_text">Тревожное расстройство, панические атаки.</dd>
-              <dt class="feedback__offline_heading">Отзыв клиента</dt>
+              <dt class="feedback__offline_heading page__subheading">Отзыв клиента</dt>
               <dd class="feedback__offline_text feedback__offline_text--collapsed"><span>Теперь я чувствую, что САМА строю свою жизнь, что моё состояние — это не болезнь и не судьба, а лишь отражение моих мыслей. И хочется теперь думать правильные, здоровые мысли. Есть силы жить, стремиться и быть счастливой и здоровой. Раньше и представить такого не могла! Обращайтесь, не тяните! Эти люди творят чудеса!</span></dd>
             </dl>
             <button class="btn--text feedback__expand" type="button">Читать полностью</button>
@@ -400,9 +385,9 @@
           <div class="feedback__offline_info">
             <h3 class="feedback__offline_title">О терапии депрессии у Рузанова</h3>
             <dl class="feedback__offline_description">
-              <dt class="feedback__offline_heading">Жалобы</dt>
+              <dt class="feedback__offline_heading page__subheading">Жалобы</dt>
               <dd class="feedback__offline_text">Тревожное расстройство, панические атаки.</dd>
-              <dt class="feedback__offline_heading">Отзыв клиента</dt>
+              <dt class="feedback__offline_heading page__subheading">Отзыв клиента</dt>
               <dd class="feedback__offline_text feedback__offline_text--collapsed"><span>Теперь я чувствую, что САМА строю свою жизнь, что моё состояние — это не болезнь и не судьба, а лишь отражение моих мыслей. И хочется теперь думать правильные, здоровые мысли. Есть силы жить, стремиться и быть счастливой и здоровой. Раньше и представить такого не могла! Обращайтесь, не тяните! Эти люди творят чудеса!</span></dd>
             </dl>
             <button class="btn--text feedback__expand" type="button">Читать полностью</button>
@@ -474,7 +459,7 @@
           <a class="footer__link" href=".">О клинике</a>
         </li>
         <li class="footer__item">
-          <a class="footer__link" href=".">Блог</a>
+          <a class="footer__link" href="/neirology.com/blog/">Блог</a>
         </li>
         <li class="footer__item">
           <a class="footer__link" href=".">Вакансии</a>
@@ -494,7 +479,7 @@
       <a href="/neirology.com/privacy" class="footer__text_link">Политика обработки и защиты персональных данных</a>
       <p>© 2021 ООО «Нейрология». <span class="text--nowrap">Лицензия №ЛО-77-01-018632</span></p>
     </div>
-    <img class="footer__legacy" src="/neirology.com/static/img/legacy.svg" alt="Нейрология" width="237" height="35">
+    <img class="footer__legacy" src="/neirology.com/static/img/legacy.svg" alt="Нейрология" width="178" height="26">
     <a class="footer__studio" href="https://lepekhin.studio">
       <img class="footer__studio_img" src="/neirology.com/static/img/lepekhin.svg" alt="Лепёхин" width="82" height="32">
       <span class="footer__studio_caption">Задизайнено<br>в Студии Евгения Лепёхина</span>

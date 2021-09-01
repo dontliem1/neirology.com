@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Мы в СМИ</title>
+    <title>Блог</title>
     <meta name="description" content="Демо-версия сайта Нейро-Пси.">
     <link rel="icon" href="/neirology.com/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="/neirology.com/static/css/index.css">
@@ -86,40 +86,25 @@
             
               <ul class="header__nav_subnav">
                   <li class="header__nav-subitem">
-                    <a class="header__nav-sublink" href=".">Панические атаки</a>
+                    <a class="header__nav-sublink" href="/neirology.com/programs/anxiety/">Панические атаки</a>
                   </li>
                   <li class="header__nav-subitem">
                     <a class="header__nav-sublink" href="/neirology.com/programs/depression/">Депрессия</a>
                   </li>
                   <li class="header__nav-subitem">
-                    <a class="header__nav-sublink" href=".">Вегето-сосудистая дистония</a>
+                    <a class="header__nav-sublink" href="/neirology.com/programs/vsd/">Вегето-сосудистая дистония</a>
                   </li>
                   <li class="header__nav-subitem">
-                    <a class="header__nav-sublink" href=".">Тревожно-фобическое расстройство</a>
+                    <a class="header__nav-sublink" href="/neirology.com/programs/okr/">Обсессивно-компульсивное расстройство</a>
                   </li>
                   <li class="header__nav-subitem">
-                    <a class="header__nav-sublink" href=".">Обсессивно-компульсивное расстройство</a>
+                    <a class="header__nav-sublink" href="/neirology.com/programs/nevroses/">Нарушения невротического спектра</a>
                   </li>
                   <li class="header__nav-subitem">
-                    <a class="header__nav-sublink" href=".">Невроз</a>
+                    <a class="header__nav-sublink" href="/neirology.com/programs/eating-disorders/">Пищевые расстройства</a>
                   </li>
                   <li class="header__nav-subitem">
-                    <a class="header__nav-sublink" href=".">Анорексия, булимия</a>
-                  </li>
-                  <li class="header__nav-subitem">
-                    <a class="header__nav-sublink" href=".">Социофобия</a>
-                  </li>
-                  <li class="header__nav-subitem">
-                    <a class="header__nav-sublink" href=".">Детская программа</a>
-                  </li>
-                  <li class="header__nav-subitem">
-                    <a class="header__nav-sublink" href=".">Семейная программа</a>
-                  </li>
-                  <li class="header__nav-subitem">
-                    <a class="header__nav-sublink" href=".">Авиафобия</a>
-                  </li>
-                  <li class="header__nav-subitem">
-                    <a class="header__nav-sublink" href=".">Игромания</a>
+                    <a class="header__nav-sublink" href="/neirology.com/programs/children/">Детская психология</a>
                   </li>
               </ul>
             
@@ -143,7 +128,7 @@
                   <a class="header__nav-sublink" href=".">Цены</a>
                 </li>
                 <li class="header__nav-subitem">
-                  <a class="header__nav-sublink" href="/neirology.com/media/">Мы в СМИ</a>
+                  <a class="header__nav-sublink" href="/neirology.com/blog/">Блог</a>
                 </li>
                 <li class="header__nav-subitem">
                   <a class="header__nav-sublink" href=".">Вакансии</a>
@@ -183,7 +168,7 @@
             <a class="header__nav-link" href=".">Цены</a>
           </li>
           <li class="header__nav-item header__nav-item--active">
-            <a class="header__nav-link" href="/neirology.com/media/">Мы в СМИ</a>
+            <a class="header__nav-link" href="/neirology.com/blog/">Блог</a>
           </li>
           <li class="header__nav-item">
             <a class="header__nav-link" href=".">Вакансии</a>
@@ -203,17 +188,17 @@
   </form>
   <form class="popup__form" action="" method="post">
     <p class="form__row">
-      <label class="form__label" for="callbackName">Ваши имя и фамилия</label>
+      <label class="form__label page__subheading" for="callbackName">Ваши имя и фамилия</label>
       <input class="form__input" type="text" placeholder="Иван Иванов" id="callbackName" name="name">
     </p>
     <p class="form__row">
-      <label class="form__label" for="callbackTel">Номер телефона</label>
+      <label class="form__label page__subheading" for="callbackTel">Номер телефона</label>
       <!-- Ошибка показывается, если инпуту добавить .form__input--error -->
       <input class="form__input" type="tel" placeholder="+7 ___ ___-__-__" id="callbackTel" name="tel" required>
       <span class="form__error" hidden>Введите телефон, чтобы мы могли перезвонить и подтвердить запись.</span>
     </p>
     <p class="form__row">
-      <label class="form__label" for="callbackComment">Комментарий</label>
+      <label class="form__label page__subheading" for="callbackComment">Комментарий</label>
       <textarea class="form__input" placeholder="Если мы должны знать что-то важное, расскажите об этом здесь" id="callbackComment" name="comment" rows="5"></textarea>
     </p>
     <p class="form__message form__message--success" hidden><b>Спасибо!</b> Скоро с вами свяжется менеджер.</p>
@@ -226,22 +211,13 @@
   <main>
     <div class="hero hero--bg">
   <div class="container">
-    <h1 class="hero__title">Мы в СМИ</h1>
+    <h1 class="hero__title">Блог</h1>
   </div>
 </div>
 <div class="container page__columns">
-  <aside class="page__aside">
-    <div id="vk_groups"></div>
-    <script src="https://vk.com/js/api/openapi.js?169"></script>
-    <script>
-      VK.Widgets.Group("vk_groups", {mode: 3, width: "314", color1: 'FFF8E5', color3: 'FFBC00', no_cover: 1}, 20075849);
-    </script>
-  </aside>
   <div class="page__content">
     <div class="page__lead">
-      <p>В этом разделе мы публикуем сюжеты телеканалов Самары, в которых принимали активное участие психологи центра «НЕЙРО-ПСИ», а также выкладываем авторские статьи наших специалистов и новости клиники.</p>
-<p>Надеемся, что представленная здесь информация окажется полезной и даст практичные ответы на многие «хронические» вопросы.</p>
-<p>Мир не стоит на месте, многое в человеческой психике и поведении, что казалось ранее врожденным или неизлечимым, сейчас поддается позитивным изменениям при оказании психологической помощи.</p>
+      <p>Ментальное здоровье, эмоциональные проблемы и методы их решения. Только научно-доказанная информация, проверенная нашими психологами и психиатрами.</p>
 
     </div>
     <ul class="media__list">
@@ -249,25 +225,25 @@
         
         <li class="media__list_item">
           <div class="media__list_text">
-            <h2 class="page__title media__list_title"><a href="/neirology.com/media/eating-disorder/">Нарушения пищевого поведения</a></h2>
+            <h2 class="page__title media__list_title"><a href="/neirology.com/blog/eating-disorder/">Нарушения пищевого поведения</a></h2>
             <span class="color--gray">24 декабря 2016 г.</span>
             <div class="media__list_description"><p>Проблемы, связанные с приемом пищи в настоящее время приобретают характер настоящей эпидемии. О причинах нарушений пищевого поведения расскажут специалисты психолог С.О. Кузнецов и психиатр, психотерапевт В.А. Рахманов.</p>
 </div>
-            <a class="link--arrow" href="/neirology.com/media/eating-disorder/">Подробнее</a>
+            <a class="link--arrow" href="/neirology.com/blog/eating-disorder/">Подробнее</a>
           </div>
-          <a class="media__list_thumbnail" href="/neirology.com/media/eating-disorder/" aria-label="Перейти к статье"><img class="media__list_img" width="384" height="262" src="http://i3.ytimg.com/vi/fJKXNLEYj_8/hqdefault.jpg" alt=""></a>
+          <a class="media__list_thumbnail" href="/neirology.com/blog/eating-disorder/" aria-label="Перейти к статье"><img class="media__list_img" width="384" height="262" src="http://i3.ytimg.com/vi/fJKXNLEYj_8/hqdefault.jpg" alt=""></a>
         </li>
       
         
         <li class="media__list_item">
           <div class="media__list_text">
-            <h2 class="page__title media__list_title"><a href="/neirology.com/media/women-roles/">Роли, которые играют женщины в отношениях</a></h2>
+            <h2 class="page__title media__list_title"><a href="/neirology.com/blog/women-roles/">Роли, которые играют женщины в отношениях</a></h2>
             <span class="color--gray">25 мая 2017 г.</span>
             <div class="media__list_description"><p>Отношения между мужчинами и женщинами уже давно стали «классикой» психологии. О том, какие роли в отношениях могут играть представительницы прекрасного пола и о последствиях «ролевой специализации» будет рассказано в сегодняшней передаче.</p>
 </div>
-            <a class="link--arrow" href="/neirology.com/media/women-roles/">Подробнее</a>
+            <a class="link--arrow" href="/neirology.com/blog/women-roles/">Подробнее</a>
           </div>
-          <a class="media__list_thumbnail" href="/neirology.com/media/women-roles/" aria-label="Перейти к статье"><img class="media__list_img" width="384" height="262" src="http://i3.ytimg.com/vi/aPMQbOtKoS4/hqdefault.jpg" alt=""></a>
+          <a class="media__list_thumbnail" href="/neirology.com/blog/women-roles/" aria-label="Перейти к статье"><img class="media__list_img" width="384" height="262" src="http://i3.ytimg.com/vi/aPMQbOtKoS4/hqdefault.jpg" alt=""></a>
         </li>
       
     </ul>
@@ -276,6 +252,13 @@
       <a class="link--arrow" href="">Следующие 10 записей</a>
     </p>
   </div>
+  <aside class="page__aside">
+    <div id="vk_groups"></div>
+    <script src="https://vk.com/js/api/openapi.js?169"></script>
+    <script>
+      VK.Widgets.Group("vk_groups", {mode: 3, width: "314", color1: 'FFF8E5', color3: 'FFBC00', no_cover: 1}, 20075849);
+    </script>
+  </aside>
 </div>
 
   </main>
@@ -308,8 +291,8 @@
         <li class="footer__item">
           <a class="footer__link" href=".">О клинике</a>
         </li>
-        <li class="footer__item">
-          <a class="footer__link" href=".">Блог</a>
+        <li class="footer__item footer-item--active">
+          <a class="footer__link" href="/neirology.com/blog/">Блог</a>
         </li>
         <li class="footer__item">
           <a class="footer__link" href=".">Вакансии</a>
@@ -329,7 +312,7 @@
       <a href="/neirology.com/privacy" class="footer__text_link">Политика обработки и защиты персональных данных</a>
       <p>© 2021 ООО «Нейрология». <span class="text--nowrap">Лицензия №ЛО-77-01-018632</span></p>
     </div>
-    <img class="footer__legacy" src="/neirology.com/static/img/legacy.svg" alt="Нейрология" width="237" height="35">
+    <img class="footer__legacy" src="/neirology.com/static/img/legacy.svg" alt="Нейрология" width="178" height="26">
     <a class="footer__studio" href="https://lepekhin.studio">
       <img class="footer__studio_img" src="/neirology.com/static/img/lepekhin.svg" alt="Лепёхин" width="82" height="32">
       <span class="footer__studio_caption">Задизайнено<br>в Студии Евгения Лепёхина</span>

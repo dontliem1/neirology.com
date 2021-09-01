@@ -16,7 +16,7 @@ hasTabs: true
 <div class="js-tabs container">
   <ul class="js-tablist" data-hx="h2">
     <li class="js-tablist__item">
-      <a href="#offline" class="js-tablist__link">Рукописные ({{ metadata.offlineFeedback | length }})</a>
+      <a href="#offline" class="js-tablist__link">Рукописные <span class="color--gray">({{ metadata.offlineFeedback | length }})</span></a>
     </li>
     <li class="js-tablist__item">
       <a href="#online" class="js-tablist__link">В интернете</a>
@@ -26,7 +26,7 @@ hasTabs: true
     <h2 class="invisible">Отзывы, оставленные в клиниках</h2>
     <form class="filter" action="" method="get">
       <fieldset class="filter__fieldset">
-        <legend class="filter__fieldset_legend">Фильтры</legend>
+        <legend class="filter__fieldset_legend page__subheading">Фильтры</legend>
         <!-- В .filter__btn_counter вставляем кол-во значений из соответствующего get параметра -->
         <button class="filter__btn" type="button" aria-haspopup="dialog" aria-controls="filterProblems" name="problems">Выберите проблемы <span class="filter__btn_counter"></span></button>
         <button class="filter__btn" type="button" aria-haspopup="dialog" aria-controls="filterProfile" name="profiles">Выберите профиль специалиста <span class="filter__btn_counter"></span></button>
@@ -40,7 +40,7 @@ hasTabs: true
           <button class="popup__close_icon js-filter__close" type="button" aria-label="Закрыть окно" title="Закрыть" aria-controls="filterProblems"></button>
         </div>
         <fieldset class="filter__fieldset filter__fieldset--checkboxes">
-          <legend class="filter__fieldset_legend">Выберите направления</legend>
+          <legend class="filter__fieldset_legend page__subheading">Выберите направления</legend>
           <button class="filter__all btn--text" type="button">Выбрать всё</button>
           <p class="filter__checkbox_row">
             <label class="filter__checkbox_btn">
@@ -76,7 +76,7 @@ hasTabs: true
           <button class="popup__close_icon js-filter__close" type="button" aria-label="Закрыть окно" title="Закрыть" aria-controls="filterProfile"></button>
         </div>
         <fieldset class="filter__fieldset filter__fieldset--checkboxes">
-          <legend class="filter__fieldset_legend">Какой специалист интересует?</legend>
+          <legend class="filter__fieldset_legend page__subheading">Какой специалист интересует?</legend>
           <button class="filter__all btn--text" type="button">Выбрать всё</button>
           <p class="filter__checkbox_row">
             <label class="filter__checkbox_btn">
@@ -112,7 +112,7 @@ hasTabs: true
           <button class="popup__close_icon js-filter__close" type="button" aria-label="Закрыть окно" title="Закрыть" aria-controls="filterName"></button>
         </div>
         <fieldset class="filter__fieldset filter__fieldset--checkboxes">
-          <legend class="filter__fieldset_legend">Выберите специалиста</legend>
+          <legend class="filter__fieldset_legend page__subheading">Выберите специалиста</legend>
           <button class="filter__all btn--text" type="button">Выбрать всё</button>
           <p class="filter__checkbox_row">
             <label class="filter__checkbox_btn">
@@ -152,9 +152,9 @@ hasTabs: true
           <div class="feedback__offline_info">
             <h3 class="feedback__offline_title">{{ entry.title }}</h3>
             <dl class="feedback__offline_description">
-              <dt class="feedback__offline_heading">Жалобы</dt>
+              <dt class="feedback__offline_heading page__subheading">Жалобы</dt>
               <dd class="feedback__offline_text">{{ entry.complaints }}</dd>
-              <dt class="feedback__offline_heading">Отзыв клиента</dt>
+              <dt class="feedback__offline_heading page__subheading">Отзыв клиента</dt>
               <dd class="feedback__offline_text feedback__offline_text--collapsed"><span>{{ entry.text }}</span></dd>
             </dl>
             <button class="btn--text feedback__expand" type="button">Читать полностью</button>

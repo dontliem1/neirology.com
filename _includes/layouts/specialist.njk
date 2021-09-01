@@ -72,9 +72,9 @@ hasTabs: true
               <div class="feedback__offline_info">
                 <h3 class="feedback__offline_title">{{ entry.title }}</h3>
                 <dl class="feedback__offline_description">
-                  <dt class="feedback__offline_heading">Жалобы</dt>
+                  <dt class="feedback__offline_heading page__subheading">Жалобы</dt>
                   <dd class="feedback__offline_text">{{ entry.complaints }}</dd>
-                  <dt class="feedback__offline_heading">Отзыв клиента</dt>
+                  <dt class="feedback__offline_heading page__subheading">Отзыв клиента</dt>
                   <dd class="feedback__offline_text feedback__offline_text--collapsed"><span>{{ entry.text }}</span></dd>
                 </dl>
                 <button class="btn--text feedback__expand" type="button">Читать полностью</button>
@@ -108,17 +108,17 @@ hasTabs: true
   </form>
   <form class="popup__form" action="" method="post">
     <p class="form__row">
-      <label class="form__label" for="bookName">Ваши имя и фамилия</label>
+      <label class="form__label page__subheading" for="bookName">Ваши имя и фамилия</label>
       <input class="form__input" type="text" placeholder="Иван Иванов" id="bookName" name="name">
     </p>
     <p class="form__row">
-      <label class="form__label" for="bookTel">Номер телефона</label>
+      <label class="form__label page__subheading" for="bookTel">Номер телефона</label>
       <!-- Ошибка показывается, если инпуту добавить .form__input--error -->
       <input class="form__input" type="tel" placeholder="+7 ___ ___-__-__" id="bookTel" name="tel" required>
       <span class="form__error" hidden>Введите телефон, чтобы мы могли перезвонить и подтвердить запись.</span>
     </p>
     <p class="form__row">
-      <label class="form__label" for="bookComment">Комментарий</label>
+      <label class="form__label page__subheading" for="bookComment">Комментарий</label>
       <textarea class="form__input" placeholder="Если мы должны знать что-то важное, расскажите об этом здесь" id="bookComment" name="comment" rows="5"></textarea>
     </p>
     <p class="form__message form__message--success" hidden><b>Спасибо!</b> Скоро с вами свяжется менеджер.</p>
