@@ -599,25 +599,39 @@ a.btn {
   display: inline-flex;
   align-items: flex-end;
 }
+@media (max-width: 32em) {
+  .js-tablist__item {
+    flex-grow: 1;
+  }
+}
 .js-tablist__link .color--gray {
   transition: color .2s;
 }
+.js-tablist__link:active {
+  position: relative;
+}
 .js-tablist__link {
   display: block;
+  flex-grow: 1;
   margin-bottom: -1px;
   padding: 1em 1.5em .5em;
   color: inherit;
   text-decoration: none;
-  transition: color .2s;
+  transition: color .2s, border-top-color .2s, border-left-color .2s, border-right-color .2s;
   border: 1px solid transparent;
   border-bottom-color: #E4E3E1;
   border-top-left-radius: .5em;
   border-top-right-radius: .5em;
 }
+.js-tablist__item:not(:last-child) .js-tablist__link {
+  margin-right: -1px;
+}
+.js-tablist__link .color--gray {
+  padding-left: .5ch;
+  padding-right: .5ch;
+}
 .js-tablist__link[aria-selected="false"]:hover,
-.js-tablist__link[aria-selected="false"]:hover .color--gray,
-.js-tablist__link:focus,
-.js-tablist__link:focus .color--gray {
+.js-tablist__link[aria-selected="false"]:hover .color--gray {
   color: hsl(276, 85%, 37%);
   cursor: pointer;
 }
@@ -627,6 +641,13 @@ a.btn {
 }
 .js-tabcontent[aria-hidden="true"] {
   display: none;
+}
+.js-tablist__link:focus,
+.js-tablist__link:focus .color--gray {
+  outline: none;
+  border-top-color: hsl(276, 85%, 37%);
+  border-left-color: hsl(276, 85%, 37%);
+  border-right-color: hsl(276, 85%, 37%);
 }
 @media (min-width: 72em) {
   .js-tablist {
@@ -678,7 +699,6 @@ a.btn {
   display: flex;
   flex-wrap: wrap;
   flex-grow: 1;
-  align-items: baseline;
 }
 .filter__fieldset--checkboxes {
   position: relative;
@@ -719,7 +739,7 @@ a.btn {
   text-align: left;
   cursor: pointer;
   margin: .5rem .3rem 0;
-  flex-basis: 19.4em;
+  flex-basis: 19.5em;
   flex-grow: 1;
   transition: color .2s, background-color .2s;
 }
@@ -730,9 +750,6 @@ a.btn {
   margin-right: auto;
   margin-left: .5em;
   color: #969593;
-}
-.filter__btn:last-of-type {
-  margin-bottom: .5rem;
 }
 .filter__btn::after {
   content: url("../img/down_small.svg");
@@ -785,7 +802,7 @@ a.btn {
 }
 .filter__submit {
   flex-grow: 1;
-  margin: .5rem .3rem;
+  margin: .5rem .3rem 0;
 }
 
 /* Offline feedback */
@@ -1659,7 +1676,7 @@ dialog.fixed {
   font-size: 2.4rem;
 }
 .popup__close_icon {
-  padding: 2rem 2rem 1em 1em;
+  padding: 2rem 2rem 1.1em 1em;
   display: inline-block;
   margin: 0;
   border: 0;
@@ -1671,6 +1688,10 @@ dialog.fixed {
   background: url("../img/close_black.svg") 50% 1.75rem /1em no-repeat;
   vertical-align: top;
   outline-offset: -3px;
+  outline: none;
+}
+.popup__close_icon:focus {
+  background-color: #e7e6e3;
 }
 .form__row {
   display: flex;

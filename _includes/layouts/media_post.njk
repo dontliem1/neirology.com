@@ -19,7 +19,7 @@ layout: layouts/base.njk
   <div class="media__suggestions">
     <h2 class="page__title">Ещё по теме</h2>
     <ul class="media__list media__suggestions_list">
-      {% for mediaPost in collections.media | head(3) %}
+      {% for mediaPost in collections.blog | head(3) %}
         {% set mediaLink = mediaPost.url | url %}
         <li class="media__list_item">
           <div class="media__list_text">
