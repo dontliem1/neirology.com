@@ -27,16 +27,16 @@ module.exports = function(eleventyConfig) {
   });
 
   // Copy the `static` folders to the output
-  eleventyConfig.addPassthroughCopy("static");
+  eleventyConfig.addPassthroughCopy("./src/static");
   eleventyConfig.addPassthroughCopy({
-    "node_modules/van11y-accessible-tab-panel-aria/dist/van11y-accessible-tab-panel-aria.min.js": "static/js/van11y-accessible-tab-panel-aria.min.js",
-    "node_modules/dialog-polyfill/dist/dialog-polyfill.js": "static/js/dialog-polyfill.js",
-    "node_modules/photoswipe/dist/default-skin": "static/css/default-skin",
-    "node_modules/photoswipe/dist/photoswipe.css": "static/css/photoswipe.css",
-    "node_modules/photoswipe/dist/photoswipe.min.js": "static/js/photoswipe.min.js",
-    "node_modules/photoswipe/dist/photoswipe-ui-default.min.js": "static/js/photoswipe-ui-default.min.js",
+    "node_modules/van11y-accessible-tab-panel-aria/dist/van11y-accessible-tab-panel-aria.min.js": "./static/js/van11y-accessible-tab-panel-aria.min.js",
+    "node_modules/dialog-polyfill/dist/dialog-polyfill.js": "./static/js/dialog-polyfill.js",
+    "node_modules/photoswipe/dist/default-skin": "./static/css/default-skin",
+    "node_modules/photoswipe/dist/photoswipe.css": "./static/css/photoswipe.css",
+    "node_modules/photoswipe/dist/photoswipe.min.js": "./static/js/photoswipe.min.js",
+    "node_modules/photoswipe/dist/photoswipe-ui-default.min.js": "./static/js/photoswipe-ui-default.min.js",
   });
-  eleventyConfig.addPassthroughCopy("favicon.svg");
+  eleventyConfig.addPassthroughCopy("./src/favicon.svg");
 
   // Customize Markdown library and settings:
   let markdownLibrary = markdownIt({
@@ -99,7 +99,7 @@ module.exports = function(eleventyConfig) {
 
     // These are all optional (defaults are shown):
     dir: {
-      input: ".",
+      input: "src",
       includes: "_includes",
       data: "_data",
       output: "docs"

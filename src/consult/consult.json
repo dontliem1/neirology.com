@@ -1,0 +1,6 @@
+{
+  "tags": [
+    "consult"
+  ],
+  "layout": "layouts/program.njk"
+}

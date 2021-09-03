@@ -15,7 +15,7 @@ layout: layouts/home.njk
       </div>
     {% endif %}
     <ul class="table-contents">
-      {% for item in collections.programs | reverse %}
+      {% for item in collections[collection] | reverse %}
         <li>
           <a class="table-contents__link" href="{{ item.url | url }}">
             <span class="page__title">{{ item.data.title }}</span><br>

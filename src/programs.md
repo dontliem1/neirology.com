@@ -1,5 +1,6 @@
 ---
 title: С чем помогаем
-layout: programs.njk
+layout: catalog.njk
 path: /programs
+collection: programs
 ---
