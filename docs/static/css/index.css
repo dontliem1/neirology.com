@@ -2881,7 +2881,7 @@ select.form__input {
 }
 .price__table td:last-child {
 	padding: .3em .5em;
-	min-width: 7ch;
+	min-width: 5ch;
 }
 .price__table tbody tr:last-child td {
 	padding-bottom: 3rem;
