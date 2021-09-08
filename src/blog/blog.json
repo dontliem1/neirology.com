@@ -1,6 +1,6 @@
 {
-  "tags": [
-    "blog"
-  ],
-  "layout": "layouts/media_post.njk"
+	"tags": [
+		"blog"
+	],
+	"layout": "blog-post.njk"
 }

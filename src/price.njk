@@ -1,0 +1,49 @@
+---
+layout: layouts/base.njk
+title: Цены
+---
+<div class="hero hero--bg">
+	<div class="container">
+		<h1 class="hero__title">{{ title }}</h1>
+	</div>
+</div>
+<div class="container page__columns">
+	<div class="page__content">
+		<p class="page__lead">Перечень платных медицинских услуг и услуг психолога с указанием цен в рублях</p>
+		<table class="price__table">
+			<thead>
+			<tr><th class="page__title" colspan="2">Психология и психотерапия</th></tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Первичная консультация психолога</td>
+					<td>2900 ₽</td>
+				</tr>
+				<tr>
+					<td>Первичная
+						<a class="link--text" href="{{ '/consult/psychiatrist/' | url }}">консультация психотерапевта</a></td>
+					<td>2900 ₽</td>
+				</tr>
+				<tr>
+					<td>Первичный приём семейного психотерапевта</td>
+					<td>2900 ₽</td>
+				</tr>
+				<tr>
+					<td>Медико-психологическая комиссия</td>
+					<td>12&thinsp;000 ₽</td>
+				</tr>
+				<tr>
+					<td>Повторная выписка рецепта</td>
+					<td>500 ₽</td>
+				</tr>
+			</tbody>
+		</table>
+		<p class="page__lead"><a href="../specialists/" class="link--arrow">В каталог, выбрать специалиста</a></p>
+	</div>
+	<aside class="page__aside">
+		<div class="cta">
+			<h2 class="page__title">Стоимость повторных приёмов</h2>
+			<p>Стоимость лечебной программы и повторных приёмов устанавливается на первичной консультации и зависит от диагноза или длительности существующей проблемы.</p>
+		</div>
+	</aside>
+</div>

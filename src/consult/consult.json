@@ -1,6 +1,6 @@
 {
-  "tags": [
-    "consult"
-  ],
-  "layout": "layouts/program.njk"
+	"tags": [
+		"consult"
+	],
+	"layout": "page.njk"
 }
