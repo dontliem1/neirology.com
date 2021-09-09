@@ -1198,7 +1198,6 @@ a.btn {
 
 .footer__cities {
 	display: none;
-	text-align: right;
 	max-width: 17em;
 	margin-bottom: 0;
 }
@@ -1380,7 +1379,7 @@ a.btn {
 	.footer__contact {
 		grid-column: 3/4;
 		grid-row: 1/2;
-		text-align: right;
+		text-align: left;
 	}
 
 	.footer__list {
@@ -2881,7 +2880,7 @@ select.form__input {
 }
 .price__table td:last-child {
 	padding: .3em .5em;
-	min-width: 5ch;
+	min-width: 6ch;
 }
 .price__table tbody tr:last-child td {
 	padding-bottom: 3rem;
