@@ -2900,13 +2900,20 @@ select.form__input {
 	padding: 3rem 2rem .3em;
 }
 .price__table td:first-child {
-	padding: .3em 0 .3em 2rem;
+	padding: .3rem 0 .3rem 2rem;
+}
+.price__table .price--small:first-child {
+	font-size: 1.4rem;
+	padding: .3rem 0 1rem 3rem;
 }
 .price__table td:last-child {
-	padding: .3em .5em;
-	min-width: 6ch;
+	padding: .3rem .5rem;
+	min-width: 7.5ch;
 }
-.price__table tbody tr:last-child td {
+.price--small ~ td {
+	padding-top: 0;
+}
+.price__table tbody tr:last-child td:nth-child(n) {
 	padding-bottom: 3rem;
 }
 .price__table tbody tr:hover td {
