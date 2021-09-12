@@ -2549,10 +2549,12 @@ select.form__input {
 	margin: 0;
 }
 
-.page__content > p > img {
+.page__content > p > img:only-child {
 	width: 100%;
 	height: auto;
 	border-radius: .4rem;
+	margin-top: 2.5rem;
+	margin-bottom: 3rem;
 }
 
 .page__figure {
