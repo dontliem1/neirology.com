@@ -47,7 +47,8 @@ module.exports = function (eleventyConfig) {
 	let markdownLibrary = markdownIt({
 		html: true,
 		breaks: true,
-		linkify: true
+		linkify: true,
+		typographer: true
 	});
 	eleventyConfig.setLibrary("md", markdownLibrary);
 
@@ -75,8 +76,7 @@ module.exports = function (eleventyConfig) {
 		templateFormats: [
 			"md",
 			"njk",
-			"html",
-			"liquid"
+			"html"
 		],
 
 		// -----------------------------------------------------------------

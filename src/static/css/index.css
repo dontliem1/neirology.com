@@ -2461,6 +2461,7 @@ select.form__input {
 	color: hsl(0, 0%, 33%);
 	text-decoration: none;
 	transition: color .2s;
+	display: block;
 }
 
 .page__aside_navigation a:hover {
@@ -2476,7 +2477,7 @@ select.form__input {
 	max-width: 80.6rem;
 }
 
-.page__content > p {
+.page__content > p:not(.page__lead) {
 	margin-top: 0;
 	margin-bottom: 1rem;
 }
@@ -2548,12 +2549,33 @@ select.form__input {
 	margin: 0;
 }
 
+.page__content > p > img {
+	width: 100%;
+	height: auto;
+	border-radius: .4rem;
+}
+
+.page__figure {
+	margin: 2rem 0 1rem;
+	font-size: 1.4rem;
+}
+.page__figure img {
+	width: 100%;
+	height: auto;
+	margin-bottom: 1rem;
+	border-radius: .4rem;
+}
+
 .page__highlighted {
 	background-color: #F3F3F3;
 	padding: 3rem 2rem;
 	border-radius: .4rem;
 	margin-top: 2rem;
 	margin-bottom: 2.5rem;
+}
+
+.page__highlighted p:only-child {
+	margin: 0;
 }
 
 .page__highlighted h3 {
