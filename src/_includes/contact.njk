@@ -1,0 +1,38 @@
+---
+layout: layouts/base.njk
+---
+<div class="hero hero--bg">
+	<div class="container">
+		<h1 class="hero__title">{{ title }}</h1>
+	</div>
+</div>
+<div class="container page__columns">
+	<div class="page__content">
+		<div class="page__lead">
+		{{ content | safe }}
+		</div>
+		<div class="page__bordered">
+			<h2 class="page__title">Адрес клиники</h2>
+			<p>пам-пам</p>
+		</div>
+		<div class="page__highlighted">
+			<h2 class="page__title">Реквизиты и лицензия</h2>
+			<h3>Название</h3>
+			<p>ООО "НЕЙРОЛОГИЯ-МСК"</p>
+			<h3>ИНН</h3>
+			<p>9703022117</p>
+			<h3>ОГРН</h3>
+			<p>1207700444511</p>
+			<h3>Лицензии</h3>
+			<a class="link--arrow" href="">смотреть лицензии на медицинскую деятельность</a>
+		</div>
+	</div>
+	<aside class="page__aside">
+		<div class="cta">
+			<h2 class="page__title">Записаться на приём</h2>
+			<p>Телефон: <a class="link--text color--inherit" href="tel:88006003264">8 800 600 32 64</a><br><span class="color--gray">Звонок бесплатный</span></p>
+			<p><a class="link--text color--whatsapp" href="">Написать в Ватсапе</a></p>
+			<p><a class="link--text color--telegram" href="">Написать в Телеграме</a></p>
+		</div>
+	</aside>
+</div>

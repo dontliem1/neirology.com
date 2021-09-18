@@ -103,14 +103,6 @@ img {
 	line-height: 1.74rem;
 }
 
-.color--gray {
-	color: #a09f9d;
-}
-
-.color--inherit {
-	color: inherit;
-}
-
 .btn {
 	background-color: hsl(44, 100%, 50%);
 	-webkit-appearance: none;
@@ -1991,13 +1983,13 @@ dialog.fixed {
 	background-color: #e7e6e3;
 }
 
-.page__form_wrapper {
+.page__bordered {
 	padding: 2rem 2rem 3rem;
 	border-radius: .4rem;
 	border: 1px solid #e7e6e3;
 }
 
-.page__form_wrapper + .font-size--secondary {
+.page__bordered + .font-size--secondary {
 	margin-top: 1rem;
 }
 
@@ -2416,6 +2408,14 @@ select.form__input {
 	transition: color .2s;
 }
 
+.color--gray {
+	color: #a09f9d;
+}
+
+.color--inherit {
+	color: inherit;
+}
+
 .link--arrow_back::before {
 	content: '← ';
 }
@@ -2439,6 +2439,9 @@ select.form__input {
 .page__content--media p:first-child {
 	font-size: 2.2rem;
 	margin-bottom: 3rem;
+}
+.page__lead > p:first-child {
+	margin-top: 0;
 }
 
 .page__aside {
@@ -2760,7 +2763,11 @@ select.form__input {
 }
 
 .cta p {
-	margin: 10px 0;
+	margin: 1rem 0;
+}
+
+.cta p + p {
+	margin-top: 0;
 }
 
 .cta .btn {
