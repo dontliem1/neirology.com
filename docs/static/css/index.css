@@ -81,6 +81,10 @@ body {
 	padding-right: 1.5rem;
 }
 
+.hidden--mobile {
+	display: none;
+}
+
 @media (min-width: 72em) {
 	.container {
 		padding-left: 9rem;
@@ -88,6 +92,14 @@ body {
 		max-width: 126rem;
 		margin-left: auto;
 		margin-right: auto;
+	}
+
+	.hidden--desktop {
+		display: none !important;
+	}
+
+	.hidden--mobile {
+		display: block;
 	}
 }
 
@@ -125,6 +137,13 @@ img, iframe {
 .btn--gray {
 	background-color: hsl(46, 9%, 91%);
 	border-color: hsl(46, 9%, 91%);
+}
+
+@media (min-width: 72em) {
+	.btn--gray_desktop {
+		background-color: hsl(46, 9%, 91%);
+		border-color: hsl(46, 9%, 91%);
+	}
 }
 
 .btn--transparent {
@@ -1905,6 +1924,7 @@ dialog.fixed {
 	scrollbar-width: none;
 	-ms-overflow-style: none;
 	max-width: 100%;
+	z-index: 5;
 }
 
 .popup::-webkit-scrollbar {
@@ -2899,11 +2919,12 @@ select.form__input {
 .price__table {
 	border-radius: .4rem;
 	border: 1px solid #e7e6e3;
-	border-collapse: collapse;
 	border-spacing: 0;
 	padding: 0;
 	width: 100%;
-	margin: 2rem 0;
+}
+.price__table + .price__table {
+	margin-top: 2rem;
 }
 .price__table td {
 	transition: background-color .2s;
@@ -2913,21 +2934,52 @@ select.form__input {
 	text-align: left;
 	padding: 3rem 2rem .3em;
 }
-.price__table td:first-child {
+.price__description {
+	padding: 0 2rem 1em;
+}
+.price__tabs {
+	padding: 0 1rem .7rem 2rem;
+}
+.price__tab {
+	background-color: #f8f1db;
+	border: 1px solid #FFBC00;
+	text-decoration: none;
+	color: inherit;
+	display: inline-block;
+	border-radius: .8rem;
+	padding: .4rem 1rem;
+	margin: 0 .5rem 1rem 0;
+	transition: color .2s, background-color .2s;
+}
+.price__tab[aria-selected=true] {
+	background-color: #FFBC00;
+	cursor: default;
+}
+.price__tab:not([aria-selected=true]):hover {
+	color: #710EB1;
+}
+.price__table tbody td:first-child {
 	padding: .3rem 0 .3rem 2rem;
+}
+.price__table tfoot td {
+	padding: 1.2rem 2rem 2rem;
+}
+.price__table .btn {
+	width: 100%;
+	box-sizing: border-box;
 }
 .price__table .price--small:first-child {
 	font-size: 1.4rem;
 	padding: .3rem 0 1rem 3rem;
 }
-.price__table td:last-child {
+.price__table tbody td:last-child {
 	padding: .3rem .5rem;
 	min-width: 7.5ch;
 }
 .price--small ~ td {
 	padding-top: 0;
 }
-.price__table tbody tr:last-child td:nth-child(n) {
+.price__table tbody:last-child tr:last-child td {
 	padding-bottom: 3rem;
 }
 .price__table tbody tr:hover td {
@@ -2935,6 +2987,25 @@ select.form__input {
 }
 .price__table + .page__lead {
 	text-align: center;
+}
+.price__cost::after {
+	content: ' ₽';
+}
+.price__table s {
+	background-image: linear-gradient(rgba(128,128,128,0), 50% rgba(128,128,128,0), calc(rgba()));
+}
+.color--gray + .price__cost {
+	background-color: #FFF8E5;
+	padding: .2em;
+	border-radius: .5rem;
+}
+.price__table h3 {
+	margin: 1rem 0 0;
+	font-size: inherit;
+	font-family: 'Atyp', -apple-system, system-ui, sans-serif;
+}
+.price__table h3 + p {
+	margin: 0;
 }
 
 /* Contact */
