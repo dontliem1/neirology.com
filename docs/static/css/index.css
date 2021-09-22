@@ -31,6 +31,7 @@
 html {
 	-webkit-text-size-adjust: 100%;
 	font-size: 62.5%;
+	accent-color: #710EB1;
 }
 
 @media (min-width: 108em) {
@@ -90,7 +91,7 @@ body {
 	}
 }
 
-img {
+img, iframe {
 	vertical-align: middle;
 }
 
@@ -2411,6 +2412,12 @@ select.form__input {
 .color--gray {
 	color: #a09f9d;
 }
+.color--whatsapp {
+	color: #458c7f;
+}
+.color--telegram {
+	color: #4496e5;
+}
 
 .color--inherit {
 	color: inherit;
@@ -2928,4 +2935,20 @@ select.form__input {
 }
 .price__table + .page__lead {
 	text-align: center;
+}
+
+/* Contact */
+.contact__map {
+	margin-top: 3rem;
+}
+.contact__gallery {
+	margin-top: 2rem;
+	margin-right: -1rem;
+	display: flex;
+	flex-wrap: wrap;
+}
+.contact__img {
+	margin: 1rem 1rem 0 0;
+	flex-grow: 1;
+	height: auto;
 }
