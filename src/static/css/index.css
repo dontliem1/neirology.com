@@ -2952,11 +2952,11 @@ select.form__input {
 	margin: 0 .5rem 1rem 0;
 	transition: color .2s, background-color .2s;
 }
-.price__tab[aria-selected=true] {
+.price__tab[aria-current=true] {
 	background-color: #FFBC00;
 	cursor: default;
 }
-.price__tab:not([aria-selected=true]):hover {
+.price__tab:not([aria-current=true]):hover {
 	color: #710EB1;
 }
 .price__table tbody td:first-child {
