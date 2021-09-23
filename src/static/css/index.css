@@ -1998,12 +1998,11 @@ dialog.fixed {
 	background: url("../img/close_black.svg") 50% 1.75rem /1em no-repeat;
 	vertical-align: top;
 	outline-offset: -3px;
-	outline: none;
 }
 
-.popup__close_icon:focus {
-	background-color: #e7e6e3;
-}
+/*.popup__close_icon:focus {*/
+/*	background-color: #e7e6e3;*/
+/*}*/
 
 .page__bordered {
 	padding: 2rem 2rem 3rem;
@@ -2992,11 +2991,9 @@ select.form__input {
 .price__cost::after {
 	content: ' ₽';
 }
-.price__table s {
-	background-image: linear-gradient(rgba(128,128,128,0), 50% rgba(128,128,128,0), calc(rgba()));
-}
 .color--gray + .price__cost {
-	background-color: #FFF8E5;
+	background-color: #710EB1;
+	color: #fff;
 	padding: .2em;
 	border-radius: .5rem;
 }
@@ -3018,9 +3015,11 @@ select.form__input {
 	margin-right: -1rem;
 	display: flex;
 	flex-wrap: wrap;
+	align-items: flex-start;
 }
 .contact__img {
 	margin: 1rem 1rem 0 0;
 	flex-grow: 1;
+	max-width: 100%;
 	height: auto;
 }
